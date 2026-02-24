@@ -1,0 +1,177 @@
+---
+title: "A Comprehensive Study of the Semiconductor Industry"
+subtitle: "Global Supply Chain Dynamics, Impact on U.S. Economic Stability, National Security, and the Future of America’s Technological Competitiveness"
+author: 
+  - name: Anh Bui
+    affiliations:
+      - name: Undergraduate Research Opportunity
+        department: Research Report for Spring Semester 2025
+mentor: Dr. Hong Wu
+date: "2025-05-30"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    geometry:
+      - top=30mm
+      - left=20mm
+      - right=20mm
+      - bottom=30mm
+      - headheight=15pt
+    header-includes: |
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \fancyhead[L]{UROP Research Report - Spring 2025}
+      \fancyhead[R]{\nouppercase{\leftmark}}
+      \fancyfoot[C]{Anh Bui - University of St. Thomas}
+      \fancyfoot[R]{\thepage}
+      \renewcommand{\headrulewidth}{0.4pt}
+---
+
+
+# Introduction
+
+Semiconductors are materials that regulate electrical current and serve as the foundational components of nearly all modern technologies, from smartphones and electric vehicles to medical devices, defense systems, and artificial intelligence. Their production depends on a deeply global and interdependent supply chain. Key stages such as design, fabrication, and tooling rely on inputs from the U.S., Taiwan, Japan, Korea, and China.
+
+In 2022, the United States enacted the CHIPS and Science Act, a $52.7$ billion initiative aimed at reshoring semiconductor manufacturing, enhancing national security, and reducing reliance on Chinese supply chains. In response, China expanded its “Big Fund”, a state-led initiative focused on boosting domestic chip manufacturing capacity, achieving technological independence, and accelerating innovation in areas like 5nm chip production. China also continues to dominate the supply chain for critical upstream resources, processing nearly 90% of the world’s rare earth elements, which further strengthens its position in the industry.
+
+This research evaluates the effectiveness of both nations’ strategies within the context of global supply chain dynamics and economic competition. Findings indicate that the CHIPS Act, though strategically motivated, may be inadvertently undermining U.S. competitiveness by driving up costs, delaying production, and straining supply chain access, while China has accelerated progress toward self-reliance. Ultimately, the study argues that U.S. leadership in semiconductors requires not isolation but greater investment in innovation, talent development, and global cooperation, especially in a sector where no nation can succeed in isolation.
+
+# Literature Review
+
+The semiconductor industry has attracted significant academic and policy attention for its foundational role in global economic development, technological innovation, and national security. A growing body of literature highlights the industry's rapid technological evolution, intricate global supply chains, dependence on critical raw materials, and escalating geopolitical tensions.
+
+Semiconductors power virtually all modern electronics, and the exponential increase in computing capabilities over the past several decades has been driven by Moore’s Law, the observation that the number of transistors on a chip doubles approximately every two years. As Waldrop (2016) notes, this scaling has underpinned innovation across sectors such as artificial intelligence and consumer electronics. Yet, reports by the International Technology Roadmap for Semiconductors (ITRS, 2022) emphasize the growing complexity of maintaining this pace as manufacturing nodes approach the atomic scale, with 2nm and 1nm technologies anticipated by 2027.
+
+At the same time, the semiconductor supply chain has become increasingly fragmented and globally interdependent. Gereffi (2019) documents how design is concentrated in the United States, fabrication in East Asia, packaging in Southeast Asia, and critical equipment production in countries like Japan and the Netherlands. Baldwin and Evenett (2020) argue that while this distribution allows for specialization and efficiency, it introduces vulnerabilities to regional and geopolitical disruptions. Data from the Semiconductor Industry Association (2023) and Visual Capitalist (2023) indicate that over 70% of advanced chips are fabricated in East Asia, with Taiwan’s TSMC alone responsible for more than half of global foundry revenue.
+
+Compounding this structural risk is the industry’s heavy reliance on a narrow set of raw materials. Studies by Humphries (2013) and Mancheri et al. (2021) point to China's dominance in the supply of rare earth elements, gallium, and germanium, materials essential for chip fabrication. In response to recent U.S. policies like the CHIPS Act, China has imposed export restrictions on gallium and germanium (Financial Times, 2023), raising alarms about material access and supply chain resilience. Calls for diversifying material sources through domestic mining and allied cooperation are echoed in reports by the U.S. Geological Survey (2022) and the Center for Strategic and International Studies (CSIS, 2023).
+
+Despite its cyclical volatility, the semiconductor sector remains a core driver of global economic growth. McKinsey (2022) forecasts the industry to reach $1 trillion in annual revenue by 2030, with demand continuing to rise in automotive technologies, artificial intelligence, and advanced consumer devices. Sectoral analyses by Vyrian (2023) and Statista (2023) confirm these trends, while Visual Capitalist (2023) ranks Intel, TSMC, and Samsung among the industry’s leading revenue generators. However, recent disruptions in production and logistics, such as those noted by ElectroIQ (2023), underscore the fragility of global operations and the need for greater structural resilience.
+
+Geopolitical dynamics have further heightened the strategic salience of semiconductor production. Analysts such as Kaplan (2021) and institutions like the Center for Security and Emerging Technology (CSET, 2023) emphasize that technological leadership in semiconductors lies at the heart of U.S.-China competition. Export controls on EUV lithography tools by the United States and allied nations are intended to restrict China’s ability to advance in cutting-edge fabrication. RAND (2022) warns that geographic concentration in Taiwan—which produces over 60% of the world’s advanced chips—represents a major strategic vulnerability in the current global configuration.
+
+In response, governments across the world have launched national initiatives aimed at securing semiconductor capabilities and reducing reliance on foreign sources. The United States’ CHIPS and Science Act (2022) allocates $52.7 billion to support domestic manufacturing and research infrastructure (White House Fact Sheet, 2022). The European Union’s Chips Act aims to double regional production capacity by 2030 through $47 billion in targeted investments (European Commission, 2022). China’s “Big Fund” has mobilized over $48 billion in two phases to develop self-sufficient chip ecosystems (China Briefing, 2023). In parallel, countries such as India, Japan, and South Korea are offering incentive packages to attract fabrication and advanced packaging facilities (StartUs Insights, 2025). These coordinated policy responses signal a shift from the traditional model of global cost optimization toward one that prioritizes strategic autonomy and technological sovereignty.
+
+While existing research provides valuable insights into distinct aspects of the semiconductor industry, many of these analyses examine these components in isolation. What is often missing is a holistic evaluation of the strategic effectiveness and economic viability of national semiconductor policies in the context of global interdependence. This study aims to address that gap by critically assessing the consequences of industrial policy initiatives such as the CHIPS Act, China’s Big Fund, and the EU Chips Act. Rather than merely describing policy objectives, it evaluates their real-world implications for cost structures, supply chain durability, chokepoint vulnerabilities, and global power relations.
+
+# Foundations of the Semiconductor Industry
+
+## Properties and Significance of Semiconductors
+
+Semiconductors are materials whose electrical conductivity falls between that of conductors, such as copper, and insulators, such as ceramics. This unique characteristic, where conductivity can be precisely controlled by introducing impurities (doping), applying electric fields, or manipulating temperature, makes semiconductors the fundamental building blocks of modern electronics.
+
+Their ability to regulate electrical flow under specific conditions enables the functionality of transistors, diodes, and integrated circuits, which are the core elements in nearly all digital technologies. As such, semiconductors underpin a vast array of critical systems and industries:
+
+*   **Consumer Electronics:** Power processors and memory components in smartphones, laptops, and televisions.
+*   **Automotive Sector:** Engine control, infotainment systems, and driver-assistance technologies.
+*   **Healthcare:** Diagnostic imaging tools, pacemakers, and biomedical monitoring equipment.
+*   **Renewable Energy:** Efficient power conversion in solar inverters and battery management systems.
+*   **Internet of Things (IoT):** Connectivity and computational functionality in smart homes and wearables.
+
+## Historical Evolution of the Semiconductor Industry
+
+The evolution of the semiconductor industry has mirrored—and enabled—the rapid transformation of the global technological landscape. The invention of the transistor in 1947 at Bell Labs by John Bardeen, Walter Brattain, and William Shockley was a pivotal moment, replacing bulky and inefficient vacuum tubes with compact, energy-efficient alternatives.
+
+A central force driving semiconductor progress has been Moore’s Law—Gordon Moore’s 1965 prediction that the number of transistors on an integrated circuit would double approximately every two years. This empirical trend has guided industry roadmaps for decades, yielding dramatic improvements in computational power, energy efficiency, and cost per transistor.
+
+However, as feature sizes approach atomic dimensions, the semiconductor industry is encountering physical, technical, and economic limits. In response, the industry is diversifying its innovative strategies, investing in heterogeneous integration, advanced packaging, 3D chip stacking, and new materials such as silicon carbide and gallium nitride.
+
+# Mapping the Global Semiconductor Supply Chain
+
+## Overview of Raw Semiconductor Materials
+
+Semiconductor manufacturing relies on a variety of raw materials that serve essential roles in chip fabrication. The supply chain for these materials is highly specialized, with specific regions dominating the production and refinement of critical inputs.
+
+| Material | Function in Semiconductor Manufacturing | Key Suppliers & Producing Countries |
+|----------|----------------------------------------|------------------------------------|
+| Silicon | Base material for semiconductor wafers | U.S., China, Japan, Germany, South Korea |
+| Gallium | Used in GaAs and GaN for high-speed devices | China (80% global supply), Germany, Japan |
+| Germanium | Infrared optics, fiber optics, high-speed electronics | China, Canada, Russia |
+| Rare Earth Elements | Polishing, etching, and doping | China (dominates), U.S., Australia |
+| Indium | Key material in displays and semiconductors | China, South Korea, Canada |
+| Arsenic | Doping agent for GaAs semiconductors | China, Russia, Belgium |
+| Phosphorus | Doping agent for n-type semiconductors | China, U.S., Kazakhstan |
+| Boron | Doping agent for p-type semiconductors | Turkey, U.S., Argentina |
+| Hydrogen Fluoride | Wafer etching and cleaning processes | China, Japan, South Korea |
+| Photoresists | Light-sensitive material for photolithography | Japan (JSR, Fujifilm), U.S. (Dow) |
+| Copper | Electrical interconnects in packaging | Chile, Peru, China, U.S. |
+| Nickel, Cobalt, Tantalum | Interconnects and capacitors | Congo (Cobalt), Brazil, Rwanda (Tantalum) |
+| EUV Components | High-resolution chip fabrication | U.S., South Africa, Russia |
+
+## The Global Semiconductor Supply Chain
+
+Semiconductor firms fall into three major categories based on their function:
+
+### Integrated Device Manufacturers (IDMs)
+IDMs design and manufacture their own chips.
+
+| Company | Country | Key Products |
+|---------|---------|--------------|
+| Samsung | South Korea | NAND flash, DRAM, CMOS sensors, RF transceivers |
+| Intel | U.S. | x86-64 microprocessors, GPUs, SSDs |
+| SK Hynix | South Korea | Flash memory, DRAM, SSDs |
+| Micron | U.S. | DRAM, NAND flash, SSDs |
+| Texas Instruments | U.S. | Microcontrollers, SoCs, DSPs |
+| Analog Devices | U.S. | Amplifiers, data converters, sensors |
+| NXP | Netherlands | PMICs, media processors, MIFARE chips |
+| Infineon | Germany | Microcontrollers, power semiconductor devices |
+| STMicroelectronics | France/Italy | ASICs, microcontrollers |
+| Sony | Japan | Active-pixel sensors, NAND flash memory |
+
+### Fabless Companies
+Fabless companies design chips but rely on foundries for manufacturing.
+
+| Company | Country | Key Products |
+|---------|---------|--------------|
+| Qualcomm | U.S. | RF modules, DSPs, Snapdragon SoCs |
+| Broadcom | U.S. | Broadband/Wi-Fi/Bluetooth modems |
+| MediaTek | Taiwan | SoCs, chipsets, CPUs, GPUs |
+| ARM | UK | Microprocessor designs (licensing) |
+| AMD | U.S. | x86-64 CPUs, GPUs, chipsets |
+| Nvidia | U.S. | GPUs, AI processors |
+| Apple | U.S. | Apple Silicon (M-series, A-series) |
+
+### Pure-Play Foundries
+Foundries manufacture chips but do not design their own.
+
+| Company | Country | Key Services |
+|---------|---------|--------------|
+| TSMC | Taiwan | World's largest foundry (Apple, AMD, Nvidia) |
+| UMC | Taiwan | Semiconductor manufacturing services |
+| SMIC | China | China's largest foundry |
+
+# Policy Analysis of the CHIPS Act
+
+The CHIPS and Science Act of 2022 represents a landmark shift in U.S. industrial policy, designed to revitalize domestic semiconductor manufacturing and secure the nation’s technological leadership. The legislation allocates $52.7 billion in federal support.
+
+## Policy Evaluation
+
+Despite its bold ambitions, the CHIPS Act faces significant challenges. China’s response, characterized by a determined push toward semiconductor self-sufficiency, raises critical concerns about the policy’s effectiveness. Between 2022 and 2024, China reduced its integrated circuit imports by nearly 70%, ramping up domestic capabilities.
+
+Cost-related challenges are particularly acute. U.S. fabrication facilities are estimated to cost two to three times more to build and operate than their counterparts in Asia. Additionally, the industry faces an anticipated shortfall of 67,000 skilled workers by 2030.
+
+# Policy Analysis of Made in China 2025
+
+China has significantly intensified its pursuit of technological self-reliance through a state-driven industrial strategy. Two primary frameworks anchor China’s approach: the "Made in China 2025" (MIC 2025) initiative and the National Integrated Circuit Industry Investment Fund ("Big Fund").
+
+## Technological Breakthroughs Since 2022
+
+Notably, SMIC succeeded in producing 7nm chips for Huawei’s Mate 60 Pro despite being barred from accessing EUV tools. Furthermore, experimental deployment of Self-Aligned Quadruple Patterning (SAQP) has allowed Chinese firms to reach pilot-scale production at the 5nm level.
+
+# Comparative Strategic Assessment
+
+| Policy Goal | CHIPS Act Benefits | Key Downsides / Challenges | China’s Response |
+|-------------|-------------------|----------------------------|-----------------|
+| **Manufacturing Capacity** | $200B+ in investment | Fabs cost 2–3x more in U.S.; Intel delays | Big Fund Phase III ($48B); 18+ new fabs |
+| **Supply Chain Resilience** | Reshore upstream inputs | Dependency on rare earths; Export bans | Controls 85% of rare earth refining |
+| **Innovation Leadership** | Strengthen R&D in AI/Quantum| Slow progress; Guardrails restrict research| Boosted design ecosystem (RISC-V) |
+| **Workforce Strength** | Job hubs in AZ, OH, NY | Shortage of 67,000 workers by 2030 | Large-scale university/vocational training |
+
+# Conclusion
+
+Semiconductors are the backbone of the modern digital economy. Leadership in this technology is not only a matter of economic competitiveness but also a critical pillar of national security. However, this leadership cannot be sustained without recognizing the deeply interconnected nature of the global semiconductor manufacturing and raw material supply chains.
+
+The CHIPS and Science Act represents a historic investment in national economic security, but fulfilling its promise will require not only capital and infrastructure but sustained public-private coordination, international engagement, and robust mechanisms for accountability and innovation.

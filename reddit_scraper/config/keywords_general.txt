@@ -1,0 +1,94 @@
+# Policy/Export-Control Institutions & Regulations
+bis
+bureau of industry and security
+export administration
+export administration regulations
+ear
+eccn
+entity list
+denied persons
+unverified list
+fdp
+foreign direct product
+foreign direct product rule
+chips act
+chips and science act
+
+# Policy Actions & Terms
+export control
+export controls
+export restriction
+export ban
+trade restriction
+trade war
+license requirement
+license denial
+license approved
+license denied
+sanction
+sanctions
+blacklist
+blacklisted
+enforcement
+penalty
+compliance
+tech ban
+tech embargo
+chip ban
+semiconductor ban
+
+# Geopolitical Entities & Risks
+china
+prc
+people's republic of china
+chinese government
+beijing
+huawei
+smic
+ymtc
+cxmt
+taiwan
+taiwan strait
+tsmc
+taiwan semiconductor
+cross-strait
+blockade
+invasion
+invasion risk
+military tension
+geopolitical risk
+geopolitical tension
+national security
+
+# Supply Chain & Strategic Terms
+decoupling
+tech decoupling
+reshoring
+friendshoring
+onshoring
+supply chain risk
+supply chain disruption
+strategic competition
+technology transfer
+ip theft
+intellectual property
+
+# Policy Severity & Impact Words
+major
+expanded
+sweeping
+significant
+material
+escalation
+escalate
+retaliation
+retaliatory
+countermeasure
+loophole
+workaround
+circumvent
+exemption
+waiver
+grandfathered
+crackdown
+clampdown

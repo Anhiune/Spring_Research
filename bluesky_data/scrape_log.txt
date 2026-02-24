@@ -1,0 +1,37 @@
+Logging in as anhiune.bsky.social …
+Login successful.
+
+Keywords  : 55
+Months    : 2023-01 to 2026-02  (38 months)
+Limit     : 500 posts / keyword / month
+Output    : C:\Users\hoang\OneDrive - University of St. Thomas\UROP research Spring 2026\bluesky_data
+Resume    : True
+
+============================================================
+[2023-01] SKIP — bluesky_2023-01.csv already exists (49,612 bytes)
+[2023-02] SKIP — bluesky_2023-02.csv already exists (32,685 bytes)
+[2023-03] SKIP — bluesky_2023-03.csv already exists (46,582 bytes)
+[2023-04] SKIP — bluesky_2023-04.csv already exists (64,328 bytes)
+[2023-05] SKIP — bluesky_2023-05.csv already exists (110,805 bytes)
+[2023-06] SKIP — bluesky_2023-06.csv already exists (88,486 bytes)
+[2023-07] SKIP — bluesky_2023-07.csv already exists (37,304 bytes)
+[2023-08] SKIP — bluesky_2023-08.csv already exists (709,430 bytes)
+[2023-09] SKIP — bluesky_2023-09.csv already exists (534,312 bytes)
+[2023-10] SKIP — bluesky_2023-10.csv already exists (213,671 bytes)
+[2023-11] SKIP — bluesky_2023-11.csv already exists (416,852 bytes)
+[2023-12] SKIP — bluesky_2023-12.csv already exists (121,461 bytes)
+[2024-01] SKIP — bluesky_2024-01.csv already exists (133,390 bytes)
+[2024-02] SKIP — bluesky_2024-02.csv already exists (289,374 bytes)
+[2024-03] SKIP — bluesky_2024-03.csv already exists (438,488 bytes)
+[2024-04] SKIP — bluesky_2024-04.csv already exists (68,499 bytes)
+[2024-05] SKIP — bluesky_2024-05.csv already exists (24,137 bytes)
+
+[2024-06] Scraping …
+    [NVDA]..... 309
+    [AMD]........ 500
+    [INTC]. 10
+    [QCOM]. 8
+    [TSM]. 46
+    [ASML]. 73
+    [MU]........ 500
+    [AMAT].....

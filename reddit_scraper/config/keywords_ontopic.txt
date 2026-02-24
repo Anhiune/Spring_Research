@@ -1,0 +1,89 @@
+# Major Semiconductor Company Tickers
+nvda
+amd
+intc
+tsm
+asml
+klac
+lrcx
+amat
+mu
+qcom
+avgo
+txn
+nxpi
+mrvl
+mpwr
+swks
+qrvo
+
+# Company Names (Full & Common Variations)
+nvidia
+amd
+advanced micro devices
+intel
+intel corporation
+tsmc
+taiwan semiconductor
+taiwan semiconductor manufacturing
+micron
+micron technology
+qualcomm
+broadcom
+applied materials
+lam research
+kla
+kla corporation
+asml
+texas instruments
+nxp
+nxp semiconductors
+marvell
+monolithic power
+skyworks
+qorvo
+
+# Key Products & Technologies (from research doc)
+h20
+h100
+a100
+blackwell
+hopper
+ada lovelace
+rdna
+zen
+epyc
+ryzen
+radeon
+geforce
+rtx
+euv
+duv
+hbm
+high bandwidth memory
+cowos
+chiplet
+packaging
+3d stacking
+gate-all-around
+gaa
+finfet
+
+# Product Categories
+gpu
+gpus
+ai chip
+ai chips
+ai accelerator
+datacenter chip
+server chip
+cpu
+cpus
+processor
+foundry
+fab
+fabrication
+manufacturing equipment
+lithography
+etching
+deposition

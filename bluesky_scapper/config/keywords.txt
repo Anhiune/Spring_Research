@@ -1,0 +1,72 @@
+# Keywords for Bluesky post scraping
+# Research: Export-control / geopolitical-risk sentiment & semiconductor stocks
+# One keyword or phrase per line. Lines starting with # are ignored.
+
+# ── Company tickers ───────────────────────────────────────────────────────────
+NVDA
+AMD
+INTC
+QCOM
+TSM
+ASML
+MU
+AMAT
+LRCX
+KLAC
+AVGO
+MRVL
+
+# ── Company names ────────────────────────────────────────────────────────────
+NVIDIA
+Intel
+Qualcomm
+TSMC
+Micron
+Applied Materials
+Lam Research
+Broadcom
+
+# ── Key products / chip names ─────────────────────────────────────────────────
+H100
+H20 chip
+A100 chip
+Blackwell GPU
+EUV lithography
+HBM memory
+CoWoS
+
+# ── Policy institutions / regulations ────────────────────────────────────────
+BIS export
+Bureau of Industry and Security
+Export Administration Regulations
+Entity List semiconductor
+Foreign Direct Product Rule
+ECCN chip
+
+# ── Policy actions ───────────────────────────────────────────────────────────
+semiconductor export control
+chip export ban
+chip restriction China
+license requirement semiconductor
+semiconductor sanction
+chip blacklist
+export compliance semiconductor
+
+# ── Geopolitical / foreign actors ────────────────────────────────────────────
+Huawei chip
+SMIC semiconductor
+YMTC
+CXMT
+China semiconductor
+PRC chip
+Taiwan Strait semiconductor
+decoupling semiconductor
+reshoring chip
+friendshoring semiconductor
+
+# ── Severity / tone words (paired with semiconductor context) ─────────────────
+sweeping chip ban
+major export restriction
+semiconductor loophole
+chip waiver
+semiconductor exemption

@@ -1,0 +1,5 @@
+pandas
+praw
+spacy
+requests
+openpyxl

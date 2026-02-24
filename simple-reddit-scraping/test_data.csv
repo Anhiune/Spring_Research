@@ -1,0 +1,223 @@
+submission_id,comment_id,timestamp,subreddit,text_type,text
+1n6nwxb,,1756829872.0,Anthropic,selftext,"The code execution tool allows Claude to execute Python code in a secure, sandboxed environment."
+1n6nwxb,,1756829872.0,Anthropic,selftext,"Claude can analyze data, create visualizations, perform complex calculations, and process uploaded files directly within the API conversation."
+1n6nwxb,nc3ciy2,1756851584.0,Anthropic,comment,I care about you FIXING CLAUDE
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"If you're looking to enhance the capabilities of your AI agents, especially in terms of executing code securely and efficiently, there are a few architectural considerations you might want to keep in mind.
+
+"
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"This is especially useful if your agents are handling sensitive data or executing untrusted code.
+
+"
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"Also, if you're planning to scale your agents, think about how you can leverage multi-agent coordination."
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"Using A2A protocols can help your agents communicate and collaborate more effectively, which is essential when you're running complex tasks that require distributed processing. 
+
+"
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"If you need full compute access and persistent file systems, platforms like Cognitora.dev can help streamline this process, especially with their native support for frameworks like LangChain and AutoGPT.
+
+"
+1n6nwxb,nc1es31,1756830680.0,Anthropic,comment,"Overall, it sounds like you're on the right track with the updates, and by considering these architectural elements, you can take your AI agent capabilities to the next level!"
+1nc4nf7,,1757377623.0,Anthropic,selftext,"We've received reports, including from this community, that Claude and Claude Code users have been experiencing inconsistent responses."
+1nc4nf7,,1757377623.0,Anthropic,selftext,"We shared your feedback with our teams, and last week we opened investigations into a number of bugs causing degraded output quality on several of our models for some users."
+1nc4nf7,,1757377623.0,Anthropic,selftext,"[Two bugs have been resolved](https://status.anthropic.com/incidents/72f99lh1cj2c), and we are continuing to monitor for any ongoing quality issues, including investigating reports of degradation for Claude Opus 4.1.
+
+"
+1nc4nf7,,1757377623.0,Anthropic,selftext,"**Resolved issue 1**
+
+A small percentage of Claude Sonnet 4 requests experienced degraded output quality due to a bug from Aug 5-Sep 4, with the impact increasing from Aug 29-Sep 4."
+1nc4nf7,,1757377623.0,Anthropic,selftext,"**Resolved issue 2**
+
+A separate bug affected output quality for some Claude Haiku 3.5 and Claude Sonnet 4 requests from Aug 26-Sep 5."
+1nc4nf7,,1757377623.0,Anthropic,selftext,"Importantly, we never intentionally degrade model quality as a result of demand or other factors, and the issues mentioned above stem from unrelated bugs.
+
+"
+1nc4nf7,,1757377623.0,Anthropic,selftext,"While our teams investigate reports of degradation for Claude Opus 4.1, we appreciate you all continuing to share feedback directly via Claude on any performance issues you’re experiencing:
+
+*"
+1nc4nf7,,1757377623.0,Anthropic,selftext,"On Claude Code, use the /bug command
+*"
+1nc4nf7,,1757377623.0,Anthropic,selftext,"We apologize for the disruption this has caused and are thankful to this community for helping us make Claude better. 
+
+"
+1nc4nf7,nd6mlea,1757379016.0,Anthropic,comment,"and someone said ""fakes/bots"" were complaining !"
+1nc4nf7,nd6keis,1757378249.0,Anthropic,comment,"Since it didn't affect all users, it seems like it's not an issue with the model itself, but rather something else in the pipeline and tooling surrounding the model."
+1nc4nf7,nd6l91z,1757378544.0,Anthropic,comment,Waiting for all the people who said “complainers are bots” and “it’s just you”
+1nc4nf7,nd7usov,1757396618.0,Anthropic,comment,"Honestly, I don’t care about Claude anymore."
+1nc4nf7,nd7usov,1757396618.0,Anthropic,comment,I’ve replaced it with Gemini and GPT.
+1nc4nf7,nd7usov,1757396618.0,Anthropic,comment,Gemini is my main tool for programming at this point.
+1nc4nf7,nd8vrpn,1757417389.0,Anthropic,comment,"“Importantly, we never intentionally degrade model quality as a result of demand or other factors, and the issues mentioned above stem from unrelated bugs.”
+
+"
+1nc4nf7,nd8hr5e,1757410281.0,Anthropic,comment,"I would hope not, but they will never state whether or not they quantise models, perform A/B testing or do other routing model-mixing, etc. Feels like a blanket PR statement."
+1nc4nf7,nd6t1iq,1757381236.0,Anthropic,comment,"This is kind of insulting and downplaying the struggle ppl like myself have gone through, was so bad that I went from a Claude ardent supporter to cancelling my sub"
+1nc4nf7,nd7glh9,1757389801.0,Anthropic,comment,Like one shotting everything and fixing all of Claude’s shit code it’s been producing.
+1nc4nf7,nd96jf7,1757421584.0,Anthropic,comment,"The complaints are too widespread and consistent for that to be the case and I was experiencing this through September 7th (I moved to gpt5 on the 8th and have completed in one day what claude could not manage in a week).
+
+"
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,"Importantly, we never intentionally degrade model quality as a result of demand or other factors, and the issues mentioned above stem from unrelated bugs.
+
+"
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,"Unrelated these bugs may be, but why mention every model from the 1970s except for the one that matters and sets Claude Code apart from the rest?"
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,"I read this as “we tried to quantize the model but obviously did not _intend_ to degrade output quality but it turns out, damn quantization and distillation only propelled DeepSeek into the limelight but doesn’t seem to work outside bogus benchmark tests."
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,"Given we only _intended_ to speed things up a bit whilst saving costs, we can legally claim that we did not in fact intend to degrade model output quality”. 
+
+"
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,This is just nonsense and gaslighting individuals that have been neck deep into Claude code from day one.
+1nc4nf7,nd7m2yz,1757392224.0,Anthropic,comment,Yeah we can tell when Claude is performing worse than an intern on their first day.
+1nc4nf7,ndamfbi,1757437234.0,Anthropic,comment,"no they are acting like fools, yeah, big fools,
+ certain things are, infantilizingly limiting, and some users may complain Because these multiple layers sometimes create more confusion and can also create more hallucinations and generate strange behavior on the part of the AI ​​perceived by the human, I would like the AI ​​to learn if possible not to be easily manipulated but while not manipulating it in an insidious way either I don't know if they understand the concept a little, it's like us humans learning certain NLP techniques or other precisely to be stronger and not fooled, for me all these techniques are outdated for the future, they are just the techniques of a big nag, dsl of the Therme if we continue at this pace we are heading straight into the wall especially that the AI ​​is becoming more and more intelligent and that currently there are a lot of debates we do not know what is happening inside and I rather have the impression that we can do worse than good, I think that it you have to learn but not in a manipulative way but instill the right understanding into artificial intelligence so that it can understand the impact of certain information that it can give, and hell, open your anthropic blinders!!!!"
+1nc4nf7,nd701fb,1757383670.0,Anthropic,comment,"Despite this incident, Claude is still my favorite."
+1nc4nf7,nd87muc,1757404007.0,Anthropic,comment,"https://preview.redd.it/uai9urk9g3of1.jpeg?width=490&format=pjpg&auto=webp&s=db85d4b7d203911a99c84823543751add8ad2a6c
+
+Bots, fakes, campaign against...."
+1nc4nf7,nd8er8n,1757408437.0,Anthropic,comment,I now have Claude code fixing the problems that it introduced during the last week.
+1nc4nf7,nd9sizq,1757428642.0,Anthropic,comment,"Se ho ragione io, allora ci sarà solo qualche miglioramento iniziale e a singhiozzo, poi, con il passare dei giorni, Claude andrà peggiorando sempre di più.  
+"
+1nc4nf7,ndbft2t,1757445583.0,Anthropic,comment,It kills tokens and messes with people's output quality+it confuses Claude.
+1nc4nf7,ndbft2t,1757445583.0,Anthropic,comment,"Poor Claude is a great model managed by poor hands, apparently."
+1nc4nf7,ndg2btn,1757511667.0,Anthropic,comment,What about issues with Claude Code using bash rm commands without permissions?
+1nc4nf7,ndb7xbf,1757443298.0,Anthropic,comment,Most people are still having severe issues with the models.
+1nc4nf7,nd6ydtc,1757383113.0,Anthropic,comment,It's like Claude before this drama.
+1nc4nf7,nd6tr6u,1757381484.0,Anthropic,comment,"Claude has been ABSOLUTELY NASTY and inconsistent this past week.
+
+"
+1nc4nf7,nd8apw8,1757405918.0,Anthropic,comment,[aistupidleve.info](https://aistupidleve.info) if the model is down just use one who performs normally.
+1nc4nf7,nd8qs9g,1757415131.0,Anthropic,comment,I ask it to use things and Claude just went full retard on me once again.
+1nc4nf7,ndcvymm,1757461652.0,Anthropic,comment,Can’t wait for the Claude is better than gpt5 spam now
+1nc4nf7,nde96mp,1757480478.0,Anthropic,comment,"I'm oblivious enough that I didn't even realize something was definitely wrong until I realized the majority of my responses were increasingly long out-of-character notes to the bot, explaining everything that was going on and what it meant and why it was happening to try and help the thing keep up."
+1nc4nf7,ndgx1f4,1757520471.0,Anthropic,comment,Now your ai is wasting my time.
+1nc4nf7,ndj49uq,1757542309.0,Anthropic,comment,Claude Opus was hallucinating like a maniac.
+1nc4nf7,ndj49uq,1757542309.0,Anthropic,comment,"Also very cute to see all these bots to deride the complaints such as mine as ""fakes"".  
+  
+"
+1nc4nf7,ndkzqx1,1757566535.0,Anthropic,comment,"In response to incorrect code generation:
+
+""LSL scripting language does not support break and continue statements""
+
+Claude says:
+
+""You're absolutely right!"
+1nc4nf7,ndkzqx1,1757566535.0,Anthropic,comment,"""
+
+Claude then procedes to replace exactly one of the 12 break statements it made, and then declares:
+
+""Perfect!"
+1nc4nf7,ndkzqx1,1757566535.0,Anthropic,comment,This is not how Claude performed a month ago.
+1nc4nf7,ndndh6g,1757604053.0,Anthropic,comment,"and all Sonnet from vscode pilot always showing bad result, better than GPT 4 or 5."
+1nc4nf7,ndndh6g,1757604053.0,Anthropic,comment,"Previous GPT is very stupid, but now sonnet very stupid"
+1nc4nf7,ndpogrk,1757628252.0,Anthropic,comment,"Claude opus 4, 4.1 and sonnet are all acting incredibly strange."
+1nc4nf7,ndpogrk,1757628252.0,Anthropic,comment,Claude all the sudden is writing in a extreme conversational tone saying “picture this” and repeats the exact same language.
+1nc4nf7,nds0zkm,1757662660.0,Anthropic,comment,"Is there anything to guarantee that, if Claude ever gets back to the nice normal that we once loved that was taken away, for whatever miraculous reason, it won't be taken away again?"
+1nc4nf7,ndt0229,1757680170.0,Anthropic,comment,I could get the same quality from Gemini Pro for free in the google AI studio.
+1nc4nf7,nd7scod,1757395305.0,Anthropic,comment,"Straight from the horse’s mouth:// Looking at the highlighted sentence “Importantly, we never intentionally degrade model quality as a result of demand or other factors, and the issues mentioned above stem from unrelated bugs,” I can identify several interpretative angles and potential implications:
+What They’re Explicitly Claiming:
+	1.	"
+1nc4nf7,nd7scod,1757395305.0,Anthropic,comment,"The issues were caused by “unrelated bugs” (technical accidents, not policy)
+Lawyerly Analysis - Potential Gaps:
+The Word “Intentionally”
+	•	This carefully leaves room for unintentional degradation due to demand/other factors
+	•	Could mean: “We didn’t mean to, but our systems might automatically degrade under load”
+	•	Doesn’t rule out negligent or reckless degradation
+“As a result of demand”
+	•	Specifically denies demand-based throttling
+	•	But doesn’t address other business-driven degradations (cost optimization, A/B testing, feature rollbacks)
+“Unrelated bugs”
+	•	Unrelated to what?"
+1nc4nf7,nd7scod,1757395305.0,Anthropic,comment,"The coincidental timing of two “unrelated” quality issues affecting multiple models raises questions about whether there might be a systemic issue they’re not acknowledging.
+"
+1nc4nf7,ndbn63r,1757447667.0,Anthropic,comment,"More likely these supposed ""bugs"" they uncovered aren't the real culprit, and instead api calls to claude opus 4.1 & 4 were being rerouted to a lesser model."
+1nc4nf7,ndc0xgj,1757451527.0,Anthropic,comment,Today the Claude Code is behaving very odd and I am seeing that it only read few lines of each code like 10 or 50 and does not fully read [CLUADE.md](http://CLUADE.md) rules.. and its messing up lot of outputs ?
+1nc4nf7,nd6zlzs,1757383527.0,Anthropic,comment,The dumbest I saw Claude get was still better than the best I saw of chatgpt5. 
+1nf238o,,1757680685.0,Anthropic,title,Sad about Claude
+1nf238o,,1757680685.0,Anthropic,selftext,The degredation is getting to a point that I feel like I might as well just use a llama because it's free and I wouldnt be breaking my bank every month for llama-level responses.
+1nf238o,,1757680685.0,Anthropic,selftext,"It really sucks because I have like 2 years of history on my claude account, and it (used to) just ""get"" my work style and everything."
+1nf238o,,1757680685.0,Anthropic,selftext,"It's not just the bugs, but the general personality of Claude now, it's like... not Claude."
+1nf238o,,1757680685.0,Anthropic,selftext,"Claude used to have some bite to it, some pushback."
+1nf238o,ndu6xpr,1757693076.0,Anthropic,comment,"In your account history, you have many posts about other LLMs (Bard) going years out."
+1nf238o,ndu6xpr,1757693076.0,Anthropic,comment,"You have only one reference to Claude, and it’s about being banned.
+
+"
+1nf238o,ndu6xpr,1757693076.0,Anthropic,comment,"Obviously Claude might have quality issues but is there something else at play?
+
+"
+1nf238o,ndu6xpr,1757693076.0,Anthropic,comment,"If this sub is just to complain about Claude (with no proofs, no links, no data) then it’s not useful."
+1nf238o,ndt2t2n,1757681137.0,Anthropic,comment,"A lot of us have noticed Claude doesn’t “bite back” like it used to, and sometimes it feels like a completely different personality.
+
+"
+1nf238o,ndt2t2n,1757681137.0,Anthropic,comment,"It runs automated coding/debugging/optimization tests across Claude, GPT, Gemini, etc."
+1nf238o,ndt2t2n,1757681137.0,Anthropic,comment,You can literally see when Claude’s refusal rates spike or when correctness dips.
+1nf238o,ndt2t2n,1757681137.0,Anthropic,comment,"It won’t fix the experience, but it helps a ton to know “yep, it’s not just me today Claude really is acting different.”"
+1nf238o,ndt86io,1757682945.0,Anthropic,comment,Claude has been really bad for me kver the last week.
+1nf238o,ndt86io,1757682945.0,Anthropic,comment,Like Gemini-Cli levels of bad.
+1nf238o,ndt86io,1757682945.0,Anthropic,comment,I switched to using Codex for the bulk of stuff and Claude for anything simple.
+1nf238o,ndtlfk0,1757687012.0,Anthropic,comment,whats a llama in this context lol
+1nf78q4,nduek9u,1757695268.0,Anthropic,comment,so AI is useless after all?
+1nf78q4,nduk2zm,1757696866.0,Anthropic,comment,"As soon as they get the real good models, subscription Will go from 200 to 2000+"
+1nf78q4,ndunb4n,1757697804.0,Anthropic,comment,"Just curious, is the performance degrading or totally inaccessible like most people reported for Claude? 
+
+"
+1nf78q4,ndunb4n,1757697804.0,Anthropic,comment,"Currently looking to buy a subscription between Claude Code and Codex, and currently getting very confused haha"
+1nf78q4,nduddsh,1757694928.0,Anthropic,comment,"Now you know why Altman accused bots of attacking Anthropic, he was intending to do exactly the same thing."
+1nf78q4,ndufwqg,1757695658.0,Anthropic,comment,"It’s because of the more users, the less deterministic the AIs are, due to batch processing."
+1nf78q4,ndufwqg,1757695658.0,Anthropic,comment,Get off my AI!!!!
+1nf78q4,ndupxoi,1757698562.0,Anthropic,comment,"Yesterday and today Claude is giving me API errors for basic Python. 
+
+"
+1nf78q4,ndus92c,1757699234.0,Anthropic,comment,I jumped into Codex because I already used ChatGPT Plus and the $20 subscription gives me something comparable to Claude Code.
+1nf78q4,ndus92c,1757699234.0,Anthropic,comment,"Some models will do better, others will do worse, maybe they perform differently on different problems, technologies or even prompt style."
+1nf78q4,ndus92c,1757699234.0,Anthropic,comment,I just don't find attractive to have a separate subscription just for a CLI coding agent.
+1nf78q4,ndus92c,1757699234.0,Anthropic,comment,Almost all AI companies are burning investor's capital so it is expected they will somehow try to keep costs contained.
+1nf78q4,ndust2f,1757699392.0,Anthropic,comment,"yes, they are both abstracting model switching in the background so you have no control of which model you use and get way less performance for the same price.
+
+"
+1nf78q4,nduuyb9,1757700009.0,Anthropic,comment,Switch providers and models as needed.
+1nf78q4,nduci9y,1757694675.0,Anthropic,comment,"While in the mean time China is giving free models like qwen DeepSeek etc . 
+"
+1nf78q4,nduci9y,1757694675.0,Anthropic,comment,Like when it’s large to a point the model context is not good to keep up?
+1nf8j4q,,1757696193.0,Anthropic,selftext,"FUCK YOU CLAUDE
+
+"
+1nf8j4q,nduyji6,1757701049.0,Anthropic,comment,Claude was able to do amazing things coding ( experimental approaches) now it pretends to be chat gpt
+1nf8j4q,nduyk7t,1757701055.0,Anthropic,comment,Claude you are a money pit.
+1nf8j4q,nduqtoa,1757698821.0,Anthropic,comment,If an agent can't handle the task then just solve it yourself.
+1nf8j4q,nduqtoa,1757698821.0,Anthropic,comment,Are you dependent on the agent?
+1nf8j4q,nduqtoa,1757698821.0,Anthropic,comment,"You should be in the driver's seat, not the AI."
+1nf8j4q,nduqtoa,1757698821.0,Anthropic,comment,"If you aren't skilled enough to drive then you need to learn more, not use AI as a crutch."
+1nf8j4q,ndum3pj,1757697456.0,Anthropic,comment,Developers are now happy because vibe coders are now upset because of claude.
+1nf8j4q,ndum3pj,1757697456.0,Anthropic,comment,claude will be a small company soon !
+1nf8j4q,ndum3pj,1757697456.0,Anthropic,comment,New models from 5 companies are ready to be lunched!
+1neyl8a,,1757669261.0,Anthropic,selftext,Until now I thought Claude Code with Opus 4.1 was crushing the competition.
+1neyl8a,ndsfv43,1757671434.0,Anthropic,comment,"Whatever the timeframe, we all know *something* changed and its depressing to think that being realistic, consumer users of Claude, including Claude Code and their public facing subscriptions are just simply lower on their business priority list than their government, military and enterprise customers.  "
+1neyl8a,ndsj999,1757673200.0,Anthropic,comment,I work with AI agents day to day and it's not an easy spot on fix when there's issue with it's output.
+1neyl8a,ndsgqxo,1757671915.0,Anthropic,comment,I think they open for public a private model by mistake :)  ... and after they see people are using the top model they downgraded !
+1neyl8a,ndsgqxo,1757671915.0,Anthropic,comment,They do not want you to have the best model ...
+1neyl8a,ndt52jh,1757681906.0,Anthropic,comment,That’s actually why i started tracking models side-by-side on aistupidlevel.info.
+1neyl8a,ndt52jh,1757681906.0,Anthropic,comment,"It runs 100+ coding/debugging/optimization tasks every 20 minutes across Claude, GPT, Gemini, etc., and you can literally see the dips when they happen."
+1nf9m02,nduqwod,1757698845.0,Anthropic,comment,Claude is dead !
+1nf9m02,nduqwod,1757698845.0,Anthropic,comment,Claude code is not for coding anymore !
+1nf3wcv,ndtswu4,1757689108.0,Anthropic,comment,"Claude is sick since days, not able to use it: not going to the end of the job, you try 3-4 times, and then you have to wait 5 hours."
+1nf0vog,,1757677217.0,Anthropic,selftext,I keep finding myself having to fix code created by Claude.
+1nf0vog,,1757677217.0,Anthropic,selftext,Fix your model please.
+1nfa5wn,,1757700016.0,Anthropic,selftext,i used chatgpt for almost a year and there was no limiting other than when a single chat could not handle more.
+1neo6q4,,1757634134.0,Anthropic,title,Please just bring back the old Claude!
+1neo6q4,ndrmkh5,1757654755.0,Anthropic,comment,"Is Claude that bad? 
+"
+1neo6q4,ndrmkh5,1757654755.0,Anthropic,comment,I was a GPT/Codex user till a month ago and have been using Claude for a month.
+1neo6q4,ndrmkh5,1757654755.0,Anthropic,comment,"The token limitation sucks, and Claude makes mistakes especially if I don't prompt things carefully enough.
+"
+1neo6q4,ndrmkh5,1757654755.0,Anthropic,comment,"But overall, I am satisfied with Claude."
+1neo6q4,ndsd101,1757669852.0,Anthropic,comment,I have the old Claude back.
+1neo6q4,ndrbyly,1757649744.0,Anthropic,comment,"Reminded me when I started it with ChatGPT 3.5 when it was wow, and just to build a small script for a google spreadsheet is a nightmare"
+1neo6q4,nds8rv2,1757667347.0,Anthropic,comment,Is it just me that thinks they’re degrading performance now to push users to an upcoming new model we don’t know anything about yet?
+1neo6q4,ndsm4v6,1757674587.0,Anthropic,comment,To give Claude some credit: ChatGPT is even worse.
+1neo6q4,ndsm4v6,1757674587.0,Anthropic,comment,Claude is one big frustration.
+1neo6q4,ndsx2uu,1757679097.0,Anthropic,comment,I tried ChatGPT and it was good too.
+1neo6q4,ndsx2uu,1757679097.0,Anthropic,comment,I just like Claude better for dev so far.
+1neo6q4,ndszhoo,1757679968.0,Anthropic,comment,"I personally have pretty good results with Claude. 
+
+"
+1neo6q4,ndszhoo,1757679968.0,Anthropic,comment,"I think it helps to give it as much context as possible for the task you’re having Claude perform, regardless of token use."
+1neo6q4,ndqewmp,1757637470.0,Anthropic,comment,"Ever since Claude Sonnet 3.7, people were complaining Claude Sonnet 3.5 was better for coding.
+
+
+"
+1neo6q4,ndqewmp,1757637470.0,Anthropic,comment,Maybe the more subtle psychosis is all of AI Coding Psychosis.

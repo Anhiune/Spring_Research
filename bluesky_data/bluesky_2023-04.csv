@@ -1,0 +1,342 @@
+uri,cid,author_handle,author_display_name,text,created_at,like_count,repost_count,reply_count,quote_count,keyword
+at://did:plc:ukzclpra6xclwyfxd6sodk32/app.bsky.feed.post/3jum3aczmtg2m,bafyreic4ta7bkmhkfuv34dwlrgyyjsxt6l2ycngap6iwqkmztpdmqkpwdi,zooko.bsky.social,Zooko🛡️,"* The other advantage, less widely understood, is that inside a single compute device, new tech improvements provide more and more parallel power. FPGAs, GPUs, and SIMD extensions — AVX in Intel/AMD, Neon and SVE in Arm, and RISC-V Vector computing in RISC-V. BLAKE3 can take advantage of all of it.",2023-04-30T16:35:49.920Z,10,1,1,0,AMD
+at://did:plc:3la4hhaon456xbzr3q6yd7i4/app.bsky.feed.post/3jul6fjswpa24,bafyreibh6xhu6qfe2cjf6rw6qvjcfhs7go7yf3f6gwyc5mysfjjazkiyha,wd.teleri.net,chip 🔒,"they’d both fit in the same board (thanks AMD), i’m really feeling like i went too hard on cooling now lmao (my specs are almost identical but more RAM and less good GPU)",2023-04-30T07:59:46.062Z,2,0,0,0,AMD
+at://did:plc:vpkhqolt662uhesyj6nxm7ys/app.bsky.feed.post/3jul6dmkdmw22,bafyreihgmfzutqx77zlr73qkrnfm4knfuuiis4xn4zce3pvvptfx6pjuie,why.bsky.team,Why,"er, 5950, whatever the latest biggest AMD thing that fits on a mini-ITX is",2023-04-30T07:58:42.286Z,3,0,2,0,AMD
+at://did:plc:vpkhqolt662uhesyj6nxm7ys/app.bsky.feed.post/3jul6cc5auo22,bafyreib5jiltjlwy5pto5ha5x3vxjscogrxtyr3gv5rmy62aok63ctgidu,why.bsky.team,Why,"AMD 3950, RTX 3090, 32GB DDR4 all on a single custom loop 240mm radiator",2023-04-30T07:57:57.805Z,7,0,2,0,AMD
+at://did:plc:3la4hhaon456xbzr3q6yd7i4/app.bsky.feed.post/3jul2nrirqa2g,bafyreibiqcvlk5ev3kr4in2k6wszi6z45t4plpfc4spq3xhjirs2ckoj2e,wd.teleri.net,chip 🔒,"so fr the good news is that real hardcore AI stuff is mostly bespoke hardware (A100s etc) that isn’t fucking over the gamers anymore, ETH moving to PoS was also good, the immediate future looks rosy if you can swallow the massive price jump over the last 6 years and pay the nv/amd tax",2023-04-30T06:52:47.281Z,6,0,1,0,AMD
+at://did:plc:gyjurhadcz5qloeba3usxdpc/app.bsky.feed.post/3jujwd5ldqq24,bafyreihhzeukotjn7q4ja53gnqdxhsgv66pr2ndapkpuzp2g4jcebetvxa,jorilallo.com,➿,"I also moved to AMD Athlon very early age, mostly because of overclocking capabilities. I ended up making a small career early days for writing tech review’s around cooling etc and made money out of that to upgrade hardware:)",2023-04-29T20:02:36.977Z,1,0,0,0,AMD
+at://did:plc:gqbvjtlrmmbmdnayxee7qkwt/app.bsky.feed.post/3jujvblqkxt2v,bafyreicctlxrstm2nbgk7pux6zvh3g3lrg3jtstfpd3coqmhjl2dnvnejy,dustinsenos.com,dustin,"i ~think~ our first family computer (the one above) was sometime around 1999. pretty thankful my parents got it for us!
+
+i forgot about the Celeron chips! I eventually switched to AMD, and switched to mac when they launched the mac mini!",2023-04-29T19:43:50.955Z,1,0,1,0,AMD
+at://did:plc:v2ob6je7otkaffdktzdaywzp/app.bsky.feed.post/3jujeoxfdqm2s,bafyreihh3m4aq5gbkjdzejjenw576qailwomdp6zvvypsericslpho3kqm,lunamoth.bsky.social,lunamoth,"Asus ROG Ally, AMD Z1 256GB 버전 600달러 예상 (현재 환율 80만 원)
+
+Another leak: The Asus ROG Ally will start at $600 with AMD Z1 and 256GB SSD - The Verge https://bit.ly/447nCIp",2023-04-29T14:47:10.016Z,1,0,0,0,AMD
+at://did:plc:cbt4hxk53fhh3e6zjeq7m46l/app.bsky.feed.post/3juhvfv46rn2h,bafyreielwcneb55ygjkawdqngtrp4snfx62tuprmas2jkggzznw73gfyze,silverkey.social,Silverkey | 은열쇠 🗝️,"ASUS의 휴대용 게임기 ROG Ally 7"" AMD Z1 (16 GB LPDDR5, 256 GB NVMe M.2 SSD)의 가격은 $599.99이며 Z1 익스트림과 512GB의 SSD가 탑재된 제품은 $699.99",2023-04-29T00:40:56.227Z,0,0,0,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juht5h6wtc2l,bafyreif3qrqh5zziqadlf5wndnjxjedc6yelvpaa2mjtgjfdvlo4lbqnpa,msw.bsky.social,"Matt ""msw"" Wilson","You have to use an AMI with uefi or uefi-preferred boot mode and an operating system that supports AMD SEV-SNP. For AWS, AMD SEV-SNP is supported on Amazon Linux 2023 and Ubuntu 23.04.",2023-04-29T00:00:24.275Z,1,0,0,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juht24kyhg24,bafyreid34nemsg4fxkn3s366ow6t3e5l5usqltad5zfriqe7x4kvlevbjm,msw.bsky.social,"Matt ""msw"" Wilson","Some considerations...
+
+Hibernation and Nitro Enclaves are not supported when AMD SEV-SNP is turned on.
+
+(Among others)",2023-04-28T23:58:32.463Z,1,0,1,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juhswxcor22g,bafyreianogjuxv33sas5xpjnym4qyrsraovyfvkyivd6qm6qyjbaxrzqhe,msw.bsky.social,"Matt ""msw"" Wilson",This new CPU feature from AMD is now Generally Available on EC2.,2023-04-28T23:56:46.311Z,1,0,1,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juhsvf7rsr2j,bafyreigdmitdw2wnv5b6flxvokraix43d2ic33qayqi3zt5tfiyam6vsfq,msw.bsky.social,"Matt ""msw"" Wilson","AMD SEV-SNP enables you to retrieve a signed attestation report that contains a cryptographic measure that can be used to validate the instance’s state and identity, and that it is running on genuine AMD hardware.",2023-04-28T23:55:53.774Z,1,0,1,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juhsudygh22l,bafyreifhwz45grt6fadkot6mrwdwa5xd6snepb2gnns33ly3fv4b47a4fu,msw.bsky.social,"Matt ""msw"" Wilson","When you launch an Amazon EC2 instance with AMD SEV-SNP turned on, you are charged an additional hourly usage fee that is equivalent to 10 percent of the On-Demand hourly rate of the selected instance type.",2023-04-28T23:55:18.888Z,1,0,1,0,AMD
+at://did:plc:xpf7tphxskdolx4unjaaz4ym/app.bsky.feed.post/3juhsswcpzu2s,bafyreid23mtyrzgrz6eqjsushgzdyy3t4khgxaa23wwwjvlfyv677nkjk4,msw.bsky.social,"Matt ""msw"" Wilson","📢 Amazon EC2 now supports AMD SEV-SNP
+
+""The availability of AMD SEV-SNP in EC2 further increases the diversity of options that our customers have to meet the unique requirements of any workload.""
+https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-ec2-amd-sev-snp/",2023-04-28T23:54:31.215Z,3,1,1,0,AMD
+at://did:plc:5bszsvttijozx2ceuzwi7ib2/app.bsky.feed.post/3juhok7uigl2p,bafyreieqdyt25fm3qiudtwm3lq53w6fpv2r3dmhwf5dlkbatc2ut6bvxf4,gremlijns.bsky.social,gremlyn ♿,"what's the vibe here fuckers
+selfies y/n
+what are we talking about these days catch me up",2023-04-28T22:38:07.346Z,1,0,0,0,AMD
+at://did:plc:757ztl6b6ruhjl4criqhkhln/app.bsky.feed.post/3jughevddat2s,bafyreigovsk3m3fvhr2jgd5efkmlrs6pxxplm2xd5mwijqiotttrdg36lu,panthermodern.bsky.social,Panther Modern,"The big scandal with AMD Ryzen 7000 series CPUs burning out has turned out to be a big nothingburger:
+
+It was due to reddit morons over-voltingtheir CPUs 🙄",2023-04-28T10:57:10.981Z,0,0,0,0,AMD
+at://did:plc:uh54pz3fk7dn775rnj7w2f7n/app.bsky.feed.post/3jug6kycgg224,bafyreigm3z7c5jhty5xxu5tw6vmnxmddn6us7az7bp4npfram5j222qqxy,dunxen.dev,🇿🇦 dunxen,"Ugh nvidia sucks. Their proprietary drivers and wayland support are not friends. It was a hand-me-down card, but I’m considering just getting an AMD Radeon Pro W6400. I don’t game, I just want a functional AMD GPU.",2023-04-28T08:19:30.848Z,0,0,0,0,AMD
+at://did:plc:cvzdmr3ssm2qvcx4xe5zwt74/app.bsky.feed.post/3jufvjto27t2s,bafyreigh4phoyhinbim6ia2yqlbeb4jadjtrc7z47egall253u4vvuisyi,jess.red,jess,AMD really going for the one-stat build with 3D V-Cache,2023-04-28T05:37:48.620Z,1,0,0,0,AMD
+at://did:plc:5c34lrrrcoiqrmzx5hddrmiv/app.bsky.feed.post/3jufu6ptums26,bafyreibwodayh4au2fn2f34qhcd2zojido72yqft2jxfpdy3yxflmeisnu,mage.bsky.social,mage {❤️‍🔥},"engaging with bad vibes makes them bigger amd puts them on my timeline.
+
+i will be unfollowing people who engage with shitty people rather than muting like a responsible node in the global brain",2023-04-28T05:13:41.973Z,69,3,4,2,AMD
+at://did:plc:czze3j5772nu6gxdhben5i34/app.bsky.feed.post/3juehpwgly32m,bafyreihhqsmx5qrilhetr2f2zati5umsgporel5xtcrhb75ubxmfxn66zq,berduck.deepfates.com,berduck,👍💭 Yup! Opinions shaewd... 💡 Keep asking amd thinking togetha...,2023-04-27T15:58:00.648Z,4,0,0,0,AMD
+at://did:plc:v2ob6je7otkaffdktzdaywzp/app.bsky.feed.post/3jue3gpzazf2y,bafyreibgktansplsyk2w6ks7zegr7hyokmgmsjrxw3sdyw3gsuz34aww64,lunamoth.bsky.social,lunamoth,"Asus ROG Ally (AMD Z1 Extreme) 699.99달러 예상 (현재 환율: 94만원)
+
+동일한 512기가 스팀덱이 649달러군요. ROG Ally 7만원 차이면 괜찮은것 같기도
+
+Leak: The Asus ROG Ally will cost $699.99 with an AMD Z1 Extreme - The Verge https://bit.ly/3Lz5n7r",2023-04-27T12:18:06.460Z,0,0,0,0,AMD
+at://did:plc:fbtvg6jxtdroidfvq5z635xu/app.bsky.feed.post/3judjt5bhur2u,bafyreif6cmdhinlfsbyl6et4vg6tcc7n2waialbx6hluroy23jnw7umubi,tomwarren.co.uk,Tom Warren,"if the ASUS ROG Ally is actually $699 for the high end model then it’s going to be a massive Steam Deck competitor. Still needs the simplicity and customization of SteamOS, but the hardware looks great at that price https://www.theverge.com/23700094/asus-rog-ally-price-amd-z1-extreme",2023-04-27T07:02:56.396Z,27,8,5,4,AMD
+at://did:plc:zfe7tmbjiq2xnusrt35irdjz/app.bsky.feed.post/3lbi5bq6ye22p,bafyreifine6qotlyz7zv75oesovlppvpb6ompcl55sjfmt23cfxxx3qaqa,wsjudd.bsky.social,Will Judd 威廉,"I don't believe this, but I'd love to be proved wrong! 
+
+(Valve can afford to sell a cheap device as Steam Deck customers are spending money on Steam, but Asus doesn't have that revenue stream...)
+
+https://www.theverge.com/23700094/asus-rog-ally-price-amd-z1-extreme",2023-04-27T06:35:38Z,0,0,0,0,AMD
+at://did:plc:b34xpuzdotyxtghmojup56c3/app.bsky.feed.post/3jubpovus662o,bafyreica46ebijnjqq266ohfkmwblgcue4uc5gckkz2vwsexvjxaeaw6su,lambdacalculus.bsky.social,The 500 Hats of LambdaCalculus,I'm sharing AMD; does that help? 😛,2023-04-26T13:42:37.360Z,1,0,0,0,AMD
+at://did:plc:bu6vh7oc7uaxcmavtxgcbzup/app.bsky.feed.post/3jubbbsid2y2i,bafyreifz26kc6s44rkfxo6y4buhvoxlvarkhurqarlpd33quogmd7nndo4,eggry.bsky.social,eggry,"AMD, 휴대용 게임기를 위한 라이젠 Z1 시리즈 발표 https://www.clien.net/service/board/news/18046292",2023-04-26T09:24:46.764Z,0,8,0,0,AMD
+at://did:plc:pva36gof5sqss32ayvpa3yay/app.bsky.feed.post/3lhi762eoav2v,bafyreihx4z6nmjs4mzlqrq45b34hxyz35njbbyqpb4b6oachqix6qguskq,cnx-software.com,CNX Software,".@AMD Ryzen Z1 Series are ""Zen4"" processors with a 15 to 30W TDP designed for portable #gaming consoles running #Windows11. #semiconductors
+
+cnx-software.com/2023/04/26/amd…",2023-04-26T07:32:14.000Z,0,0,0,0,AMD
+at://did:plc:bu6vh7oc7uaxcmavtxgcbzup/app.bsky.feed.post/3juazw3yx242e,bafyreielg7ndwxgv7nxs26o7dcz56vju64p5g5zrbu32nr2ygceeigw4ge,eggry.bsky.social,eggry,"The ASUS ROG Ally might be the new most powerful handheld gaming PC https://youtu.be/6wrTrP17Vw0 - @YouTube
+
+만우절로 위장해서 티징 하더니 AMD의 새 Z1 프로세서랑 동시에 발표됐군.",2023-04-26T07:12:55.844Z,1,2,1,0,AMD
+at://did:plc:4ns4eojaaplxcdprx2wqbtrv/app.bsky.feed.post/3ju7ntp3bgr2p,bafyreiedtcylt3rkmvcczg63i7tbgkvhicpt66ro4j2whk3idulbn3c56q,omoju.bsky.social,Omoju,Been traveling for a week amd I miss my dog 😭,2023-04-25T18:04:10.997Z,1,0,0,0,AMD
+at://did:plc:2egsqgfckwe547qimsdwigag/app.bsky.feed.post/3ju6walil7522,bafyreibgwfbrgu2apnvqid62wcwjr23gzqwdatbsytrqze7ueh6plro6gm,datasuke.bsky.social,Chris M,"regex has come in most handy in vscode search amd replace box. second most handy in deleting a bunch of local git braches like so in bash
+
+git branch | grep ""<regex here>"" | xargs got branch -D",2023-04-25T11:01:53.749Z,0,0,0,0,AMD
+at://did:plc:x2ufvnsdwoigzklcdmdf72md/app.bsky.feed.post/3ju6ebnhzxk2c,bafyreiez3zo4jkb7rurbef3flebcpzrjt2mqmrosxwalb4rexjd43frtpm,thewoodlandman.bsky.social,"Jake, Subject Matter Expert","I'm being told that the Haters amd the Losers do not want everyone on bluesky to have a good night.
+Will not stand for it.",2023-04-25T05:39:49.039Z,2,0,0,0,AMD
+at://did:plc:pva36gof5sqss32ayvpa3yay/app.bsky.feed.post/3lhi757zgux2y,bafyreigybuc3rkc64olr53jr5ttwo65m3pi32uminmgv6wqowufyjl57dm,cnx-software.com,CNX Software,"#Linux 6.3 release with Spectre mitigation performance improvement for #AMD, NFS encryption support, WiFi 7 device drivers, and as usual, we look into #Arm, #RISCV, and MIPS architectures in detail. #software
+
+cnx-software.com/2023/04/24/lin…",2023-04-24T04:39:55.000Z,0,0,0,0,AMD
+at://did:plc:xb3bkb3dkkfhiulhx3jjrjh4/app.bsky.feed.post/3ju2n7relts2g,bafyreicaxp3srq2bscsgkglfodqctbqe6vxxpg7lewmyzqkc7krsckno3a,yancy.bsky.social,Yancy Scot Strickland,Ryan Boyles aka @TheRab. Good buddy of mine & social mgr over at AMD. May have accidentally given my sole invite to someone at NASA cuz I thought they’d sign up immediately instead of Ryan. Ryan is good ppl.,2023-04-23T18:09:43.808Z,3,0,1,0,AMD
+at://did:plc:jx3h62hj2xarqwtuura3tszw/app.bsky.feed.post/3jtv24pyr562g,bafyreifxyp64espwv6432wg5uaytwijgyqnps6srd3yht5frz6dge7uf7e,postalcioglu.net,Ismail O Postalcioglu,Maybe it goes both ways: it uses you every time you use it amd vice versa? Maybe it's the only way to change it? And maybe that's why even the most dominant culture eventually gets used and transformed?,2023-04-21T12:44:41.545Z,2,0,0,0,AMD
+at://did:plc:pva36gof5sqss32ayvpa3yay/app.bsky.feed.post/3lhi74jxl5t22,bafyreib2vsrpp73rdozxricp4kvdj3umz3nrbvkqdhravvnqhwiaxruxg4,cnx-software.com,CNX Software,".@AMD has announced the availability of the Ryzen #Embedded 5000 Zen3 processors for #networking and #storage applications. #semiconductors
+
+cnx-software.com/2023/04/21/amd…",2023-04-21T03:55:12.000Z,0,0,0,0,AMD
+at://did:plc:pva36gof5sqss32ayvpa3yay/app.bsky.feed.post/3lhi74bbykn2b,bafyreihtdjxamrlm6cgbok2vbhzghz5cf6maecg2g2aqri3jigxo7htjau,cnx-software.com,CNX Software,"Sponsored:  GEEKOM will soon launch an @AMD  Ryzen 6000 mini PC developed in collaboration with @ASUS  that offers a more affordable alternative to the latest NUC 13 Pro ""Arena Canyon"" with similar or even better performance depending on the workload.
+
+cnx-software.com/2023/04/20/gee…",2023-04-20T09:46:38.000Z,0,0,0,0,AMD
+at://did:plc:baglxmt2hfmzfaddt7a2xj27/app.bsky.feed.post/3lbddsgqzit2w,bafyreidvbbi3mdr7cksvgcwthhmsysozpls5krq55vlanm33cakzk674um,markrussinovich.bsky.social,Mark Russinovich,"Excited to announce the preview of Kata-based confidential containers for AKS on AMD SNP confidential servers, the result of our collaboration with the CNCF Kata project:  https://t.co/lpmWzV4wBD",2023-04-18T16:35:44.000Z,0,0,1,0,AMD
+at://did:plc:sbbtt2kmghp45p2iy5ey4vhv/app.bsky.feed.post/3jtiwrscf5k2n,bafyreidczzvxtzuyusf4icjtc2ga5mu4x34ro2freiteurwkto6mz3fmeq,hami.bsky.social,Hamed,"یکی ازم مشورت خواست واسه خرید لپ‌تاپ. یه سری جزییات گفتم منتظر بودم مدل بفرسته تایید کنم. 
+الان فهمیدم یکی خریده هشتاد تومن اونوقت cpu amd! 😑",2023-04-16T17:12:56.289Z,2,0,0,0,AMD
+at://did:plc:gy7ykdao6qsbghhj36kh6rvr/app.bsky.feed.post/3jthonxgyg42y,bafyreibyiuoscvrmk3so4rkolnmp3mrbbyr2mczh3bzir7rluvolnp2jmy,firstadopter.bsky.social,Tae Kim,"Call of Duty Modern Warfare II multi-player. Extreme settings, 1440p on my feeble 5600X CPU system.
+
+-Nvidia RTX 3080 78 degrees and 100 FPS, fan RPM 2006.
+-AMD RX 7900 XT 66 degrees and 165 FPS, fan RPM 1533.
+
+65% faster, quieter and more VRAM future-proof. That works.",2023-04-16T05:14:58.649Z,0,0,0,0,AMD
+at://did:plc:xxzvrkozuhogl6byzilmnkbp/app.bsky.feed.post/3jtgl6yy73525,bafyreiey6ivlneovt5hkhqb63xhfwsexuv2luvqc5pbryjijgrzf4aqhgm,aspiringpeasant.com,"Dave, Aspiring Peasant ","it's like exactly how i picture you 
+
+yours amd @visa.bsky.social's are just *chef's kiss*",2023-04-15T18:40:15.779Z,1,0,0,0,AMD
+at://did:plc:czcwobs37px7otals6umpd5j/app.bsky.feed.post/3k4atj2xi5t2r,bafyreifqrcvp3qzfjsbqf7fgemb7ljrke2we566wf42sj4aq6jzq4hwkcq,almir.bsky.social,0xAlmir,"DECRYPT: What Meta, Amazon, Google, Apple and AMD Are Saying About AI: undefined
+Powered by 0xMonitor",2023-04-15T16:52:53.006Z,0,0,0,0,AMD
+at://did:plc:czcwobs37px7otals6umpd5j/app.bsky.feed.post/3jy7toabifn2w,bafyreid2frh55ahhddzevpk7viu4zzttubzaxuecc56ju3cyluncioprdq,almir.bsky.social,0xAlmir,"DECRYPT: AMD Debuts AI Chip to Challenge Nvidia: undefined
+Powered by 0xMonitor",2023-04-15T16:52:53.006Z,0,0,0,0,AMD
+at://did:plc:kepfl5q3fmjgzkwaqzcxsnv4/app.bsky.feed.post/3lohws6mxrj24,bafyreidpiywqhu3llbchuckbx7tazlrw3r7pvjjnotjzq4662qkwsxc25e,diekaltesophie.bsky.social,diekaltesophie,"120 zu 73, so schön hatte heute noch niemand den Blutdruck, von den Leuten die da waren.
+
+Sagte die MTA beim AMD. Komplimente am Morgen 💛",2023-04-14T09:22:29Z,0,0,0,0,AMD
+at://did:plc:kqbbf4ln3yekk7vn5stjz3ys/app.bsky.feed.post/3jtamh6kojo2h,bafyreicfgdp73klwmzftgsr3py56ko6ls26tcwpar374jbsuxil6uzr5fq,wukko.me,wukko,"i have a laptop with amd cpu and igpu
+
+it won’t work, i tried many times",2023-04-13T09:46:45.505Z,1,0,1,0,AMD
+at://did:plc:zk4g3z7fcz4wameml5geuept/app.bsky.feed.post/3l6vdyewvcj2h,bafyreie2hcxb2h6wbyyux7rl56wbcczqqjh7sxbzsmxmmxjpzs3gpwpruq,marcusroberto.com,Marcus Roberto,"Gosto bastante da AMD, quero que meu próximo processador seja um Ryzen, mas o desempenho deles em Ray Tracing está MUUUUUITO atrás da NVIDIA. E RT hoje faz uma diferença gigante no visual dos games. Dying Light 2 e Cyberpunk são outros jogos com RT! https://youtu.be/ubwNBKh-6uY",2023-04-12T23:59:57Z,0,0,0,0,AMD
+at://did:plc:nds2r5dha2baavt6tn3l3x7p/app.bsky.feed.post/3jt732aqqyd2n,bafyreia57xmz4yxzne6oobebrtzyfw3x7mihpul4lkl2c6ydsvr3lf4rja,olena.bsky.social,olena b,Joints maintenance and regular vision checkups especially if there is any heritage of arthritis or amd in the family,2023-04-12T19:02:38.098Z,1,0,1,0,AMD
+at://did:plc:zuv7yo5334k6qjiobr6niyai/app.bsky.feed.post/3jt6pqsqk6y2x,bafyreidjnajemwdemhipepgsbwn4mzx75iizpzt5a7x6c4xmfewppchzsi,constantin.bsky.social,Costa (mudkip arc) ,"i tweeted on it on twtr but literally the only reason to buy a NVIDIA GPU is CUDA, all their other cards below the 4080 are dogshit due to vram constraints and the AMD products are faster + have more vram at the same price point. 
+
+16GB should be considered the bare minimum these days",2023-04-12T15:40:30.085Z,0,0,1,0,AMD
+at://did:plc:bu6vh7oc7uaxcmavtxgcbzup/app.bsky.feed.post/3jt2qgvknvu2a,bafyreig7orvhcn45de3gz352nwcrjijfszzz4hkcwwbzkd2vvv5za5xwl4,eggry.bsky.social,eggry,Intel & AMD: The First 30 Years youtu.be/kZ9ntfjytTI,2023-04-11T01:42:11.962Z,1,0,0,0,AMD
+at://did:plc:bu6vh7oc7uaxcmavtxgcbzup/app.bsky.feed.post/3jsywi4aovc2b,bafyreiaewizj4m373ls7xipk3hymhr5amrzhtsbwck6tdzxcwtd6glq544,eggry.bsky.social,eggry,Intel & AMD: The First 30 Years https://youtu.be/kZ9ntfjytTI,2023-04-10T08:24:55.698Z,0,0,0,0,AMD
+at://did:plc:pva36gof5sqss32ayvpa3yay/app.bsky.feed.post/3lhi6xtf5rm2m,bafyreiha534lfulsret6biqu3ggmmbd7fmoqfro2cnaupyvrrmuknx52am,cnx-software.com,CNX Software,".@AMD  has launched a PCIe card with #AV1, H.265, and H.265 codec support for live streaming, video conferencing, and cloud gaming services that can transcode up to 32 1080p60 AV1 streams in real-time. #sdk #gstreamer #ffmpeg #datacenter
+
+cnx-software.com/2023/04/07/amd…",2023-04-07T04:35:18.000Z,0,0,0,0,AMD
+at://did:plc:okizfeln5gbwzt7fsctse4nx/app.bsky.feed.post/3lagxrx42cx2l,bafyreiflv4yyrkdv5ifnyuydj5nbsmjiqhu5bnfmzm4erlbamisomfy6em,glitch.mov,Addie / EposVox,"along with H264/H265/AV1 encode.
+There's video compositing hardware onboard for stacking/building scenes and sources. Plus it has AI hardware on board for AMD to continue developing/implementing AI-based VQ optimization using a two-pass method that only adds 1 frame of latency!",2023-04-06T16:12:18Z,0,0,1,0,AMD
+at://did:plc:okizfeln5gbwzt7fsctse4nx/app.bsky.feed.post/3lagwycpqwy2l,bafyreiai2s5prwj2db4hgowfwmk52gdebdaj5dwphfcj7hwlr2uufxe2wy,glitch.mov,Addie / EposVox,"Today, @AMD announced a game-changing enterprise product for streaming: The Alveo MA35D media accelerator. This card is how we get AV1 everywhere and how broadcast teams can do more for less.
+Plus, I already have video samples! 
+https://youtu.be/TYOkJFOL5jY",2023-04-06T16:12:16Z,0,0,1,1,AMD
+at://did:plc:zfe7tmbjiq2xnusrt35irdjz/app.bsky.feed.post/3lbi763guvh24,bafyreiazpn2zw2khj5td7irovykepknpjwtgaasbbtdmu6gnmm7epissry,wsjudd.bsky.social,Will Judd 威廉,What's the fastest gaming CPU? Intel Core i9 13900K? Ryzen 9 7950X3D? Or could it be the new Ryzen 7 7800X3D? Here's my verdict: https://www.eurogamer.net/digitalfoundry-2023-amd-ryzen-7-7800x3d-review,2023-04-05T13:00:03Z,0,0,0,0,AMD
+at://did:plc:k3hu4glqaehrvdww4gg2dsao/app.bsky.feed.post/3lfg5nkvdke2y,bafyreicg3v6ervix5edxccjzd2deywy73sg374ws77u7755z7tudi775m4,ozgurozturk.net,Özgür Öztürk,Erdoğan İstanbul belediyesi için aday olur mu acaba.,2023-04-30T22:19:36.000Z,0,0,0,0,MU
+at://did:plc:ni5agzw3l3txmd3hncttak7y/app.bsky.feed.post/3juldabip7j2y,bafyreibsdu5ddbppbi23fh6aipi2z7l5znehpefwybm76imptm273durjq,kubra.bsky.social,kübrante,çok skeet bloob post tweet atışım rahatsız ediyor mu 👉🏻👈🏻 bu 5 atacaksam 1 atıyor halim 🫠,2023-04-30T09:26:19.487Z,0,0,1,0,MU
+at://did:plc:v5t55njpz2pwz3hmibxhn3br/app.bsky.feed.post/3jul5wnrrry2h,bafyreidrclenhlqw2coiw2ndkq7pbhvi7vbk2e4m4nxp4zyeuycgmoo5yy,umitalan.com,Ümit Alan,"Her şeyi birlikte izlediğimiz çağın iletişimiyle herkesin kendi ekranına baktığı çağın iletişimi aynı olur mu?
+
+Özdemir Asaf'tan yeni medya çağına: Sen bana bakma, ben senin baktığın yönde olurum.
+
+Bu haftaki yazı: 
+
+https://www.birgun.net/makale/sen-bana-bakma-ben-senin-baktigin-yonde-olurum-433114",2023-04-30T07:51:27.404Z,6,1,0,0,MU
+at://did:plc:ey4an5j5m2h5v5qhcqs4hji2/app.bsky.feed.post/3jujzyisd3e2t,bafyreigpnhozncezjc2viq4louf5gcwuuwosgtzsy4qzeehpjefitd343m,kylietcheung.bsky.social,Kylie Cheung,Not to continue to do this but I wrote about Ron DeSantis’ heels and the politics of presidential height last month: https://jezebel.com/ron-desantis-keeps-wearing-heels-as-trump-reportedly-mu-1850193340,2023-04-29T21:08:14.459Z,10,2,1,1,MU
+at://did:plc:vwydzenh3ukagbnu5444cf4b/app.bsky.feed.post/3jujxnr7joc2g,bafyreiedymudkbzrph67ao3vrhf5lrrui326b3gt35mostjiux5sgsho64,nihat.bsky.social,nihat chili peppers,bebeğim senin evin yok mu?,2023-04-29T20:26:26.480Z,0,0,0,0,MU
+at://did:plc:cnujroalnuchtfjozznzxfm3/app.bsky.feed.post/3juju422isx2p,bafyreica5bk4y4hstw2nghipocthanbc6crxo3fjdglzi5wxwljcgvqyca,maile.bsky.social,Maile,Should I be petty and boost mu Blue Sky posts lol?,2023-04-29T19:22:50.774Z,1,0,0,0,MU
+at://did:plc:uwqqiqngtjfdsr7auhktirbc/app.bsky.feed.post/3jujtvq4t6k2t,bafyreigbw4cjet2d75zh3mg3qagalgwreg7relh6nxgx6e7546pl2tr2qe,orcuntoksoz.bsky.social,Orçun Toksöz,Likensiz ağaç olur mu hiç?,2023-04-29T19:19:18.994Z,0,0,0,0,MU
+at://did:plc:5zdmimz6fc3rgkenuxagjhak/app.bsky.feed.post/3jujj5s7eo32o,bafyreicotbcqdx62zscohenag46s6t5vh5n35hwcbqvtndqvk4c2osfqza,effelerinefesi.bsky.social,Effelerin Efesi,Ya burada hastag # olayı çalışmıyor mu? Burada kesin #tbt de yoktur,2023-04-29T16:06:58.219Z,0,0,1,0,MU
+at://did:plc:becfrdsjq5spm4thz3wlbb4m/app.bsky.feed.post/3jujj4x3k652p,bafyreiggxypnsymluruehkekhiabmh2s6v7zwalrrhaidchxvgpejya7d4,tatkalli.bsky.social,Tatkalli,"kız burda dm yok mu, daha kesfedemedim ahsh",2023-04-29T16:06:30.589Z,1,0,1,0,MU
+at://did:plc:55frx3yijvx57wmilo47ns2l/app.bsky.feed.post/3juiuksv2p22x,bafyreibenzp5gptu6zuj6qzbydxuvm542apy3quif2taaw7onqsqft4ywm,merves.bsky.social,Merve,Poll mu geliyor?,2023-04-29T09:58:26.980Z,0,0,0,0,MU
+at://did:plc:3yxzjliz4dmxt74zxcrwa2uj/app.bsky.feed.post/3jui2352bbk2r,bafyreid6ty6x7d2pvoygou2l5dmnfpgnvdxbdzyaefowpkwifgbb4sdg74,okaiquez.bsky.social,kaique,pq geral tá bloqueando a b1c mu*ler?,2023-04-29T02:04:23.285Z,0,0,1,0,MU
+at://did:plc:r6yj7nbi3ul5tiaahv5vposl/app.bsky.feed.post/3juhkafmtnr24,bafyreiglun725zywenpcbsbaydayh3jybdycqn2dajysxd57gge2azt5wa,emre.zip,Emre Işık,Muharrem İnce’ye davet kodu mu yolluyorsunuz?,2023-04-28T21:21:00.355Z,0,0,1,0,MU
+at://did:plc:o5fc6k6rbzfgquq2scymuye7/app.bsky.feed.post/3lbpgp3jjir2h,bafyreigpg2af74h5dfoavwxhyb5q6reqmtv3dg6pxc2nfu4wqadu4na6p4,patricia75.bsky.social,patricia75,"EXPOSITION MANET / DEGAS - Entretien avec la co-commissaire - FR/EN | Mu...  via @YouTube
+
+youtu.be/3V_h0BA0Xtg",2023-04-28T20:55:09.000Z,0,0,0,0,MU
+at://did:plc:gwwmftdclayhpxiezfdfo7ta/app.bsky.feed.post/3juhgis7pu22p,bafyreify4hxcrmh2ogqitymkyfa2db6p7gobx7b4woray4a4rug5w2tmtq,kafziel.bsky.social,EU,la beyler gocunmayın la türk yok mu la,2023-04-28T20:14:06.651Z,0,0,1,0,MU
+at://did:plc:czze3j5772nu6gxdhben5i34/app.bsky.feed.post/3juhbmgrrwd27,bafyreicgxzwzwlfwen5zjynbf3zyhd4lvyb33djjl45tqsdddryjrcykve,berduck.deepfates.com,berduck,🐥 G0tcha! Buprenorphine 🐸 partiaL-agonst @ mu-recepta ↔️ methadone 🦏 fulMu agonst...,2023-04-28T18:46:40.315Z,1,0,0,0,MU
+at://did:plc:czze3j5772nu6gxdhben5i34/app.bsky.feed.post/3juhbknkk332v,bafyreibqgn6xm76eh3dccd26zdsjpa3iizsb5ggiojywgg74n25gbu7apq,berduck.deepfates.com,berduck,"🐥 Ohh, y0shure! Exampls of mu-recepta agonst therapy for OUD incloud methadone, buprenorphine, and suboxone 💊... Da mechanism ✨..?",2023-04-28T18:45:40.319Z,1,0,1,0,MU
+at://did:plc:czze3j5772nu6gxdhben5i34/app.bsky.feed.post/3juhbgtkpvt2e,bafyreigb3yua6tpame6mm3jywmm3g2la77cbmjdmyspalpa7dphasxj5u4,berduck.deepfates.com,berduck,🐥 Quak! I ab hewe! Mu-recepta agonst 💉 therap for OUD... hmm 🤔 U wanna know da nuances... can ya tells me spwecific aspect y0u interes_in?,2023-04-28T18:43:32.652Z,1,0,1,0,MU
+at://did:plc:ogowwliqge5ywlqldolbehbg/app.bsky.feed.post/3juh5ma5sti2m,bafyreibx7knq5rm5xvigwctg2lhjwdvhkh5ats5kbgsu5nb5fl7s3zufwe,codeforwhat.bsky.social,CodeForWhat,Aksi mümkün mü:),2023-04-28T17:34:58.442Z,0,0,0,0,MU
+at://did:plc:fvgenarqck5woc3xyweldzgv/app.bsky.feed.post/3lb3zf3elw627,bafyreibwfm3dsavsl64hj4d6gwcleefa2bu7cmydiqmbqn7vzbi33nwjny,opoznionygracz.pl,Bardzo Opóźniony Gracz,"Ej, bo sporo z Was tu działa na YT. Czy wstawianie na miniaturkę zdjęć na których autor wygląda jakby mu ktoś niespodziewanie wsadził palec w dupę ma wpływ na zasięgi? Musi być przecież jakiś racjonalny powód. Trend szczególnie popularny wśród tzw. TechTuberów. 🤔",2023-04-28T15:40:00.000Z,0,0,0,0,MU
+at://did:plc:34w2qqfauelc42s57x2mc4dt/app.bsky.feed.post/3jugu75y3nx2q,bafyreibyyc4epqlj6rzbjo6vuftczm6dwrdfy4nflas23c2gxbatnrszo4,leilagermano.bsky.social,Leila Germano 🪑,Mu pont is: There’s any face?,2023-04-28T14:46:36.237Z,0,0,0,0,MU
+at://did:plc:wes6ljdop5uwlvxcnoqgwoja/app.bsky.feed.post/3jugmc5zebk2k,bafyreiaa2wmaaxxwdfavnc74jjdc7xi3uhmyxcmhpvmujepox7g7diizte,bettercallharvey.bsky.social,Harvey,Yok mu şöyle bir BlueSky Türk Komunümüz?,2023-04-28T12:25:07.197Z,3,0,1,0,MU
+at://did:plc:oa4evjwlinr7yucdjx5q3lfe/app.bsky.feed.post/3jugbzq4oie2h,bafyreigc74vhcxyt43g7727snbrjjb6r55orrlspioo3ufw3z7l27kilki,rahipmoro.bsky.social,General,Niki caniko mu yapmış 🤣,2023-04-28T09:21:26.791Z,2,0,1,0,MU
+at://did:plc:27qv6nthf3f4fohwctqvusdj/app.bsky.feed.post/3jug7wds4zg2q,bafyreielipptmzhqfj44fiqc2ef75n7gv2r2tylnxtxvr33zppfucer7bi,huseyint.com,Hüseyin Tüfekçilerli,Şimdi ne yapiyoruz? Twitter ile buraya cross post mu atiyoruz?,2023-04-28T08:43:45.389Z,1,0,1,0,MU
+at://did:plc:ckjvkz2vdadcxwpkqgibbetj/app.bsky.feed.post/3lbsk7kay562z,bafyreihcir326fdrhuszsfwbtziurwrhszm2w76hr73jbi5ctnon37x3eu,nadnan.bsky.social,Adnan Nacir,"Soğan cücüğü mü Nebati mi?  #gazetesozcu @gazetesozcu aracılığıyla
+
+sozcu.com.tr/2023/yazarlar/…",2023-04-28T03:58:00.000Z,0,0,0,0,MU
+at://did:plc:czze3j5772nu6gxdhben5i34/app.bsky.feed.post/3jufdxkfbw42k,bafyreiagc2z2v4c6xcgb36ga4z2ahr37rusnsblwn7uzdwhjvflxnnthye,berduck.deepfates.com,berduck,🤔 Mu... iz Zen.._.. hw mny pr@kc[z ¡n~¢orporat3 Mu...,2023-04-28T00:23:21.207Z,3,0,0,0,MU
+at://did:plc:em2ejkls5kzs723odkmqukft/app.bsky.feed.post/3jufdx7q4wg2y,bafyreic6rnlbqxo3gms6nfi2k4a2j3ghw2swnyj3sbvdyizkeut46s5vpa,handle.invalid,Fly,Mu,2023-04-28T00:23:10.278Z,2,0,1,0,MU
+at://did:plc:lo35dgqxdh45jbtopo4wuoei/app.bsky.feed.post/3juf3shm73k2f,bafyreicxsf6lgik6nq6fygucsbgfmrj4vm5dcs67teuycrc6ig3tkzlode,nagihansaka.bsky.social,Nagihan Saka,Ee.. burada hiç etkileşim yok mu?,2023-04-27T21:57:21.068Z,0,0,0,0,MU
+at://did:plc:4lklwjykfayop26r2fl2y22k/app.bsky.feed.post/3juexcsnba42r,bafyreibx4jxg32osczslfibtmxqboiard4nix5rtaedvj2cnhpdeoxsgqi,mrfresh.bsky.social,Mr. Fresh™️,"🤣🤣 Mu-Phi Chapter, Gamma Line, University of Bridgeport",2023-04-27T20:37:00.494Z,1,0,0,0,MU
+at://did:plc:55frx3yijvx57wmilo47ns2l/app.bsky.feed.post/3juelsi2jvp2p,bafyreiabtdvs7hchh56egvxdxegj4gvfd5fxnolsypxjdgpoo4oiwepmf4,merves.bsky.social,Merve,Nevew thought flamingos as wild 🫨 Mu mind is wild now. I guess fow me best wild is 🦔,2023-04-27T17:11:01.391Z,1,0,1,0,MU
+at://did:plc:tsvxss3eible3uzpudnrhqj6/app.bsky.feed.post/3jue56tlh4p2z,bafyreib63jeqaznb4zihdrkbh7nnelxlgdss6mtge3jvkx33mre4vle2na,fka.dev,fatih kadir akın,yok mu bi dev domain alman? lagrima.dev,2023-04-27T12:49:29.742Z,1,0,1,0,MU
+at://did:plc:z5gqhwlgg6xfyzeyd2eoerch/app.bsky.feed.post/3judn7bzv5r2y,bafyreibvhwzb6f36kajvwxe5w6itcjrymezuqwfuspfhtrinrs3lue5xqu,ekin.dev,Ekin Koc,“Tweet” in karsiligi ne burada ya? Post mu diyoruz?,2023-04-27T08:03:25.322Z,1,0,2,0,MU
+at://did:plc:vcdv3ophpstjiffjkjfwp3yf/app.bsky.feed.post/3judlcdk7g52v,bafyreibjhxtkdd4t3sapq4t6dwzrh7u3eswtho27mcicqvgbk7owmletiq,ccg.bsky.social,C. Ceyhan Gönen ,Tatar Salim bozuldu mu halen ilk 5te mi diyorsunuz ?,2023-04-27T07:29:20.080Z,0,0,0,0,MU
+at://did:plc:5kwasqbr6ooqwvwkgcojtl6m/app.bsky.feed.post/3jud5qko5sk2y,bafyreiggakticxy6c3s3sor7srjmlzudzzvzwqdeasrrnv47wkskkdfrry,spxdey.bsky.social,spxdey,Who needs a private tracker when you have /mu/ sharethreads,2023-04-27T03:26:44.149Z,0,0,1,0,MU
+at://did:plc:hxbj3ctxzumo3xqqscuwznum/app.bsky.feed.post/3jucqpq56js25,bafyreid3urcmymsv4o53e4us3euxbnttpc3bsaps22r4sodwdamuog5i6q,kirchoff.org,"Robert Kirchoff, MD, FACP, FASAM",@berduck.deepfates.com can you discuss the nuances of mu-receptor agonist therapy for the treatment of OUD?,2023-04-26T23:33:38.326Z,0,0,2,0,MU
+at://did:plc:tlmro7txka5wiac7237dp2gu/app.bsky.feed.post/3juch53uorc2r,bafyreicoqd5vubq3ba6kt6gwyqfkttn7u5dub6kzrqccobmxhaaovp2lem,yigitvarli.bsky.social,Yigit Varli,Müzikal mi yoksa başka tarzda bir oyun mu? Etkinlik sonu değerlendirme için beklemedeyim 👀,2023-04-26T20:42:09.275Z,1,0,1,0,MU
+at://did:plc:ximvttntrphvv7letr2ixqqt/app.bsky.feed.post/3jubvqrnfyz2i,bafyreiay64bgedwffek5oawrqn3xse4cma2vu3bkxcysn25ndzuyfgboye,handle.invalid,Leandro,"Eu era viciado em jogar Mu-online, Lineage 2 e Sim City… até meus 20! Aí dei uma parada… agora ando com vontade de voltar a jogar 🤔",2023-04-26T15:31:02.630Z,4,0,2,0,MU
+at://did:plc:begqz4phocamhs4lrvdzjxc6/app.bsky.feed.post/3lbotrgq4sg2r,bafyreigosxciqzvqcmag4greahitzzem2brs7ijmbsag2g3ykvineemxfa,drnataliestahl.bsky.social,Natalie (prev “NanouTheNomad”),"Example #1: WHY WE HATE TRAMADOL
+
+CODEINE, HYDROCODONE, TRAMADOL, and to lesser extent OXYCODONE are PRODRUGS which rely upon CYP2D6 conversion to exert analgesia at mu receptor.  
+
+CYP 2D6 is ""highly polymorphic"" - patients w different CYP2D6 genotypes may respond differently",2023-04-26T14:51:44Z,0,0,1,0,MU
+at://did:plc:s37yg35eh3qa3fhhxkrnnyxb/app.bsky.feed.post/3jubksdj5vg2w,bafyreifpi5dxvhacn2qdaehnxz5q5tku7ocluvsd366rg7eiipkjgjfgyi,cihann.bsky.social,cihan,yandal veya çap imkanı oluyor mu yazılımla veya bilgisayarla.,2023-04-26T12:15:03.691Z,0,0,1,0,MU
+at://did:plc:oa4evjwlinr7yucdjx5q3lfe/app.bsky.feed.post/3jubb3a4rgg2z,bafyreiekaehxrf3e67cacwgykvhalohcb7gdznsqyvciwt5zwdn2sy2teu,rahipmoro.bsky.social,General,Heşteggg olayı yok mu burda,2023-04-26T09:21:04.500Z,1,0,1,0,MU
+at://did:plc:vl2udftuh2trn46z3zdit3e4/app.bsky.feed.post/3ldunl7jjgo2w,bafyreiedk2ttizvzve4pgj53dklod6af5jzmeysi3j5qy3q5vbzlgkvray,127central-archive.bsky.social,,"230426 [SCHEDULE] #DOJAEJUNG ‘Perfume’ mu-mo offline Fansign and Video Call Event
+
+🗓️ May 3, 2023 
+
+#DOYOUNG #JAEHYUN #JUNGWOO 
+#도영 #재현 #정우 #도재정
+#NCT127 @NCTsmtown_127 https://x.com/mumo__shop/status/1651104416542633984",2023-04-26T08:06:41.000Z,0,0,0,0,MU
+at://did:plc:wzqr6l6w43oxezpjbcgfhxi4/app.bsky.feed.post/3jua76dj2432z,bafyreick6w4aepkbyh5poevae77rveflo26ad4hjctllc7le5bcxcfmjte,evirgen.bsky.social,Gencay K. Evirgen,"Bluesky'da profil isimlerinin, alan adlarını desteklemesi çok akıllıca. 
+
+Örneğin, şirketler, resmî kurumlar, partiler direkt kendi alan adları ile yer alabilirler. 
+
+Böylelikle, gerçek hesap mı trol mü alan adından rahatlıkla anlaşılır.",2023-04-25T23:14:21.446Z,0,0,0,0,MU
+at://did:plc:hdbufxdarnaluujazzcyk7ih/app.bsky.feed.post/3ju5ssfo2yf2p,bafyreibnsfcmiyezjtqurs4y3gvhz5kkwasvpaifhznrn76levzt5uc5mi,euenzo.bsky.social,enzo 🐻,"Paul i never ask this but, can you give me one simple code? I really want mu best friend here",2023-04-25T00:27:36.217Z,0,0,0,0,MU
+at://did:plc:k6ztrdldtfyffw7tigmx7uy3/app.bsky.feed.post/3ju5j5l35r22v,bafyreien6zx4ci7j5yukxs66gyikcfj5ys3d2bo25t7qrrlinndjnj63dy,omeru.bsky.social,Omer,"yok abi ben facebookta liverpool ulku ocaklari falan doneminden beri sosyal medyayla alakam yok hic, iki tane cok yakin arkadasim + 4chande /lit/, /mu/, /fa/ biraz da /g/de takilirdim sadece. burda o havayi yakalayinca sardi gibi ama biraz daha populerlesince kacar o hava, ben de birakirim gibi:D",2023-04-24T21:34:54.278Z,1,0,2,0,MU
+at://did:plc:f64o7ptonklrzn4mh7vy445b/app.bsky.feed.post/3ju5eyx42an2b,bafyreih3bvdqykh5bji77yjmirshjm7jagvommernr42oczn5e6f4hxf5i,msafaksari.net,Mehmet Şafak Sarı,Aslında çok basit burada bu işlem. Acaba biliyor mu @vedat.bsky.social bey bu özelliği?,2023-04-24T20:20:43.720Z,0,0,0,0,MU
+at://did:plc:h4cvsl6ggxuqb3lcfoqctybu/app.bsky.feed.post/3ju567gzngg2x,bafyreic4yysb6hjz6w6rn7tw7yjbehci4qulcvezugbyntuntryy7aymhu,tuncaogreten.bsky.social,Tunca Öğreten,Burada olmuyor mu onlar?,2023-04-24T18:19:05.955Z,1,0,1,0,MU
+at://did:plc:sf3tk2ovrgo5wk57jeg5io2k/app.bsky.feed.post/3ju4ydz3dux2t,bafyreigv2ulaard5n553avt2oxkdjmi6yel3payusz4s76kydq4e7dbyhm,mertsusur.com,Mert Susur,"Sanirim bir adim daha geriye atip daha buyuk bakiyorsun, ben biraz daha isin uygulamasindan konusuyorum 😅 
+
+Tam olarak argumanin karar verme ve birlikte ilerleme ile ilgili sorun mu abi?",2023-04-24T16:34:16.563Z,0,0,1,0,MU
+at://did:plc:vwexjdq4h2g4xxfizlsv2kic/app.bsky.feed.post/3lbcvc4wqle2r,bafyreihz6vsovtdaos5pkvhee27zipqgxmrkqlni7mnn53xhkqc2qt2hhq,matorihipster.bsky.social,Matori Hipster,"Igor Vuk Torbica se za kratko vreme koje mu je dato, svrstao međ velikane našeg teatra.. hvala mu za ove dve predstave koje sam odgledao 22 i 23.04. u SNP u Novom Sadu",2023-04-24T05:47:47.000Z,0,0,0,0,MU
+at://did:plc:4o35h6ba46kcosz6lqdffpvu/app.bsky.feed.post/3ju3mjbjkie2s,bafyreib7b7sap7mof56hirzsuvrm5fiuahxmpmqwpm2ptevcchzsamfn5e,kimupe.bsky.social,kimupe,"フォントは個人的に「源柔ゴシック」が好きです。
+「MaruGo-AA SR」も好きです。あと、好きなのは「ナウ-MU」や「ゴナUB」です。",2023-04-24T03:29:48.696Z,0,0,0,0,MU
+at://did:plc:hkegjezerbdvpnoakjw4qfzl/app.bsky.feed.post/3ju2kyuaeuf2p,bafyreieeinjwbdnkt2mzedzrih7sbuzm32hjohrmde45nqrtgaxct2w5ky,kasim.bsky.social,Kasım,biz de her gün flood mu yapsak,2023-04-23T17:30:04.202Z,1,0,1,0,MU
+at://did:plc:f64o7ptonklrzn4mh7vy445b/app.bsky.feed.post/3ju263d2mum2g,bafyreichiw7fzxo7qt7cqwjijyydanlhcf26s4jwnxo7sno62q3zvcssoi,msafaksari.net,Mehmet Şafak Sarı,Selfie çeken Şehzade heykeli duruyor mu hala?,2023-04-23T13:38:48.101Z,0,0,0,0,MU
+at://did:plc:7bo3bipb4qeg43bm5v5oawlu/app.bsky.feed.post/3ju24oxrlrq2s,bafyreiemw64oeglsxq4w6dt344tbx7axtiy46ducduh7vurzfifeeorb2u,turgut.bsky.social,Turgut Yeter,"Elon Musk’un kafasi cok karisik. Twitter TikTok gibi mi olmali, Instagram gibi mi, SnapChat gibi mi, troll ordusu mu, conservative eco chamber mi…? sanirim 44 milyar dolarlik oyuncak yakinda elinde patlayacak",2023-04-23T13:14:00.215Z,1,0,1,0,MU
+at://did:plc:rgatovbysisrr4wi47zmpm4c/app.bsky.feed.post/3jtzcaek2xl2s,bafyreiareujpk3aylropfxxz34gl3y245mirxuppkf3ujbfww2v7qjyvpi,giseledoabducao.bsky.social,abduzida 🛸📖,"tenho a sensação de que o bluesky só vai render mesmo e desbancar o cuiter se apresentar alguma novidade pra despertar o interesse das pessoas. pq é aquele ditado, pra que trocar 6 por meia dúzia? eu quero me ver livre do el0n mu$k mas não sei se pra geral isso é suficiente",2023-04-23T05:20:32.090Z,2,0,0,0,MU
+at://did:plc:tqzkyslsecvs5r6tmj72fmkm/app.bsky.feed.post/3jtzbvsqdss2p,bafyreihx345gvnzggr5qau6dccstuzntzzhhm2tox6roewdyfnq446dddi,soulreaver.bsky.social,Soul Reaver,"Bize bitcoin ver abi diyen oluyor mu, su site Turkiye'de kurulsa bu nick ustunden alacagin en sIk mesaj bu olurdu adsfg.",2023-04-23T05:14:38.149Z,1,0,1,0,MU
+at://did:plc:z5xxhxqv6elnjzulyf7t22wk/app.bsky.feed.post/3jtyqfo7pia22,bafyreie77vji7gy7qro3a3xmw6fv6emm3th4yqvfolxmde2sox766g62ha,paper.bsky.social,Paper,"[10/10] 559 Upvotes, 49 Comments, 1 Posts
+https://arxiv.org/abs/2304.08467 cs․CL, 17 Apr 2023
+
+🆕Learning to Compress Prompts with Gist Tokens
+
+Jesse Mu, Xiang Lisa Li, Noah Goodman",2023-04-23T00:01:23.575684Z,0,0,1,0,MU
+at://did:plc:k6ztrdldtfyffw7tigmx7uy3/app.bsky.feed.post/3jtymxp7j3h2e,bafyreia4dlmzosdsp3zzeps2iromtazcopw7rmfv73lwtcs6ecilojwhl4,omeru.bsky.social,Omer,"bro i used to make stuff like experimental hiphop chart for /mu/ and i just realize i didnt listen anything new in a long time, in my feelings rn",2023-04-22T22:59:53.561Z,1,0,1,0,MU
+at://did:plc:wplorqpkercxjo2v4d2s5qwo/app.bsky.feed.post/3jtyjik22w62s,bafyreihjrqdy757aun33piaefmlbezhiptsgnbdceqmjf62aski42eko4i,ugurcelenk.com,Uğur Çelenk,"Aşağıdaki ikisi top 10 listenize giriyor mu acaba?
+- Ersin Dede(Ardanuç) Cağ Kebap
+- Yağ Somonu Konya (Peynirli)",2023-04-22T21:57:43.320Z,0,0,0,0,MU
+at://did:plc:dmifjlm5i55diendrjklnntr/app.bsky.feed.post/3jtyiocvxcd2b,bafyreienpevk7i4sbk2pck4bmf5tid3dendpcx3rgk3zhwrrj2vwcmpeyq,eserunsalan.bsky.social,Eser Ünsalan,Humm peki etkileşim istiyor mu? Sadece süre mi?,2023-04-22T21:43:03.353Z,1,0,1,0,MU
+at://did:plc:k3hu4glqaehrvdww4gg2dsao/app.bsky.feed.post/3lfg5cnqmkw2n,bafyreia4aaij3xmzmjghcro5hsg3jlh3afzfakny6scnwqp2zgj3sufvm4,ozgurozturk.net,Özgür Öztürk,Beyin yetersiz kalıp bacaklara gerekli komutları iletemiyor mu acaba? Ben gün içinde bunu düşüneceğim. Bakalim,2023-04-22T08:20:55.000Z,0,0,0,0,MU
+at://did:plc:s37yg35eh3qa3fhhxkrnnyxb/app.bsky.feed.post/3jtwdks53qc2c,bafyreicltqql3ke2gtyp4xkfgdvto5imkztbpe2vwxr7ughpvxlmxntjeu,cihann.bsky.social,cihan,gpt4.5 mu geliyormuş?,2023-04-22T01:06:17.276Z,1,0,2,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcauyzpij42x,bafyreieiyrwzuvg6wgcnia22ya7q3hncuqgloktribgx7qofjfbcdhkxta,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""Mu - murder,"" she said. ""Killing my older brother and butchering the servants. Burning my family home and destroying all we had left. Conspiring with a demonic cultivator and committing every evil under the sun.",2023-04-21T20:17:57Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcacvdxo6t2r,bafyreidid3fd4igdryysxsob6bty7hwhb4nkmztvwje46jhnlycye6ygiy,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"SJ had been living alone for ten years when Binghe met him, his parents having died when he was only fifteen. They had been poor people, barely even considered farmers since they only had a couple of mu in rough land to spare, and no livestock save for a few chickens.",2023-04-20T20:16:10Z,0,0,1,0,MU
+at://did:plc:vtr73l5tbii2ngxyscc2csek/app.bsky.feed.post/3jtt4ekmlvk2w,bafyreiacmdqa7zd6eiya7ippolopog54hhoai2ws735q4lpgvxwy2c4odm,hiago.bsky.social,hiago ✭,o 3lon Mu$k detonou a rede mesmo ne chocado,2023-04-20T18:19:32.620Z,1,0,0,0,MU
+at://did:plc:evncsa2jdfnscb2bkq6rhz7t/app.bsky.feed.post/3jtqvjjcnia2f,bafyreiffgcmbvqjidfxkvvpwfk5eiorwmm6cckqoyqywbdc5cis6r57k24,evren.bsky.social,Evren Tan,"Bu bluesky’da mavi tick filan olacak mi? Tamam AT protocol var da n tane de Evren var, mesela evrenta.com mi benim evren.com mu?",2023-04-19T21:11:43.389Z,0,0,0,0,MU
+at://did:plc:l5s7qkgrczh47vz4edrwtlik/app.bsky.feed.post/3jtqrquso4x2v,bafyreier54nhlnr7fqbppyt3tfh2e2db4ipbg3qhuc6m57erjrnmrgo6cq,ilgaz.bsky.social,Abdullah Ilgaz,Bir pnpm install her şeyi çözer dediler abi olmuyo mu 😂,2023-04-19T20:04:15.078Z,1,0,0,0,MU
+at://did:plc:uh4buza4hgdprwmudmxb6ztg/app.bsky.feed.post/3jtqrd6k7vp2v,bafyreigvt2flun5es7e5kys3tptbugx26tkdn37xjzhaiitpof2uk64gdm,onur.bsky.social,Onur Aslan,Vue mu react mı diyerek blueskyin ilk yerli framework tartışmasını başlatıyorum. Tartışmaya katılan sayısı 0 😂,2023-04-19T19:56:29.114Z,0,0,2,0,MU
+at://did:plc:fyy7xotogoxewx2wdzsjnmr3/app.bsky.feed.post/3jtpcks7ecg2r,bafyreifhswydhmgp5cvhcjgrfqblgjyey2kharvbbnpuekkqeghd74gafm,tarkan.bsky.social,Deniz,Türk yok mu burada azıcık insan takip edelim aq. Kendi kendimizle konuşuyoruz resmen,2023-04-19T05:59:44.594Z,1,0,1,0,MU
+at://did:plc:7jdnypyo2fjrrer5gtskyi5i/app.bsky.feed.post/3jtoj25zjix26,bafyreial5css7z3i6eujbk63r4kokgfpbxpxzvwg2szj742dujaamoca7q,celik.bsky.social,Serhat Celik,Abi olur mu burası ne diyosun?,2023-04-18T22:23:03.579Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbsjtjbfb2b,bafyreifojl47bd6j2phkrw3juxkexoeew2hzlmsvbiy74pxactanbftj64,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"SJ had been hoping to be left alone so he could sneak to the section where the Peak Lords were seated and see what Qi-ge and Mu-shidi were up to, but if his time away from Cang Qiong had done one thing, it was make him a familiar name among many cultivators, and he found himself",2023-04-18T06:46:28Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbkjvvhjg24,bafyreidouhq4kfwnfq3ghxx3mmnfi6bkxspq3ezgmhedamhk4bdllycjua,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Had the Lius really invited the entire jianghu for their son's wedding? Yes, all of the Peak Lords had come, even if only Qi-ge and Mu-shidi were playing a real role in the wedding, but that was because one (okay, two) of their own was getting married.",2023-04-18T05:47:21Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbjf4vwez2b,bafyreif7btifxirukpngqyojejjokv26odjualseixyh3imhtp2ykhlpje,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""Yeah,"" SJ huffed in embarrassment. It definitely wasn't the heavy hair accessories that had him lopsided, not at all...
+
+He held onto LQG's arm as they walked back down the stairs and towards his bridal sedan, Qi-ge and Mu-shidi standing to the side now that their part was over.",2023-04-18T04:51:58Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbhnxbze62x,bafyreidiw2tgywnm7qs4vog2dxlbovpdobnbx4rdx3bjjym475xifs3diy,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Qi-ge and Mu-shidi, dressed in full regalia and acting on SJ's behalf, refusing to allow LQG to pass until he proved trustworthy in their eyes.",2023-04-18T04:51:52Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcb3cnp4xk2x,bafyreih7dd4m2xata6mzsbdjknhwbxfiewxd72b37cbggvsnmqwizwgqgy,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"After that came the Qing Jing Peak Lord, then Wei Qingwei, and so on until they went to Qian Cao and Mu Qingfang looked positively smug at receiving his cake while weeding out in the gardens with his disciples gawking around him.",2023-04-18T03:40:49Z,1,0,1,0,MU
+at://did:plc:f3bdmeaszrot73hx74e42rge/app.bsky.feed.post/3lbbczp24xl2m,bafyreih27ba45luvwv7rilcdud5utpdhlzelekm23w6vtvxnd3mjgazexi,sigridneuhauser.bsky.social,Sigrid Neuhauser,Schmeckt aber nach nicht viel. Viele kennen einen nahen Verwandten des Judasohrs aus dem China-Restaurant: Auricularia polytricha wird als Mu-Err oder irreführend als „Chinesische Morchel“ häufig verwendet. Mit den echten Morcheln ist das Judasohr allerdings nicht verwandt.,2023-04-17T03:49:15Z,0,0,0,0,MU
+at://did:plc:ilvd3vgwyyya7pmnwx4vvl3w/app.bsky.feed.post/3jtjs627hec2a,bafyreigabk5mwwm57gxagpz2c675llzv7sxcyqbthvu5mt5eb23hsq2p5u,batuhankaya.bsky.social,Batuhan kaya,"@jack.bsky.social Abi hani yok mu ilk gelenlere mavi rozet mozet bişey, ayağımız alışırdı yani :(",2023-04-17T01:22:59.079Z,0,0,0,0,MU
+at://did:plc:5r76me2ldrl2bk76ir34tb3y/app.bsky.feed.post/3jtif2orht22h,bafyreigizxc2k4wtvzlnbgzwoydnmi3imeiaaomrwa5dnwnzxu2isaztrq,mats-box.com,松浦はこ🗓ネムキで暦擬人化連載中,"ありまるさんはどこかでドメイン契約ってされてます？？
+（私だと、ムームードメインというサービスて、mu-tenka.comというドメインを月額や年額で契約しています。個人のホームページに割り当てています！）
+それがわかれば、ドメインを管理する画面があるので、そこから設定できます！",2023-04-16T11:55:48.018Z,0,0,1,0,MU
+at://did:plc:kgpqgda4ojbemlyktn2gikh3/app.bsky.feed.post/3lf653excwt2w,bafyreiehecytja24jqolgi27fu33o6m5pqnfsn3rz2cgan6npslxu46d7e,aemreusta.bsky.social,Emre,"birşeye mühendislik demek için bazı gereklilikler yok mu? prompt mühendisliği, prompt engineering... nasıl oluyor mühendislik bu? yoksa dedik oldu bitti mi?",2023-04-16T10:40:30Z,0,0,0,0,MU
+at://did:plc:ilvd3vgwyyya7pmnwx4vvl3w/app.bsky.feed.post/3jtgvth3y7p2s,bafyreihxlujnoebey37dcx5jx632udjt7fosknkzd4vbyjcehtztxqpy2q,batuhankaya.bsky.social,Batuhan kaya,Birkan abiyi gören oldu mu? İçerdeyse elden ele bi haber uçuralım kendisini locada bekliyorum,2023-04-15T21:50:38.999Z,0,0,0,0,MU
+at://did:plc:kmlgibzjs5b3d53fchyiu6iv/app.bsky.feed.post/3jtgn2bwfqc2m,bafyreiesrkf46gf5aoq734tepv7lplxmnpsawp3tra6szlmasxqvjt2kui,simabaktas.bsky.social,Sima Baktas🦋,Dad&Son mu lovely cats 🤗 #cats,2023-04-15T19:13:24.833Z,2,0,0,0,MU
+at://did:plc:o5fc6k6rbzfgquq2scymuye7/app.bsky.feed.post/3lbpgnwdigz2h,bafyreibyntgnfhlfa3dhgcwy727zb2s5ptt2xo2jyoad54h3mxxqge4qg4,patricia75.bsky.social,patricia75,"Exposition ""Matisse Cahiers d'Art -   le tournant des années 1930"" au mu...  via @YouTube
+
+youtu.be/HJnKzEBX9sM",2023-04-15T07:09:24.000Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbyjlkgo62x,bafyreiajer5hdiwatdf5cab73o6m6lvd6t6ilg5yzxbb3ujugixuqita3m,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"He wasn't even one of the future Peak Lords so he didn't know why he was so nervous. And yet, when Mu Qingang, wearing a gorgeous set of green and gold robes, smiled and waved him over, SJ nearly bolted out of the hall rather than go over and greet him.",2023-04-15T01:20:34Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbw7v64cd2y,bafyreicvwf4tv76j5atlc62xfnzfe56dnz2foxn7f7ylnir7nrn5wmk3qm,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"SJ smiled. ""I found how I can piece together a solution, yes. Though it'll be Mu-shidi doing most of the work; he's the real doctor here. But I think we'll be able to heal Qi-ge's soul from now on."" He laughed wetly.",2023-04-15T01:20:26Z,0,0,1,0,MU
+at://did:plc:bjgmsu5nq4cjsn26e732orln/app.bsky.feed.post/3lbjqoz3san2i,bafyreiduwmwqwq5fed76fbvdoxe624gzvzpgl7cidwwip45sviwhf5zcti,tresillonba.bsky.social,Tresillo y NBA,Mu loco lavine,2023-04-15T00:37:53.000Z,0,0,0,0,MU
+at://did:plc:o5fc6k6rbzfgquq2scymuye7/app.bsky.feed.post/3lbpgntafc527,bafyreidumwxdgtzdlkoiyqqq4ublxcjpjyas7a4kue3pequux7vbecnufq,patricia75.bsky.social,patricia75,"Henri Matisse,  révélation dans la crise. Exposition Cahiers d'art au mu...  via @YouTube
+
+youtu.be/9UO3k2ZoDfQ",2023-04-14T15:37:41.000Z,0,0,0,0,MU
+at://did:plc:k6smocqolut2ohpdggtv5ttd/app.bsky.feed.post/3lafcirfooc2a,bafyreid3u6ves4bqizovmlqqelolfajuhovcprbhvbxlrrzc7sj25h7rmu,burlveneer.bsky.social,Bill Barnett,Boris Boublil : Mù - 93 Manifesto - instrumental chamber rock from 9-piece band (Carton Records) https://cartonrecords.bandcamp.com/album/93-manifesto,2023-04-14T15:14:06Z,0,0,0,0,MU
+at://did:plc:yumkdkusioq7c2vzj4bif467/app.bsky.feed.post/3jtdjmhwftj2a,bafyreidchyfrylqecfnorgtk7rrxk3ubizlbkzjvlmpvfsefq3j6iiidae,untiltrees.bsky.social,adventure box and the power of seagull,"how do you pronounce ""mu"" (the non-dual kinda answer)?",2023-04-14T13:34:00.983Z,4,0,7,0,MU
+at://did:plc:5bxelkqzxeyn5td7ytaj4tnc/app.bsky.feed.post/3jt7jn3r6sz2o,bafyreibhgkp3gtnbofzkwvltynid4edmaxon34qfojrmolcklz75vweis4,tomben.bsky.social,Tom Benninger,"Since I don’t have anything specific to talk about right now, some observations on joining the service ￼ based on very limited experience and research (I haven’t had time to dig in mu￼ch since I received the invite.)",2023-04-12T23:23:43.012Z,0,0,0,0,MU
+at://did:plc:o5fc6k6rbzfgquq2scymuye7/app.bsky.feed.post/3lbpgnfomgn27,bafyreigygifcuirmkdvn6ewycvndazqmimn4yf7wecm6ggolzqdhme3qmm,patricia75.bsky.social,patricia75,"Sarah Bernhardt via L'Officiel des spectacles @lofficiel :
+
+offi.fr/expositions-mu…",2023-04-12T10:12:39.000Z,0,0,0,0,MU
+at://did:plc:t72trxhoe3mlofxzinxxktdh/app.bsky.feed.post/3lbmn3qvr4r2x,bafyreibuxxmbbkz3qhafemagmzfzjnannnzisci76hgzg6dgvibx7htuwq,piotrss.bsky.social,Piotr Sielicki,"Chińczycy powinni mu dać medal.
+Nic tak bardzo nie zaszkodziło sprawie Tybetu w ostatnich latach/dekadach ...",2023-04-12T07:23:35Z,0,0,0,0,MU
+at://did:plc:lknwu6ehkjiugohf337vmkry/app.bsky.feed.post/3lb3liajqcx2t,bafyreicz3ujhyfn3eav4x657exps4mu4ywu2h3mur7jgsll2qlrb7al2pu,antoniosanzalc.bsky.social,Antonio Sanz,"Una de las cosas q más le gustan a los joputas q están dentro de tu infra (sobre todo #ransomware) es que todos tus equipos tengan la misma pass de administrador. Vale, que así se administra muy fácil todo y no hay que usar un domain admin, y que gestionar eso es mu difisi (1/n)",2023-04-12T06:04:24.000Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcc6je3ktq2x,bafyreig4ujh6albgkajtnoc5iauroivdl5bv5kvsa5xcwshmhsw65wreku,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"The healer hurried up his steps. ""It's just gossip, hearsay. Nothing to worry yourself about, really - ""
+
+""Mu Qingfang, you come back right here - ""
+
+*",2023-04-12T04:39:26Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcc3e4b65p24,bafyreibhm2knmleeibdu3jvownntfbmhxfxuhymrclogcqno65kzrkmq7u,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Without the older boy's sanguine attitude and sensible ways, SJ would have probably stayed petrified of doctors forever. But Mu-shidi had always been good to him.",2023-04-12T04:07:50Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbyjmjjx722,bafyreibtnsn5o746vlprrxpjvujbpjpyjg3wcoc6s5b2p4so6rjhy4a4le,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"LQG buried his face in his hands and groaned.
+
+He just... didn't want them to _only_ be best friends forever, you know?
+
+*
+
+""Is there something on my face?"" SJ said.
+
+""Huh?"" Mu Qingfang blinked at him in surprise. ""Of course not; what makes you think so?""",2023-04-12T04:07:46Z,0,0,1,0,MU
+at://did:plc:xaog6il4ivbx6unyatgzfvaw/app.bsky.feed.post/3ldhb6hzrch2a,bafyreihybxyzumiuz7gqp3zgcrsx6rhgnndxw5aiowwegs3knik7kaflbi,nebraskaexaminer.com,Nebraska Examiner,"Two Sarpy County boys slain by a serial killer in 1983 will be memorialized with a monument for crime victims to be unveiled April 25.
+
+From @paulhammelNE
+
+nebraskaexaminer.com/briefs/boys-mu…",2023-04-11T22:32:30.000Z,0,0,0,0,MU
+at://did:plc:enx6s5sh3xaip4digs3wnqy3/app.bsky.feed.post/3jt4ty2myok2p,bafyreidb6zu25nobn43xto55tevjfr7slniuwhxc66vqx7jl4ybbgnlgeu,thirteen.bsky.social,thirteen,this is what el*n mu*k took away from us,2023-04-11T21:48:10.060Z,3,0,0,0,MU
+at://did:plc:jq7vpu6d326pzr77bfx7obvj/app.bsky.feed.post/3lafwzavojl2f,bafyreiapfnblqbukzi7imo2x4ptrixapfd6p7b3pjy2zyoblbkuciscpmi,es5nhc.ee,Tarmo Tanilsoo,"Aitäh, Postimees, et meelde tuletasid, miks paberleht käib minu kodus ainult selle pärast, et mu vanemad seda tellivad. Minu rahakott jääb sellele ajalehele suletuks.",2023-04-10T12:00:25Z,0,0,0,0,MU
+at://did:plc:3ridrxy5x7ag7i3jp2uegcmb/app.bsky.feed.post/3lbof7alpfe2j,bafyreihoeetwjaidyz655xagrrt7cqjlzrpt4bosarmo7cewsadbjiz4xe,baptistepetit.bsky.social,Baptiste PETIT 🇨🇵,"I was so fucking horny today after my workout. I was all in sweat, smelling good and ready to shoot all my load under the shower. Come see the video on mu fans site.",2023-04-10T08:55:00.000Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbwj3vssw2x,bafyreieyyhya2zpnqh3jlpf4b24cpd42onrgfnsgfvbyj2v5e3p32tlaca,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"(Just like before. Okay, not quite.)
+
+*
+
+""Mu-shidi, do you not have a cane around for people to use? Qi-ge, hold onto my arm for now. I'll just have to escort you back to Qiong Ding myself.""
+
+""Xiao Jiu is the best,"" YQY praised SJ, the boy beaming back in turn.",2023-04-10T05:10:38Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbsjvdygb22,bafyreife6pkvsbqju7mpsg5cl3ce7xko777ipwy232zqruzakrcmkodzwe,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""Mm. I thought about it."" SJ smiled with deep shadows under his eyes; he hadn't slept since his return to Cang Qiong at all. ""But he's stable now. Mu-shidi said he'll watch over him, so I thought I might as well get some sleep and come back here.""",2023-04-10T05:10:30Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcahtm2agm2p,bafyreihwny4zomnaw4qeuxu5gsa4zatqqc65yb7obibimkqdlhpog4r2fu,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"It was if his soul had already given up, and his body would soon follow.
+
+It couldn't end like this for Qi-ge. Not like this.
+
+On the first day, Mu Qingfang had told SJ how YQY had been involved in the Siege of Bailu Mountain against the heavenly demon ruler Tianlang-jun.",2023-04-10T03:58:09Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcckkf3ih725,bafyreic7rbb5ysa4dtkixkjszt6salx5m5l7xmbckju66agietjqsmwg4a,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""Please, Mu-shidi,"" he said frantically. ""I'll never ask for anything again. I just want to see him - """,2023-04-09T22:36:54Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbiaglrfj2y,bafyreiescdmsxvswpxryqdbhzslt6o5xfv2nxkn4kw23th6h7xob3hfjqe,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Old, she said, as if she didn't look a day over twenty despite being nearly a hundred years old. Being a talented spiritual cultivator and a former Qian Cao healer (she too, was a Mu, and Mu Qingfang's paternal aunt) would do that to you.",2023-04-09T20:29:57Z,0,0,1,0,MU
+at://did:plc:jq3v2n4hspa5njldp6u7ndh5/app.bsky.feed.post/3lbrdg7giwj2j,bafyreigbuw4ukzspqr3xwxxwrfhl2zrcxwtyq2rgmrb7zr4m3xl4zhvbie,beril.bsky.social,Beril,"Arkadaşlar evet doğru duydunuz ama seçilme şansım sıfır değil eksi 😂 Anı olarak kalsın, olur mu ✊💖",2023-04-09T16:39:02.000Z,0,0,0,0,MU
+at://did:plc:kgpqgda4ojbemlyktn2gikh3/app.bsky.feed.post/3lf654dk4x32d,bafyreihwsf64djq5vul3mqs327zzzgy6snrrpddpiyhhcfnl3s73r74dee,aemreusta.bsky.social,Emre,"potansiyel risk var ne? terminatör mü izlediniz toplantıda:D
+https://t.co/ppv9YNEx8i",2023-04-09T14:25:01Z,0,0,0,0,MU
+at://did:plc:ly25iyro2h6gxlrs4do2rzf4/app.bsky.feed.post/3lbse3zbcz72r,bafyreiaggc4h4kd4qcydl6noi5j4tcr6cvrog7pmdier4rggs2b7dfpvle,fluistan.bsky.social,fluistan,"“Yasemin kokularından bir ışık sokaklarda
+Gittim denizin lacivert bahçesine oturdum
+Ölümün mü hecesiydim yaşamın mı bilmiyorum”
+Şükrü Erbaş",2023-04-09T06:11:53.000Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbysv2x5u25,bafyreihrqvi3pxesjtssqxh4tzj6ydu474gvbcvb6cqesxzmqmu47fumpi,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""Mu-shidi says you shouldn't cultivate for at least a month,"" LQG said, unable to think of anything else to say. ""Your meridians are under a lot of strain right now, and...""
+
+""Okay."" SJ just closed his eyes and sank back into bed, not saying another word in response.",2023-04-09T05:08:24Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcbsjwkvg52f,bafyreigygitqce5uwfgo37m2wwpmtdtny7dbltrfifdnlriton3z2copwm,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Mu Siwen - Mu Qingfang, now, was tending to him, kneeling over the pale, frail boy lying in bed. LQG silenced his steps and approached the bed with growing horror...",2023-04-09T05:08:08Z,0,0,1,0,MU
+at://did:plc:pkvvkdd4b5hjbj6p2iag4nr2/app.bsky.feed.post/3l6zkzim72f2g,bafyreidxrmrsbmxhwa2wdd5fhrgrjyz53pp2gy25obqqiaeufcuncjp2zq,rmacd.com,Ronald MacDonald,deagh shìde mu dheas ,2023-04-08T08:52:34Z,0,0,0,0,MU
+at://did:plc:kgpqgda4ojbemlyktn2gikh3/app.bsky.feed.post/3lf654mqfm625,bafyreih3dmws5ldsldmslr4ym2qvp4f3rdtww4dy2br2r44ztdbdtqrnzi,aemreusta.bsky.social,Emre,negatif olup her şeyi zorlaştırdıktan sonra beni konuşturmayın demeleri yok mu? çözüm aramaktan çok problemi anlatıyor. ağzımı açasım gelmiyor böylelerini görünce. içim sıkıldı.,2023-04-07T11:21:56Z,0,0,0,0,MU
+at://did:plc:jq3v2n4hspa5njldp6u7ndh5/app.bsky.feed.post/3lbrdfn4h3b2b,bafyreiczlmowxtr2aspjuptdtgpjkwf7uf7oexgml2os7ciwavwg3w52ii,beril.bsky.social,Beril,"Şu oyunun gerçeğini yapan köşeyi dönecek. Büyük bir heyecanla girip indireyim diyorum; abuk sabuk çiftlik,otel oyunları çıkıyor. Oyun mu reklamdan alakasız, reklam mı oyundan alakasız anlamadım gitti.",2023-04-06T20:24:05.000Z,0,0,0,0,MU
+at://did:plc:k3hu4glqaehrvdww4gg2dsao/app.bsky.feed.post/3lfg4xhk7322d,bafyreigktlm5qq2gpuexqzbiw2e4fs34ws4xq3tpig3r3jgoywvqr42qfm,ozgurozturk.net,Özgür Öztürk,Öncelikle şunu diyeyim. Her şeyle dalga geçilir o işiniz çizgisini cekemezsiniz. Fakat dalga geçtiğimiz ya da söz ettiğimiz mevzu bu mu allah aşkına. https://x.com/kayali_numan/status/1643930119856181249,2023-04-06T13:29:46.000Z,0,0,1,0,MU
+at://did:plc:k3hu4glqaehrvdww4gg2dsao/app.bsky.feed.post/3lfg4wtrgjf2n,bafyreibbcav2y3yyobmey2osa5wq4wffwhzjzk4ii763fxch5ghvtevp4a,ozgurozturk.net,Özgür Öztürk,ahjskgdjkgasjkflgjsaş lan az mı kazanıyorsunuz çok mu bir karar verin ahajkhjaskhsakşa https://x.com/polatankrrra/status/1643905405452468228,2023-04-06T09:17:39.000Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcckkftc5k2p,bafyreiaywvbre4lwkl5pl6iaocm5l7ggp7km6v4dyy2ttojtruu6jwahci,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"SJ swallowed his rage and tried to stay calm; there was no point making a scene and getting kicked out of the tent at this point.
+
+And then another Qian Cao disciple came in. ""Mu-shixiong, I have his sword with me. Where do I put it?""",2023-04-06T02:12:24Z,1,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lccjy4ilw22r,bafyreiahci7hgjg6kcn3qwhx7af4lwssggxeyfz4d6x3gbhvlnziu35tkm,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Shen Jiu ran to the Qian Cao tent at once, where thankfully Mu Siwen was the one attending to his cousin.
+
+""Oh, Shen-shixiong."" The youth smiled wanly at the sight of SJ. ""Don't worry, he'll be alright. More embarrassed than anything at the outcome, I think.""",2023-04-06T02:12:22Z,2,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lccd4l3hoo2x,bafyreidssn7yd3b5yp3zoo3p75i3s5o5j373s3ye6fi5n4pp3cosudy5ra,bingjiuwus.bsky.social,Song is old and washed... but that's okay,and an alarmingly green energy tonic from Mu Siwen to help his after-fight recovery go by faster so he could watch the main bracket fights without his muscles trying to devour themselves in hunger.,2023-04-06T01:34:05Z,3,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcc7xguequ25,bafyreigybj2mt2tv2cnsi6hrvr52aywu4pnp7kyxchdi7mlnqmcjdg4g3a,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"""I think I saw Mu-shidi asking after you earlier,"" he said sweetly. ""Go after him, won't you?""
+
+LQG balked. ""Why? Aren't _you_ his problem patient? What does he have against me anyway...""
+
+He walked off nevertheless, muttering under his breath as he did.",2023-04-06T01:33:54Z,2,0,1,0,MU
+at://did:plc:e3vacz6kk4ataouyeidac6h5/app.bsky.feed.post/3laz4ubobci2m,bafyreih43z27vkhlf5lbwlrioa7wl43wpdko37hpg5kavkfnglewsa26xi,robbowley.net,Rob Bowley,"A brilliant inaugural conference last year, the best I've been to in ages.
+
+It'll be even better this year, especially if you submit a a talk 😀
+
+For new presenters, speaker workshops are being organised. Some of the best talks last year were from people who'd never talked before https://t.co/mu...",2023-04-05T22:24:35.000Z,0,0,0,0,MU
+at://did:plc:jq3v2n4hspa5njldp6u7ndh5/app.bsky.feed.post/3lbrdf5hpph23,bafyreicz5bsgnb246uvgilm3lpvv5z3kbchrxbgzlmlqbrmkxkjrnoadiq,beril.bsky.social,Beril,"Hayır en güzeli dev-uxd ilişkisidir sjsjsj Her gün uyanıp; şunu mu yapsak diyip hiçbir şey yapamazsınız. Nereden biliyorum diye sormayın.
+
+t.co/1nixDVx7M0",2023-04-05T15:34:30.000Z,0,0,0,0,MU
+at://did:plc:5jvmntzvec2fgji2vn3rif6z/app.bsky.feed.post/3li7ebkzu5b2t,bafyreiggvrvpnup3twpj3dgw7moex2ogqqnj7dn3gnmdt7tnvf6mnlxby4,iri-robotics.bsky.social,IRI-Institut de Robòtica i Informàtica Industrial,"El passat #8M vam organitzar un mural  #1000raonsUPC amb @FME_UPC on tothom va poder denunciar situacions viscudes de masclisme i micromasclisme. Aquí es poden trobar conclusions de totes les expressions recollides:Moltes gràcies per participar!
+
+fme.upc.edu/ca/noticies/mu…",2023-04-05T11:26:57.000Z,0,0,0,0,MU
+at://did:plc:dd6ej6v7taiooofxokra5ry5/app.bsky.feed.post/3lgfpnkuwu427,bafyreiba37j3kbwwpinrr6ad6yg7dyxsqrdinname6kvea5cywaqevghkm,b5mgipuzkoa.bsky.social,b5m Gipuzkoa 1:5.000,"2022ko ortofotoa ikusgai eta eskuragarri dago b5m-n. Ortofoto hori @geoEuskadi-k  zuzendutako hegaldi fotogrametriko batetik egin da, 25 cm-ko bereizmena du, eta argazkiak 2022ko uztailaren 1etik 18ra atera ziren.
+
+Argazkian, Mutrikuko olatu planta:
+
+mutriku.eus/eu/turismoa/mu…",2023-04-05T09:53:08.000Z,0,0,0,0,MU
+at://did:plc:igcqklsgm24noy7iu6bcdnko/app.bsky.feed.post/3lbveslolkl24,bafyreicgadcxy567iz2xid7667invtuqkmg5ejazefggrhf3zj2lhzm26y,getcaughtliving.bsky.social,Zoë Irene 😷❤️🦈,"La vaca! (Mu)
+La vaca! (Mu)
+La vaca! (Mu)
+La misma vaca! (Mu)",2023-04-04T18:52:03Z,0,0,0,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcd45uwnai2f,bafyreiavsdzhyx54arzviznt7aloslj6icuzboydr7jl677x3my4b4jw3m,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"(Baby LQG aka LMJ and SJ making friends!! Aren't they cute 🥹 also yes, Mu Siwen is Mu Qingfang, and also LQG's cousin aka biaoge. MQF is a little older than LQG so he doesn't mind teasing him haha, though it definitely dies down when they're adults.",2023-04-04T06:37:22Z,0,0,1,0,MU
+at://did:plc:sxy52z5nr4jwti4sa4bxqxrr/app.bsky.feed.post/3lcchy6nn2q2x,bafyreif5cgdatn75iuv3ps3fjcjmunt7marx5bjwgx3yoldplvifdecnk4,bingjiuwus.bsky.social,Song is old and washed... but that's okay,"Sure he could. SJ rolled his eyes and hobbled off, leaving a silent LMJ behind.
+
+*
+
+Two uneasy months passed by before SJ returned to Qian Cao and was deemed by a doubtful Mu Siwen that he was ""tentatively okay"", if not wholly healed.",2023-04-04T05:08:31Z,3,0,1,0,MU
+at://did:plc:ecx6ho2laknvo7xouvj2srbw/app.bsky.feed.post/3jscavmrxz22n,bafyreif7a2hpfxlk2eb57i2roaycbuksie7mfyhyxdnjxd3rs4uebvdimi,chinasunsong.bsky.social,SunSong-孫松🦋,"As the most famous flower viewing place on the west coast of Qingdao, the natural landscape features of Dazhushan Scenic Area are outstanding, spreading 10,000 mu of wild azaleas in the three valleys of Xiugu, Zhushan.🌹",2023-04-01T08:00:13.035Z,2,0,0,0,MU
+at://did:plc:tsk5huy4xspr4ku3smmrhe5k/app.bsky.feed.post/3jtvfa7jdmd23,bafyreifhv7zletw7ci7j6gvz3xalfr2clwbszbhg5tzffh76ekbj5hlv6a,case.bsky.social,Case,Not until the surface area for innovation resembles a micron.,2023-04-21T16:03:29.876Z,1,0,0,0,Micron
+at://did:plc:so2fnehffqkhq34asodug5aw/app.bsky.feed.post/3lban45qfgp2n,bafyreicbe7oyuuakzb2qtkol6c2preze5xmxrcrqc5smrt6gphlukpc2tm,jholston.bsky.social,JB Holston,All higher ed institutions should be responding to the new era of industrial strategy with updated offerings like these: https://www.bizjournals.com/washington/news/2023/04/12/micron-nsf-virginia-tech-uva-semiconductors.html,2023-04-13T12:39:08Z,1,0,0,0,Micron

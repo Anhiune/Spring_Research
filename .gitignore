@@ -1,0 +1,17 @@
+# Virtual environments
+.venv/
+venv/
+__pycache__/
+
+# Credentials / secrets
+config/credentials.ini
+config/praw_example.ini
+*.ini
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.pyc

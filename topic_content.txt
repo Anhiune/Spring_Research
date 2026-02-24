@@ -1,0 +1,69 @@
+Research question
+“Does export-control / geopolitical-risk sentiment increase the risk premium and future volatility for semiconductor stocks, especially for firms with higher China/policy exposure?”
+
+My hypotheses (and the opposite)
+H1 (pricing / risk premium channel)
+When  spikes, exposed semiconductor stocks will have more negative abnormal returns around policy announcement days (and/or show stronger repricing immediately after).
+Opposite / null (H0-1): Policy-risk sentiment is not priced, so it does not explain abnormal returns around events once I control for the market.
+H2 (uncertainty / volatility channel)
+When policy-risk sentiment increases today, realized volatility will increase over the next 1–5 trading days (and possibly the next 20 days).
+Opposite / null (H0-2): Policy-risk sentiment does not predict future volatility beyond what past volatility and market volatility already explain.
+H3 (exposure heterogeneity)
+The effects in H1 and H2 will be stronger for firms with higher exposure to export controls (China revenue dependence, restricted product lines, or supply-chain position).
+Opposite / null (H0-3): The effect is not systematically different by exposure.
+
+My plan
+Step 1 — Pick my stock companies
+I will choose 8–15 semiconductor-related tickers (plus optionally one semiconductor ETF as a benchmark).
+I will group them by supply-chain role (fabless, foundry/IDM, equipment) and assign each firm an exposure score (higher if the firm is more affected by export controls).
+Step 2 — Build a policy-event calendar
+I will create a list of major export-control and enforcement events (BIS rule updates, Entity List changes, license changes).
+This is what I will use for a clean event-study test.
+Step 3 — Collect social text (Reddit + Bluesky) and “clock” policy-risk discussion
+Each day, I will pull posts from:
+Reddit (selected subreddits like semiconductors + investing communities)
+Bluesky (search posts mentioning my tickers or company names)
+Step 4 — Pull stock prices and define the outcome variables
+I will use Yahoo Finance to download daily prices (Adjusted Close) and compute:
+Daily log returns
+Future realized volatility (e.g., volatility over the next 5 trading days)
+Important timing rule: I will avoid look-ahead bias by using sentiment from day t to predict returns/volatility from t+1 onward.
+Step 5 — Empirical tests
+Test A: Event study (pricing effect)
+For each policy event, I will compute abnormal returns and Then I will test whether pre-event policy-risk sentiment predicts the size of CARs, and whether this is stronger for high-exposure firms.
+Test B: Forecasting (volatility and/or returns)
+I will compare:
+Baseline models (lagged returns, market/ETF controls, lagged volatility)
+vs.
+Baseline + my sentiment features
+I will evaluate out-of-sample accuracy (RMSE/MAE; directional accuracy for returns).
+Test C: Lead/lag (information vs reaction)
+I will test whether sentiment leads volatility/returns more than it reacts to them.
+
+Technical: keyword dictionary I will use for scraping/filtering
+1) Company identifiers (I will build per ticker)
+Ticker: NVDA, AMD, INTC, etc.
+Company name: “NVIDIA”, “AMD”, “Intel”
+Key product aliases (examples):
+“H20”, “A100/H100”, “Blackwell”, “EUV”, “HBM”, “CoWoS”
+2) Policy/export-control filter keywords (core for my topic)
+Institutions / regulations
+BIS, Bureau of Industry and Security
+EAR, Export Administration Regulations
+ECCN
+Entity List, Denied Persons, Unverified List
+FDP, Foreign Direct Product Rule
+Policy actions
+export control, restriction, ban, clampdown
+license requirement, license approved, license denied
+sanction, blacklist, enforcement, penalty, compliance
+Foreign geopolitics
+China, PRC
+Huawei, SMIC, YMTC, CXMT
+Taiwan, Taiwan Strait, blockade, invasion risk
+decoupling, reshoring, friendshoring
+3) Severity words (to capture “how serious” the policy feels)
+major, expanded, sweeping, significant, material
+loophole, workaround, circumvent
+exemption, waiver, grandfathered
+Adding Google News/ Trends to scapt as well

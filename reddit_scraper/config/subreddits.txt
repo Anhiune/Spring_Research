@@ -1,0 +1,30 @@
+# Primary subreddits (high-quality discussions)
+semiconductors
+stocks
+investing
+StockMarket
+SecurityAnalysis
+ValueInvesting
+
+# Trading & Algo
+options
+algotrading
+
+# Technology & Hardware
+technology
+hardware
+
+# Company-specific subreddits
+nvidia
+AMD
+intel
+
+# AI/ML subreddits
+MachineLearning
+LocalLLaMA
+
+# Geopolitics & World News
+geopolitics
+China
+taiwan
+worldnews
