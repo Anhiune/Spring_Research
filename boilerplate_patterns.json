@@ -1,0 +1,12 @@
+{
+  "patterns": [
+    "sent from my iphone",
+    "sent from my android",
+    "unsubscribe from this",
+    "click here to unsubscribe",
+    "this is an automated message",
+    "do not reply to this email",
+    "\\[deleted\\]",
+    "\\[removed\\]"
+  ]
+}

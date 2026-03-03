@@ -15,3 +15,7 @@ Thumbs.db
 # IDE
 .vscode/
 *.pyc
+
+# Large data files (exceed GitHub limits)
+bluesky_data/bluesky_all.csv
+bluesky_data/bluesky_all_cleaned.csv

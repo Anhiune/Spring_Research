@@ -1,0 +1,29 @@
+{
+  "cleaning_version": "1.0.0",
+  "timestamp": "2026-03-03T15:32:39.449204+00:00",
+  "input_file": "bluesky_data\\bluesky_all.csv",
+  "text_column": "text",
+  "rows_input": 143340,
+  "rows_output": 135076,
+  "bots_removed": 0,
+  "exact_duplicates_removed": 7654,
+  "near_duplicates_removed": 0,
+  "short_text_removed": 610,
+  "translation_backend": "none",
+  "translation_failures": 0,
+  "language_distribution": {
+    "en": 135076
+  },
+  "settings": {
+    "num_mode": "keep",
+    "model_type": "transformer",
+    "negation_scope": false,
+    "min_tokens": 2,
+    "max_chars": 2000,
+    "ascii_fold": true,
+    "drop_dupes": true,
+    "near_dupes": false,
+    "remove_bots": true
+  },
+  "elapsed_seconds": 80.23
+}

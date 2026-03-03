@@ -365,29 +365,48 @@ def process_comment_data(comment: dict):
 # Saving
 # ──────────────────────────────────────────────
 
-def save_rows():
-    global rows
-    if not rows:
-        return
-    df = pd.DataFrame(rows, columns=COLUMNS)
-    ts_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out = os.path.join(OUTPUT_DIR, f"reddit_pullpush_{ts_str}.csv")
-    df.to_csv(out, index=False)
-    logging.info(f"Saved {len(rows)} rows → {out}")
-
+def _flush_id_files():
+    """Write current ID sets to disk."""
     with open(SUBMISSION_IDS_FILE, "w", encoding="utf-8") as f:
         f.writelines(f"{i}\n" for i in submission_ids_seen)
     with open(COMMENT_IDS_FILE, "w", encoding="utf-8") as f:
         f.writelines(f"{i}\n" for i in comment_ids_seen)
     logging.info("Updated ID tracking files")
+
+
+def save_rows(label: str | None = None):
+    """Save accumulated rows to a CSV.
+
+    If *label* is given (e.g. '2023-01'), the file is named
+    ``reddit_pullpush_2023-01.csv``  (one file per month, enables resume).
+    Otherwise, a timestamped filename is used.
+    """
+    global rows
+    if not rows:
+        return
+    df = pd.DataFrame(rows, columns=COLUMNS)
+    if label:
+        out = os.path.join(OUTPUT_DIR, f"reddit_pullpush_{label}.csv")
+    else:
+        ts_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+        out = os.path.join(OUTPUT_DIR, f"reddit_pullpush_{ts_str}.csv")
+    df.to_csv(out, index=False)
+    logging.info(f"Saved {len(rows)} rows → {out}")
+    _flush_id_files()
     rows = []
 
 # ──────────────────────────────────────────────
 # Scraping round
 # ──────────────────────────────────────────────
 
-def scrape_round(after_val, before_val, do_comments, max_pages):
-    """One full pass over all subreddits × search terms for a given date window."""
+def scrape_round(after_val, before_val, do_comments, max_pages,
+                 *, auto_save: bool = True):
+    """One full pass over all subreddits × search terms for a given date window.
+
+    If *auto_save* is True (default, used in continuous / one-shot mode),
+    rows are flushed to a timestamped CSV periodically and at the end.
+    Set it to False in batch mode so the caller can save with a month label.
+    """
     global _shutdown
 
     for sub_name in subreddits:
@@ -415,12 +434,13 @@ def scrape_round(after_val, before_val, do_comments, max_pages):
                 for c in cmts:
                     process_comment_data(c)
 
-            if len(rows) >= SAVE_THRESHOLD:
+            if auto_save and len(rows) >= SAVE_THRESHOLD:
                 save_rows()
 
         logging.info(f"═══ Done: r/{sub_name} ═══")
 
-    save_rows()
+    if auto_save:
+        save_rows()
 
 # ──────────────────────────────────────────────
 # Month-by-month helpers
@@ -514,6 +534,14 @@ def main():
             if _shutdown:
                 break
             label = f"{year}-{month:02d}"
+
+            # ── Resume: skip months whose CSV already exists ──
+            month_csv = os.path.join(OUTPUT_DIR, f"reddit_pullpush_{label}.csv")
+            if os.path.exists(month_csv):
+                size = os.path.getsize(month_csv)
+                logging.info(f"  [{label}] SKIP — already exists ({size:,} bytes)")
+                continue
+
             after_ep, before_ep = _month_epoch_range(year, month)
             logging.info(f"")
             logging.info(f"{'─'*50}")
@@ -521,10 +549,14 @@ def main():
             logging.info(f"  Epoch window: {after_ep} → {before_ep}")
             logging.info(f"{'─'*50}")
 
-            scrape_round(after_ep, before_ep, args.comments, args.max_pages)
+            scrape_round(after_ep, before_ep, args.comments, args.max_pages,
+                         auto_save=False)
 
+            # Save this month's data into a per-month CSV
+            save_rows(label=label)
             logging.info(f"  ✓ Finished {label}")
 
+        # Final flush in case anything remains
         save_rows()
         logging.info("Batch scraping complete.")
         return
