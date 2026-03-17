@@ -2,6 +2,8 @@
 .venv/
 venv/
 __pycache__/
+*.pyc
+*.pyo
 
 # Credentials / secrets
 config/credentials.ini
@@ -14,8 +16,24 @@ Thumbs.db
 
 # IDE
 .vscode/
-*.pyc
+.idea/
 
 # Large data files (exceed GitHub limits)
-bluesky_data/bluesky_all.csv
-bluesky_data/bluesky_all_cleaned.csv
+bluesky_data/*.csv
+reddit_scraper/output/*.csv
+reddit_scraper/data/
+simple-reddit-scraping/test_data.csv
+
+# Cache and temp files
+translation_cache.db
+*.log
+.cache/
+.pytest_cache/
+test_*.csv
+tmp_*.csv
+*_temp.csv
+*_test.csv
+
+# HuggingFace model cache
+.cache/huggingface/
+huggingface_cache/

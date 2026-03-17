@@ -60,6 +60,10 @@ import numpy as np
 import ftfy
 import emoji
 import pandas as pd
+from tqdm import tqdm
+
+# Enable tqdm with pandas
+tqdm.pandas(desc="Progress")
 
 
 class _NumpyEncoder(json.JSONEncoder):
@@ -286,6 +290,9 @@ def apply_stopwords_lemma(text: str) -> str:
 
 def is_bot_post(text: str) -> bool:
     """Return True if text matches any known bot signature."""
+    if text is None or (isinstance(text, float) and pd.isna(text)):
+        return False
+    text = str(text)
     for pat in BOT_PATTERNS:
         if pat.search(text):
             return True
@@ -628,6 +635,7 @@ def translate_to_english(
     df: pd.DataFrame,
     backend: str,
     cache: TranslationCache,
+    source_col: str = "text_clean",
 ) -> pd.DataFrame:
     """Add text_en column, translating non-English rows."""
     df["text_en"] = df["text_clean"].copy()
@@ -656,7 +664,7 @@ def translate_to_english(
 
     try:
         translated = translate_fn(
-            non_en["text_clean"].tolist(),
+            non_en[source_col].tolist(),
             non_en["lang"].tolist(),
             cache,
         )
@@ -871,20 +879,27 @@ def main(argv: Optional[list[str]] = None) -> None:
 
     # --- Clean ---
     log.info("Cleaning %d rows…", len(df))
-    df["text_clean"] = df["text_raw"].apply(
+    # Preserve original scripts for language detection and translation.
+    df["text_lang"] = df["text_raw"].progress_apply(
         clean_text,
         boilerplate_patterns=bp_patterns,
         num_mode=args.num_mode,
         do_negation_scope=args.negation_scope,
         negation_window=args.negation_window,
         model_type=args.model_type,
-        do_ascii_fold=args.ascii_fold,
+        do_ascii_fold=False,
     )
 
     # --- Truncation ---
-    truncated_mask = df["text_clean"].str.len() > args.max_chars
+    truncated_mask = df["text_lang"].str.len() > args.max_chars
     df["truncated"] = truncated_mask
-    df["text_clean"] = df["text_clean"].str[: args.max_chars]
+    df["text_lang"] = df["text_lang"].str[: args.max_chars]
+
+    if args.ascii_fold:
+        df["text_clean"] = df["text_lang"].apply(ascii_fold)
+        df["text_clean"] = df["text_clean"].str.replace(RE_WHITESPACE, " ", regex=True).str.strip()
+    else:
+        df["text_clean"] = df["text_lang"]
 
     # --- Deduplication ---
     dupes_removed = 0
@@ -911,19 +926,26 @@ def main(argv: Optional[list[str]] = None) -> None:
 
     # --- Language detection ---
     log.info("Detecting languages…")
-    df["lang"] = detect_language(df["text_clean"])
+    df["lang"] = detect_language(df["text_lang"])
 
     # --- Translation ---
     cache = TranslationCache(db_path=args.cache_db)
     translate_failures = 0
     try:
-        df = translate_to_english(df, backend=args.translate_backend, cache=cache)
+        df = translate_to_english(
+            df,
+            backend=args.translate_backend,
+            cache=cache,
+            source_col="text_lang",
+        )
     except Exception as exc:
         log.warning("Translation failed: %s", exc)
         df["text_en"] = df["text_clean"]
         translate_failures = len(df[df["lang"] != "en"])
     finally:
         cache.close()
+
+    df.drop(columns=["text_lang"], inplace=True, errors="ignore")
 
     # --- Cleaning version ---
     df["cleaning_version"] = CLEANING_VERSION
