@@ -1,0 +1,201 @@
+=== NVDA: enhanced Granger / VAR ===
+Primary sentiment column: nrc_net_sentiment
+Reference: Rodriguez-Ibanez et al. (2023), ESWA (temporal / predictive framing).
+Date range: 2023-01-04 00:00:00 .. 2025-05-09 00:00:00
+
+=== NVDA baseline (bivariate) ===
+N observations: 580
+
+--- Augmented Dickey-Fuller (H0: unit root) ---
+NVDA_ret: ADF=-14.9921, p=1.121e-27, stationary@5%=True
+NVDA_nrc_net_sentiment: ADF=-23.7040, p=0, stationary@5%=True
+
+--- VAR order selection (maxlags=10) ---
+ VAR Order Selection (* highlights the minimums)  
+==================================================
+       AIC         BIC         FPE         HQIC   
+--------------------------------------------------
+0      -9.580*     -9.564*  6.912e-05*     -9.574*
+1       -9.571      -9.525   6.974e-05      -9.553
+2       -9.562      -9.486   7.037e-05      -9.532
+3       -9.557      -9.450   7.071e-05      -9.515
+4       -9.546      -9.409   7.150e-05      -9.492
+5       -9.541      -9.373   7.183e-05      -9.476
+6       -9.532      -9.334   7.249e-05      -9.455
+7       -9.522      -9.294   7.320e-05      -9.433
+8       -9.514      -9.255   7.378e-05      -9.413
+9       -9.505      -9.215   7.451e-05      -9.392
+10      -9.505      -9.185   7.450e-05      -9.380
+--------------------------------------------------
+Selected lag (BIC): 1
+
+--- Bivariate Granger (H0: col2 does not GC col1), max lag = 2 ---
+nrc_net_sentiment -> ret_1d:
+  lag 1: F p-value = 0.9768
+  lag 2: F p-value = 0.9046
+
+ret_1d -> nrc_net_sentiment:
+  lag 1: F p-value = 0.9311
+  lag 2: F p-value = 0.8058
+
+--- VAR fit, lags = 1 ---
+  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Fri, 22, May, 2026
+Time:                     13:43:39
+--------------------------------------------------------------------
+No. of Equations:         2.00000    BIC:                   -9.53893
+Nobs:                     579.000    HQIC:                  -9.56650
+Log likelihood:           1137.47    FPE:                6.88126e-05
+AIC:                     -9.58412    Det(Omega_mle):     6.81050e-05
+--------------------------------------------------------------------
+Results for equation y1
+========================================================================
+           coefficient       std. error           t-stat            prob
+------------------------------------------------------------------------
+const         0.004210         0.002348            1.793           0.073
+L1.y1        -0.067765         0.041605           -1.629           0.103
+L1.y2         0.000170         0.005855            0.029           0.977
+========================================================================
+
+Results for equation y2
+========================================================================
+           coefficient       std. error           t-stat            prob
+------------------------------------------------------------------------
+const         0.313072         0.016711           18.734           0.000
+L1.y1        -0.025615         0.296098           -0.087           0.931
+L1.y2         0.014173         0.041670            0.340           0.734
+========================================================================
+
+Correlation matrix of residuals
+            y1        y2
+y1    1.000000 -0.049114
+y2   -0.049114  1.000000
+
+
+
+
+=== NVDA multivariate VAR (+ soxx_ret_1d, spy_ret_1d, vix_ret_1d) ===
+N observations (complete on all series): 580
+
+ret: ADF=-14.9921, p=1.121e-27, stationary@5%=True
+sent: ADF=-23.7040, p=0, stationary@5%=True
+soxx: ADF=-13.7558, p=1.03e-25, stationary@5%=True
+spy: ADF=-13.9453, p=4.81e-26, stationary@5%=True
+vix: ADF=-23.9438, p=0, stationary@5%=True
+
+--- Multivariate VAR order selection (maxlags=10) ---
+ VAR Order Selection (* highlights the minimums)  
+==================================================
+       AIC         BIC         FPE         HQIC   
+--------------------------------------------------
+0      -34.24*     -34.20*  1.350e-15*     -34.22*
+1       -34.21      -33.98   1.395e-15      -34.12
+2       -34.19      -33.77   1.421e-15      -34.02
+3       -34.16      -33.55   1.458e-15      -33.92
+4       -34.12      -33.32   1.526e-15      -33.80
+5       -34.09      -33.10   1.566e-15      -33.70
+6       -34.05      -32.86   1.638e-15      -33.58
+7       -33.99      -32.62   1.727e-15      -33.46
+8       -33.96      -32.39   1.794e-15      -33.35
+9       -33.90      -32.14   1.903e-15      -33.21
+10      -33.86      -31.92   1.967e-15      -33.11
+--------------------------------------------------
+Selected lag (BIC): 1
+
+--- Multivariate VAR fit: ['ret', 'sent', 'soxx', 'spy', 'vix'], lags=1 ---
+  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Fri, 22, May, 2026
+Time:                     13:43:39
+--------------------------------------------------------------------
+No. of Equations:         5.00000    BIC:                   -33.9888
+Nobs:                     579.000    HQIC:                  -34.1266
+Log likelihood:           5827.34    FPE:                1.38270e-15
+AIC:                     -34.2147    Det(Omega_mle):     1.31323e-15
+--------------------------------------------------------------------
+Results for equation ret
+==========================================================================
+             coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------
+const           0.004259         0.002381            1.789           0.074
+L1.ret         -0.053929         0.065965           -0.818           0.414
+L1.sent         0.000161         0.005915            0.027           0.978
+L1.soxx         0.003844         0.134283            0.029           0.977
+L1.spy         -0.118987         0.302336           -0.394           0.694
+L1.vix         -0.005835         0.026828           -0.217           0.828
+==========================================================================
+
+Results for equation sent
+==========================================================================
+             coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------
+const           0.309152         0.016885           18.309           0.000
+L1.ret          0.134902         0.467719            0.288           0.773
+L1.sent         0.023038         0.041940            0.549           0.583
+L1.soxx         0.808803         0.952131            0.849           0.396
+L1.spy         -1.610425         2.143697           -0.751           0.453
+L1.vix          0.215177         0.190224            1.131           0.258
+==========================================================================
+
+Results for equation soxx
+==========================================================================
+             coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------
+const           0.001989         0.001573            1.265           0.206
+L1.ret          0.023044         0.043563            0.529           0.597
+L1.sent        -0.001640         0.003906           -0.420           0.675
+L1.soxx        -0.104908         0.088681           -1.183           0.237
+L1.spy         -0.275360         0.199663           -1.379           0.168
+L1.vix         -0.036395         0.017717           -2.054           0.040
+==========================================================================
+
+Results for equation spy
+==========================================================================
+             coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------
+const           0.001006         0.000714            1.409           0.159
+L1.ret         -0.000998         0.019771           -0.050           0.960
+L1.sent        -0.000330         0.001773           -0.186           0.852
+L1.soxx         0.006813         0.040248            0.169           0.866
+L1.spy         -0.179956         0.090617           -1.986           0.047
+L1.vix         -0.017301         0.008041           -2.152           0.031
+==========================================================================
+
+Results for equation vix
+==========================================================================
+             coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------
+const           0.000337         0.005862            0.058           0.954
+L1.ret          0.074230         0.162381            0.457           0.648
+L1.sent         0.007055         0.014561            0.485           0.628
+L1.soxx        -0.145538         0.330558           -0.440           0.660
+L1.spy          0.606258         0.744242            0.815           0.415
+L1.vix          0.052248         0.066041            0.791           0.429
+==========================================================================
+
+Correlation matrix of residuals
+             ret      sent      soxx       spy       vix
+ret     1.000000 -0.050067  0.777122  0.642588 -0.497278
+sent   -0.050067  1.000000 -0.071599 -0.008907 -0.039968
+soxx    0.777122 -0.071599  1.000000  0.820405 -0.617402
+spy     0.642588 -0.008907  0.820405  1.000000 -0.773532
+vix    -0.497278 -0.039968 -0.617402 -0.773532  1.000000
+
+
+
+
+--- Multivariate Granger / block causality (VAR Wald) ---
+<statsmodels.tsa.vector_ar.hypothesis_test_results.CausalityTestResults object. H_0: sent does not Granger-cause ret: fail to reject at 5% significance level. Test statistic: 0.001, critical value: 3.845>, p-value: 0.978>
+<statsmodels.tsa.vector_ar.hypothesis_test_results.CausalityTestResults object. H_0: ret does not Granger-cause sent: fail to reject at 5% significance level. Test statistic: 0.083, critical value: 3.845>, p-value: 0.773>
+
+Notes:
+  - Granger / Wald tests are in-sample linear predictability, not structural causation.
+  - Multivariate tests ask whether lags of one variable help predict another,
+    given lags of all variables in the VAR.
+  - Engagement-weighted sentiment (nrc_net_sentiment_ew) uses log1p(score/ups)
+    and log1p(num_comments) when those columns exist in the Reddit export.

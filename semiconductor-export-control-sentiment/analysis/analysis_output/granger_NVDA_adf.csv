@@ -1,0 +1,8 @@
+variable,n,adf_stat,p_value,used_lag,stationary_5pct,section
+NVDA_ret,580,-14.992116032195694,1.1213694876857108e-27,2,True,NVDA baseline (bivariate)
+NVDA_nrc_net_sentiment,580,-23.704046882655796,0.0,0,True,NVDA baseline (bivariate)
+ret,580,-14.992116032195694,1.1213694876857108e-27,2,True,NVDA_multivariate
+sent,580,-23.704046882655796,0.0,0,True,NVDA_multivariate
+soxx,580,-13.755836228652203,1.0300608784233643e-25,3,True,NVDA_multivariate
+spy,580,-13.945297566903273,4.809570006876806e-26,3,True,NVDA_multivariate
+vix,580,-23.94381625289775,0.0,0,True,NVDA_multivariate

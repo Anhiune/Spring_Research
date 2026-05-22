@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.quarto/
+.ipynb_checkpoints/
+*.pyc
+desktop.ini
+bluesky_scraper/config/credentials.ini
+bluesky_scraper/output/
+reddit_scraper/output/

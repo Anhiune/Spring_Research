@@ -1,0 +1,17 @@
+# Search terms sent to PullPush API as the 'q' parameter.
+# Keep this list focused — each term × each subreddit = one paginated API query.
+# The full keywords.txt list is used for NLP filtering AFTER retrieval.
+
+semiconductor
+nvidia
+amd
+intel
+tsmc
+chips
+gpu
+tariff
+sanctions
+export ban
+geopolitics
+machine learning
+ai chip

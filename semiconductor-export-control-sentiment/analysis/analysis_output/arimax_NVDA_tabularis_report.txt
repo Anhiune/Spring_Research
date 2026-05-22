@@ -1,0 +1,41 @@
+Ticker: NVDA
+ARIMAX order: (1, 0, 0)
+N complete rows: 580
+AIC: -2786.6044
+BIC: -2751.7140
+Exogenous variables: hf_net_4_lag1,soxx_ret_1d,spy_ret_1d,vix_ret_1d,n_posts_lag1
+
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                 ret_1d   No. Observations:                  580
+Model:               SARIMAX(1, 0, 0)   Log Likelihood                1401.302
+Date:                Tue, 12 May 2026   AIC                          -2786.604
+Time:                        13:05:38   BIC                          -2751.714
+Sample:                             0   HQIC                         -2773.001
+                                - 580                                         
+Covariance Type:               robust                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+intercept         0.0007      0.002      0.372      0.710      -0.003       0.004
+hf_net_4_lag1    -0.0096      0.011     -0.894      0.371      -0.031       0.011
+soxx_ret_1d       1.1538      0.125      9.213      0.000       0.908       1.399
+spy_ret_1d       -0.0381      0.266     -0.143      0.886      -0.559       0.483
+vix_ret_1d       -0.0133      0.022     -0.597      0.551      -0.057       0.030
+n_posts_lag1   5.003e-06   1.32e-05      0.378      0.705   -2.09e-05    3.09e-05
+ar.L1            -0.0734      0.051     -1.447      0.148      -0.173       0.026
+sigma2            0.0005   6.09e-05      7.600      0.000       0.000       0.001
+===================================================================================
+Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):              1640.08
+Prob(Q):                              0.97   Prob(JB):                         0.00
+Heteroskedasticity (H):               1.09   Skew:                             1.09
+Prob(H) (two-sided):                  0.53   Kurtosis:                        10.95
+===================================================================================
+
+Warnings:
+[1] Quasi-maximum likelihood covariance matrix used for robustness to some misspecifications; calculated using the observed information matrix (complex-step) described in Harvey (1989).
+
+Notes:
+  - ret_1d is the dependent variable.
+  - hf_net_4_lag1 is the Tabularis multilingual sentiment feature used in this project.
+  - AR / MA terms capture historical return dynamics directly inside the model.

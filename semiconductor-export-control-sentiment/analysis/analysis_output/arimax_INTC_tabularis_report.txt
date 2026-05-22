@@ -1,0 +1,41 @@
+Ticker: INTC
+ARIMAX order: (1, 0, 0)
+N complete rows: 585
+AIC: -2665.2757
+BIC: -2630.3165
+Exogenous variables: hf_net_4_lag1,soxx_ret_1d,spy_ret_1d,vix_ret_1d,n_posts_lag1
+
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                 ret_1d   No. Observations:                  585
+Model:               SARIMAX(1, 0, 0)   Log Likelihood                1340.638
+Date:                Tue, 12 May 2026   AIC                          -2665.276
+Time:                        13:05:55   BIC                          -2630.317
+Sample:                             0   HQIC                         -2651.650
+                                - 585                                         
+Covariance Type:               robust                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+intercept         0.0005      0.002      0.317      0.751      -0.003       0.004
+hf_net_4_lag1     0.0230      0.016      1.469      0.142      -0.008       0.054
+soxx_ret_1d       0.6111      0.102      5.989      0.000       0.411       0.811
+spy_ret_1d        0.3482      0.260      1.338      0.181      -0.162       0.858
+vix_ret_1d       -0.0096      0.020     -0.483      0.629      -0.049       0.029
+n_posts_lag1  -8.727e-06   3.88e-05     -0.225      0.822   -8.48e-05    6.74e-05
+ar.L1             0.0072      0.053      0.135      0.892      -0.097       0.111
+sigma2            0.0006   7.33e-05      8.102      0.000       0.000       0.001
+===================================================================================
+Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):              1186.03
+Prob(Q):                              0.99   Prob(JB):                         0.00
+Heteroskedasticity (H):               2.41   Skew:                             0.65
+Prob(H) (two-sided):                  0.00   Kurtosis:                         9.86
+===================================================================================
+
+Warnings:
+[1] Quasi-maximum likelihood covariance matrix used for robustness to some misspecifications; calculated using the observed information matrix (complex-step) described in Harvey (1989).
+
+Notes:
+  - ret_1d is the dependent variable.
+  - hf_net_4_lag1 is the Tabularis multilingual sentiment feature used in this project.
+  - AR / MA terms capture historical return dynamics directly inside the model.

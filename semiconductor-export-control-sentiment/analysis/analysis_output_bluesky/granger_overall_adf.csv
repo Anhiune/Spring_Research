@@ -1,0 +1,8 @@
+variable,n,adf_stat,p_value,used_lag,stationary_5pct,section
+ew_ret_mean,778,-15.63193118256185,1.6812080349808644e-28,3,True,Overall baseline (bivariate)
+nrc_net_sentiment_mean,778,-4.179288716390253,0.0007141574785735346,21,True,Overall baseline (bivariate)
+ewret,778,-15.63193118256185,1.6812080349808644e-28,3,True,overall_multivariate
+sent,778,-4.179288716390253,0.0007141574785735346,21,True,overall_multivariate
+soxx,778,-15.668656149748458,1.522358491784645e-28,3,True,overall_multivariate
+spy,778,-16.16643916038614,4.41068052318352e-29,3,True,overall_multivariate
+vix,778,-28.719571874482064,0.0,0,True,overall_multivariate

@@ -1,0 +1,879 @@
+﻿---
+title: "UROP Spring 2026 Final Report"
+subtitle: "Cross-Platform Sentiment Pipeline for Semiconductor Export-Control Risk"
+author: "Anh Bui"
+date: "2026-05-12"
+bibliography: references.bib
+link-citations: true
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    embed-resources: true
+    tbl-cap-location: top
+  docx:
+    toc: true
+    number-sections: true
+    reference-doc: report_reference.docx
+  pdf:
+    documentclass: article
+    classoption: 11pt
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    papersize: letter
+    geometry:
+      - margin=1in
+    colorlinks: true
+    fig-pos: "H"
+    tbl-pos: "H"
+    tbl-cap-location: top
+    fig-cap-location: bottom
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+        \usepackage{array}
+        \usepackage{float}
+        \usepackage{caption}
+        \usepackage{setspace}
+        \usepackage{amsmath}
+        \usepackage{amssymb}
+        \onehalfspacing
+---
+
+\newpage
+
+# Abstract
+
+Semiconductor firms sit at the intersection of industrial policy, geopolitical competition, and financial-market attention, making them a natural setting for sentiment-based text analysis. This study develops a cross-platform natural language processing pipeline to measure export-control and geopolitical-risk sentiment from Reddit and Bluesky and align those daily sentiment features with semiconductor equity outcomes without look-ahead bias. Using 55 domain-specific keywords across a broad semiconductor universe, the pipeline collects more than 370,000 posts spanning 2023 through early 2026, cleans and deduplicates text, separates policy-relevant posts from broader firm discussion, scores content with three sentiment models, and merges daily sentiment measures with Yahoo Finance return and benchmark data.
+
+The analysis addresses two completed empirical questions. First, can Reddit and Bluesky produce comparable daily sentiment series when the same cleaning and scoring logic is applied to both platforms? Second, do those sentiment measures show any short-run relationship with next-day returns for key firms such as NVDA, AMD, and INTC? The results indicate that most daily sentiment-return relationships are small, which is consistent with noisy short-horizon markets and prior sentiment-finance research [@tetlock2007; @bollen2011; @baker2007]. The clearest signal appears in Reddit sentiment from the TabularisAI multilingual sentiment model for INTC, which shows a Pearson correlation of approximately 0.170 with next-day returns and a positive bivariate HAC OLS coefficient significant at conventional levels (`p = 0.014`). Bluesky, by contrast, does not produce statistically significant return-predictive sentiment in the current specifications. The main contribution is methodological as much as empirical: a transparent, reusable, cross-platform social-text pipeline that produces comparable daily sentiment series and establishes a disciplined foundation for future event-study and volatility analyses.
+
+# Introduction and Motivation
+
+## Background
+
+Semiconductors are among the most strategically important products in the modern global economy. They are essential inputs for consumer electronics, artificial intelligence systems, data centers, defense technologies, industrial automation, and transportation. Because advanced chips and chipmaking equipment are concentrated in a relatively small set of firms and geographies, the sector is unusually sensitive to policy shocks, supply-chain disruptions, and shifts in geopolitical expectations. For this reason, semiconductor equities provide a useful setting for studying whether changes in public discussion can be converted into measurable, time-aligned signals relevant to financial markets.
+
+This project grows out of an earlier sentiment-analysis workflow that used Twitter data to study firm-level financial outcomes. That earlier pipeline demonstrated that social-media text can be transformed into structured daily sentiment features and linked to return data, but it also revealed an important weakness: dependence on a single commercial platform makes the research fragile. Twitter/X access changed sharply after 2023, and that shift highlighted a broader methodological problem in social-data research. A useful pipeline should not depend on one closed ecosystem. It should be portable across platforms, transparent in its cleaning rules, and reproducible enough that another student or researcher can rerun it under changing data conditions.
+
+The Spring 2026 UROP project generalizes that earlier work in three ways. First, it moves to Reddit and Bluesky, two platforms that are more accessible for research and better suited to reproducible data collection. Second, it shifts from a single-company setting to the semiconductor industry, where U.S.-China export controls, licensing rules, and technology restrictions create a strong policy-relevant context. Third, it uses multiple sentiment models in parallel rather than relying on a single lexicon or classifier. Together, these changes allow the project to ask not only whether sentiment and returns are linked, but also whether that link is robust to platform, model, and measurement choices.
+
+## Why Export-Control Sentiment Matters
+
+The economic intuition behind the project is an attention-and-tone channel. Social-media discussion does not move markets simply because people are talking. Rather, it can matter when discussion aggregates real-time attention to policy events, firm exposure, or sector-specific uncertainty, and when the tone of that discussion becomes systematically more negative or more fearful. In the semiconductor sector, this mechanism is especially plausible because export-control events are discrete, news-driven shocks that can alter market expectations about revenue access, supply-chain constraints, and future technological competitiveness.
+
+Recent policy developments illustrate the relevance of this mechanism. U.S. export restrictions targeting advanced AI chips, lithography tools, and Chinese firms such as Huawei and SMIC have made semiconductor policy a recurring source of uncertainty. Firms vary in how exposed they are to these developments. Some have direct product-line exposure to restricted chips, while others face indirect effects through equipment demand, China-related revenue concentration, or dependence on vulnerable supply chains. If public discussion reacts quickly to these developments, then social-media text may capture a short-run layer of market-relevant information before that information is fully absorbed into broader return dynamics.
+
+At the same time, the project does not assume that social sentiment should generate large or persistent return effects. Daily equity returns are noisy, highly competitive informational environments. Market-wide and sector-wide factors often dominate firm-level variation, and any genuine sentiment effect may be small, unstable, or concentrated around narrow windows rather than visible in unconditional daily data. This is an important framing point: the value of the project is not limited to finding a strong predictive coefficient. A disciplined and well-documented pipeline remains useful even when effects are modest, because it clarifies what can and cannot be learned from public text under realistic data conditions.
+
+## Why Reddit and Bluesky
+
+Reddit and Bluesky serve complementary purposes in this research design. Reddit contains highly active firm-specific and investing-oriented communities where retail investors, technology enthusiasts, and market participants discuss companies, products, and news in longer-form text. Bluesky provides a more open social stream with shorter posts, broader technology commentary, and a different user composition. Using both platforms makes the project more robust than a single-source design because it reduces the risk that any result is driven purely by one platform's posting norms or demographic profile.
+
+There is also a practical reason for this platform choice. One of the motivating goals of the UROP proposal was to make social-text analysis less fragile in the face of changing access rules. Reddit and Bluesky allow the project to demonstrate platform diversification in a concrete way. The same research workflow can be applied across both sources: keyword-based collection, cleaning and deduplication, policy-tier classification, trading-day alignment, sentiment scoring, and market-data merging. If a relationship appears on one platform but not the other, that is itself an informative result. It says something about the stability of the signal, not merely about model performance.
+
+Cross-platform design also improves interpretability. If similar sentiment patterns appear across Reddit and Bluesky under common scoring rules, that supports the idea that the pipeline is measuring something meaningful rather than just reproducing platform-specific noise. If the platforms diverge, the comparison helps identify whether the difference likely comes from user-base composition, topic mix, post volume, or the structure of the text itself. In this sense, Reddit and Bluesky are not merely substitute data sources; they are part of the research design.
+
+## Core Research Question and Contribution
+
+The central research question of the project is whether export-control and geopolitical-risk sentiment extracted from public social-media text contains incremental explanatory or predictive power for semiconductor stock outcomes once the text is processed in a transparent and time-aligned way. More specifically, the report asks whether a reusable cross-platform pipeline can transform noisy public posts into comparable daily sentiment measures, and whether those measures exhibit any short-run relationship with next-day equity returns for a set of focal semiconductor firms.
+
+The project makes three main contributions. First, it builds a reusable data pipeline that generalizes beyond a single platform and documents the path from raw social text to structured daily market-ready panels. Second, it introduces a three-model sentiment framework that compares lexicon-based, general-transformer, and finance-domain sentiment measurements under common timing and aggregation rules. Third, it provides an initial empirical evaluation of those signals in semiconductor equity data, showing where sentiment relationships appear strongest and where they remain weak or absent. The most important result at this stage is not a claim of broad predictive success, but a well-defined foundation for disciplined follow-up tests.
+
+# Literature Review
+
+## Sentiment and Financial Markets
+
+Research on sentiment and financial markets has long suggested that public tone can matter for asset prices, but usually in limited, unstable, and short-horizon ways. Tetlock's work on media pessimism showed that negative language in widely read financial news can align with market movements and, under some conditions, predict short-run reversals or shifts in market attention [@tetlock2007]. In a related social-media setting, Bollen, Mao, and Zeng reported that mood extracted from Twitter data could help predict short-run movements in the Dow Jones Industrial Average [@bollen2011]. That strand of literature motivated a generation of sentiment-finance studies built around the idea that public text can serve as an indirect measure of investor attention, fear, enthusiasm, or uncertainty.
+
+At the same time, the broader literature is more cautious than the most widely cited headline results sometimes suggest. Sentiment effects are rarely large in economic magnitude, and they tend to depend strongly on sample period, data source, feature design, and model specification. This is especially true at daily frequency, where stock returns are dominated by market-wide and sector-wide variation. For that reason, the most credible interpretation of sentiment variables is usually not that they act as universal forecasting tools, but that they may capture a narrow and context-dependent layer of information that becomes visible only under disciplined timing rules and carefully chosen empirical settings.
+
+Behavioral-finance work also provides a broader conceptual foundation for this project. Baker and Wurgler document that investor sentiment can affect valuation and subsequent returns, particularly where uncertainty, disagreement, or limits to arbitrage are high [@baker2007]. Semiconductor equities fit that logic well. They are innovation-sensitive, policy-sensitive, and often exposed to abrupt geopolitical news. A sentiment pipeline focused on this sector is therefore not a random application of text methods to finance; it is a targeted attempt to measure a class of shocks for which attention and tone plausibly matter.
+
+This project also takes seriously the more recent meta-analytic view that social and media sentiment effects are real but uneven. In practical terms, a weak or mixed result should not be treated as failure. Rather, a weak result can still be informative if the measurement pipeline is clear enough to reveal where signal fades, where it survives, and how much of the remaining variation is absorbed by broader market controls. That logic is central to the design of this study.
+
+## Platform Access and Data Reliability
+
+One of the clearest methodological lessons from recent social-data research is that data access is not a background issue; it directly shapes what kinds of questions can be asked and replicated. Earlier generations of sentiment studies often relied heavily on platforms whose APIs were either open, stable, or inexpensive relative to today's environment. That assumption no longer holds. The restructuring of Twitter/X access after 2023 made many previously standard workflows costly, incomplete, or impossible to reproduce. As a result, researchers face a practical problem: a strong-looking finding is less valuable if future students or reviewers cannot collect comparable data under the same rules.
+
+That access problem matters especially for undergraduate and small-team research settings, where durable infrastructure and low-friction reproducibility are essential. If a pipeline only works under short-lived platform conditions, it becomes difficult to teach, extend, or audit. The original UROP proposal correctly recognized this issue and reframed it as a design criterion: the project should produce a workflow that can survive platform turnover rather than depending on a single fragile source.
+
+Reddit and Bluesky therefore matter to this report for both substantive and practical reasons. Substantively, they contain different forms of technology and market discussion that make cross-platform comparison meaningful. Practically, they are more feasible for iterative collection and method development than a closed, paywalled, or unstable alternative. Using both platforms also improves external validity in a modest sense. A signal that appears only on one platform should be interpreted differently from a signal that survives across both. In this way, platform diversification is not merely a convenience feature; it is part of the credibility of the research design.
+
+## Cross-Platform NLP and Reproducibility
+
+The natural language processing literature adds a second layer of caution. Social-media text is noisy, informal, multilingual, and highly sensitive to context. Token-based lexicons, generic transformer models, and finance-domain classifiers each capture different aspects of tone, and none should be assumed to dominate in every setting. A lexicon approach such as the NRC Emotion Lexicon offers interpretability and continuity with earlier work, but it can miss contextual nuance [@mohammad2013]. A transformer-based classifier can capture richer phrasing and multilingual content, but it may be more opaque and more sensitive to domain mismatch. A finance-domain model such as FinBERT may better recognize firm- and market-oriented wording, but its advantages can vary across platform style and topic mix [@araci2019].
+
+For that reason, this project uses model comparison as a design principle rather than an afterthought. The same Reddit and Bluesky text is scored with three sentiment approaches: NRC, the TabularisAI multilingual sentiment model, and FinBERT. This structure allows the report to distinguish between a platform effect and a model effect. If one relationship appears only under one model, that result should be interpreted more cautiously than a relationship that persists across multiple scoring systems. Conversely, if one model consistently produces the most stable signal, that pattern is informative in its own right.
+
+Reproducibility also depends on documentation of the non-model steps. Collection logic, deduplication rules, language handling, timing alignment, and feature construction all matter as much as the classifier itself. A pipeline that hides these stages can generate attractive charts while remaining difficult to evaluate. By contrast, a pipeline that exposes the sequence from raw post to daily market-aligned feature table allows both successful and weak results to be interpreted more cleanly. That is why the present project treats methodological transparency as part of the contribution. Even if predictive effects remain modest, the research still advances a replicable framework for studying policy-sensitive social sentiment across platforms.
+
+# Research Questions, Hypotheses, and Scope
+
+## Main Research Question
+
+The evolved version of the project asks the following question: does export-control or geopolitical-risk sentiment extracted from Reddit and Bluesky contain incremental explanatory or predictive power for semiconductor stock-market outcomes beyond standard market and sector controls? This framing keeps the project tied to the economic logic of policy uncertainty while preserving the original UROP goal of strengthening and generalizing a social-text pipeline. It also makes clear that the purpose of the project is not simply to measure sentiment for its own sake, but to ask whether that sentiment can be transformed into a disciplined empirical variable that is interpretable in a financial context.
+
+In practical terms, the analysis breaks this broad question into two completed sub-questions. The first is methodological: can the same collection, cleaning, scoring, and timing logic produce comparable daily sentiment series from two different social-media platforms? The second is empirical: once those comparable daily series are built, do they show any short-run relationship with next-day returns for focal firms such as NVDA, AMD, and INTC? These two sub-questions define the core scope of the study.
+
+## Hypotheses
+
+The broader research design was organized around three formal hypotheses.
+
+`H1` is a risk-premium hypothesis. When policy-risk sentiment becomes more negative around export-control news, more exposed semiconductor firms should exhibit more negative abnormal returns around those policy events. The null version of this hypothesis is that policy-risk sentiment is not priced in abnormal returns once general market movement is controlled for.
+
+`H2` is an uncertainty or volatility hypothesis. When policy-risk sentiment rises on day `t`, realized volatility should increase over the following trading days. The null version is that policy sentiment does not predict future volatility once past volatility and broader market conditions are considered.
+
+`H3` is an exposure-heterogeneity hypothesis. The effects in the first two hypotheses should be stronger for firms with greater China or export-control exposure, such as firms directly affected by AI-chip restrictions or equipment export limits. The null version is that any observed sentiment effect is not systematically stronger for high-exposure firms than for lower-exposure peers.
+
+These hypotheses remain useful even where they have not yet been fully tested in the present analysis. They provide the conceptual structure that connects the pipeline design to the economic question, and they explain why the project focuses so strongly on timing rules, policy keywords, and cross-platform comparability.
+
+## What This Report Actually Completes
+
+Although the project was designed around the three hypotheses above, the present report does not claim full completion of all three. Instead, it reports the completed parts of the workflow and the completed parts of the empirical analysis. On the data side, the report documents a working cross-platform pipeline that collects, cleans, deduplicates, language-filters, scores, and daily-aligns a large corpus of Reddit and Bluesky posts. The current data architecture covers more than 370,000 posts overall, with approximately 143,340 raw Bluesky rows reduced to 135,076 cleaned rows and roughly 233,698 Reddit rows retained in cleaned form. The resulting sentiment panels are aligned to Yahoo Finance returns and benchmark series including SOXX, SPY, and VIX.
+
+On the empirical side, the report fully covers the cross-platform validation layer and the short-run next-day return tests. In other words, it answers whether comparable daily sentiment series can be produced across Reddit and Bluesky using the same pipeline and whether those measures show any measurable association with next-day returns for NVDA, AMD, and INTC. This is the layer of the project that has been most thoroughly implemented and documented in the packaged files.
+
+The results from that completed layer are meaningful even though they are modest. Most estimated relationships are small, which is consistent with both efficient-market intuition and prior sentiment-finance literature. However, the report does identify one clearly notable result: Reddit sentiment from the TabularisAI multilingual sentiment model for INTC shows the strongest firm-level relationship in the current analysis, with a Pearson correlation of about 0.170 and a positive bivariate HAC OLS coefficient significant at the 5 percent level (`p = 0.014`). Bluesky does not show comparable statistical strength in the current return-prediction specifications. This asymmetry is itself part of the substantive finding.
+
+## Scope Boundaries
+
+Several parts of the broader project remain intentionally outside the claims of the present report. First, the event-study design implied by `H1` has not yet been fully executed in a narrow policy-window format. The packaged materials indicate that this is the clearest extension point, especially around BIS announcements and related export-control dates, because those windows are more directly tied to the policy-risk mechanism than unconditional daily panels.
+
+Second, the volatility-forecasting design implied by `H2` remains outside the completed result set in the current analysis. The packaged materials discuss realized volatility, ARIMAX-style extensions, and related future directions, but volatility forecasting should not be presented as finished unless those models are fully run, checked, and written up in the same level of detail as the return tests.
+
+Third, the exposure-heterogeneity framework implied by `H3` has been conceptually developed but not yet fully carried through as a completed empirical block. The project already includes an exposure logic for the broader semiconductor universe, but a formal cross-firm exposure test remains outside the confirmed findings section of the present report.
+
+For that reason, the study is best understood as a completed cross-platform sentiment-measurement and return-linkage analysis with a strong methodological contribution and a modest but credible early empirical signal. It is not yet an event-study or volatility paper, and preserving that distinction improves accuracy and credibility.
+
+# Data Sources and Pipeline Architecture
+
+## Platform Data Sources
+
+The project uses two primary social-text sources: Bluesky and Reddit. These platforms differ in message format, user composition, and posting environment, which makes them suitable for a cross-platform comparison rather than a simple pooled text source. Bluesky contributes a broad stream of shorter public posts associated with technology commentary, product discussion, and policy reactions, while Reddit contributes a mixture of firm-specific and investing-oriented discussion drawn from both company-focused communities and broader financial subreddits.
+
+The Bluesky collection was built through the `atproto` SDK and was scraped month by month from January 2023 through February 2026. The project records indicate 143,340 raw Bluesky rows and 135,076 cleaned rows after deduplication and filtering, with 7,654 duplicates removed. The final Bluesky sample spans trading days from 2023-01-03 through 2026-02-28 and covers 1,113 unique trading days. After filtering, the Bluesky text used in the main pipeline is entirely English-language.
+
+The Reddit collection combines PullPush-based historical retrieval with PRAW-based Reddit access patterns and draws text from both firm-specific subreddits and broader investing communities. The current cleaned Reddit sample contains 233,698 rows spanning 2023-01-01 through 2025-05-19, with 870 unique trading days represented in the prepared panels. Unlike Bluesky, Reddit contains a nontrivial multilingual component: approximately 94.4 percent of the cleaned text is English and about 5.6 percent is distributed across languages such as German, French, Dutch, Italian, Portuguese, Swedish, and Catalan.
+
+Taken together, the two sources provide more than 370,000 posts across the 2023 to early-2026 window. This scale matters in two ways. First, it allows the report to move beyond anecdotal event snapshots and build daily sentiment series. Second, it makes differences between platforms interpretable rather than accidental. Reddit and Bluesky do not merely duplicate each other; they offer distinct environments in which the same sentiment methodology can be tested.
+
+## Ticker Universe and Keyword Design
+
+The broader semiconductor universe used in the project includes leading firms across fabless design, memory, foundry, and equipment segments. The working universe referenced in the research notes includes names such as NVDA, AMD, INTC, QCOM, ASML, MU, AMAT, LRCX, KLAC, AVGO, and MRVL, among others. This broader universe is useful because export-control risk does not affect all semiconductor firms in the same way. Some are directly exposed through restricted AI-chip product lines, some through equipment or lithography chokepoints, and others through revenue dependence on China or through related supply-chain channels.
+
+At the same time, the main return-analysis sections focus on three firms: NVDA, AMD, and INTC. These names appear repeatedly in the prepared regression panels, cross-platform comparison figures, and OLS summaries, making them the most coherent focal set for the analysis. Restricting the main empirical block to a smaller set of firms helps keep the analysis interpretable while still allowing broader-universe and pooled specifications to appear later in the report.
+
+Text collection is driven by a domain-specific keyword strategy containing 55 keywords across seven groups. Those groups include tickers, company names, key products, policy and regulatory terms, policy-action phrases, geopolitical actors, and severity or tone language. Examples include direct identifiers such as `NVDA`, `AMD`, and `Intel`; product references such as `H100`, `H20`, `Blackwell`, `EUV`, and `HBM`; and policy-linked language such as `BIS export`, `Entity List`, `export ban`, `sanction`, `China semiconductor`, and `Taiwan Strait`. This structure is important because it keeps the collection logic tied to both the firms and the policy context rather than relying on generic market vocabulary.
+
+The keyword design also supports later analytical separation between broad firm discussion and more targeted policy-risk discussion. In other words, the keywords are not just a scraping convenience. They form the first stage of the project's attempt to isolate semiconductor discourse that is plausibly relevant to export-control uncertainty rather than ordinary background chatter.
+
+## Tier 1 and Tier 2 Definitions
+
+After collection, the project classifies text into two analytic tiers. `Tier 1` contains policy-relevant posts: content that links a company or semiconductor topic to export-control, geopolitical, sanctions, China-related, Taiwan-related, or regulatory language. The project records describe this class using terms such as `BIS`, `Entity List`, `export ban`, `China`, `Taiwan`, `Huawei`, `SMIC`, and `sanction`. In the Bluesky sample, Tier 1 accounts for about 14.6 percent of the collected content.
+
+`Tier 2` contains broader company or sector discussion without explicit policy context. These posts may still be valuable because they reflect general attention, product sentiment, or firm-specific discussion, but they do not isolate export-control risk as directly as Tier 1 does. The distinction matters because the economic logic of the project is not that all semiconductor sentiment is equally relevant. A post about a product launch or earnings excitement is analytically different from a post about licensing restrictions, geopolitical tension, or a new export-control announcement.
+
+Keeping both tiers serves two purposes. It preserves a broad baseline measure of platform-level company sentiment while also retaining a narrower policy-risk channel for future event-study and volatility work. In this report, the tier logic mainly supports interpretation and future extensibility, but it is already methodologically important because it prevents the data pipeline from treating all mentions as conceptually identical.
+
+## End-to-End Pipeline
+
+The project follows a six-stage workflow from raw text to market-aligned analysis. First, posts are collected from Bluesky and Reddit using platform-appropriate tools and a common semiconductor-policy keyword framework. Second, the text is cleaned, deduplicated, and standardized so that downstream sentiment measurement is applied to comparable inputs rather than raw, noisy platform exports. Third, the cleaned posts are scored with three sentiment systems: NRC, the TabularisAI multilingual sentiment model, and FinBERT. Fourth, timestamps are converted into trading-day-aligned observations using a no-look-ahead rule tied to the NYSE calendar. Fifth, the resulting daily sentiment features are merged with market data, including individual equity returns and common benchmark series such as SOXX, SPY, and VIX. Sixth, the aligned panels are evaluated using descriptive correlations, HAC OLS specifications, and selected diagnostic tools.
+
+One of the strengths of this design is that each stage remains interpretable on its own. If a weak empirical result appears at the end of the chain, the researcher can still inspect whether the issue is likely to lie in sparse collection, noisy text, model disagreement, timing misalignment, or market dominance by benchmark factors. That traceability is especially valuable in sentiment-finance work, where apparent predictive performance can disappear once timing rules or controls are tightened.
+
+The workflow can be summarized as a six-stage pipeline:
+
+| Stage | Main task | Output |
+|---|---|---|
+| 1. Collection | Pull Reddit and Bluesky posts using semiconductor and export-control keyword lists | Raw post exports |
+| 2. Cleaning | Remove unusable rows, normalize text, and deduplicate repeated content | Clean text tables |
+| 3. Scoring | Apply NRC, the TabularisAI multilingual sentiment model, and FinBERT | Row-level sentiment fields |
+| 4. Alignment | Map timestamps onto NYSE trading days without look-ahead bias | Trading-day sentiment observations |
+| 5. Merging | Join daily sentiment to returns and benchmark variables such as `SOXX`, `SPY`, and `VIX` | Analysis-ready panels |
+| 6. Testing | Run descriptive comparisons, forward-return checks, and HAC OLS models | Figures and regression tables |
+
+: Six-stage workflow from data collection to empirical testing.
+
+## Trading-Day Alignment and No-Look-Ahead Rule
+
+Time alignment is one of the most important design features of the report. Social-media timestamps are not automatically meaningful in a market context unless they are mapped carefully onto the trading calendar. In this project, posts published after 4:00 PM Eastern Time, or on weekends and market holidays, are assigned to the next NYSE trading day. This rule prevents the analysis from accidentally using information that became public only after the close of trading as though it had been available during the same trading session.
+
+The same principle governs the return tests. Sentiment dated on day `t` is interpreted as information available before trading on day `t+1`, and the main descriptive and regression blocks therefore compare sentiment on day `t` with next-day return outcomes. This may seem like a technical detail, but it is central to the credibility of the results. Many attractive-looking sentiment effects disappear once a genuine no-look-ahead convention is imposed, so building that rule directly into the pipeline makes the report's conclusions more reliable even where they are modest.
+
+# Cleaning, Language, and Sentiment Models
+
+## Cleaning and Deduplication
+
+The cleaning stage is designed to reduce avoidable noise without stripping away the semantic content needed for later sentiment scoring. The pipeline merges monthly or platform-specific exports, removes null or unusable text rows, and applies global duplicate control so that repeated content does not artificially inflate daily sentiment measures. In the Bluesky workflow, deduplication by `uri` prevents the same post from being double-counted when it matches multiple keywords, and the final project records report 7,654 duplicates removed from the raw sample. In the broader cleaning logic, exact duplicate texts are also removed where appropriate to reduce spam-like repetition.
+
+The pipeline also applies basic quality filters intended to remove non-informative or distorted content. Project notes describe a bot or spam rule in which accounts posting more than 30 times per day are flagged as suspicious, while extremely short content and exact-copy text patterns are removed to reduce low-information noise. Text normalization then strips URLs and `@` mentions and standardizes whitespace so that the downstream scoring models operate on cleaner inputs. These are modest interventions rather than aggressive transformations; the goal is to improve comparability, not to rewrite the text beyond recognition.
+
+Just as important, the project preserves traceability. Raw and cleaned text are not conceptually collapsed into one opaque dataset. The working schema keeps fields such as original text, cleaned text, timestamp, author-level information when available, matched keyword, and later language or sentiment fields. This makes it possible to inspect anomalies back at the row level rather than treating the daily aggregates as black boxes. For a project whose contribution is partly methodological, that traceability is an essential feature rather than a luxury.
+
+## Language Detection and Multilingual Handling
+
+Language handling differs meaningfully across the two platforms. The cleaned Bluesky analysis sample is effectively English-only after filtering, whereas Reddit retains a small but non-negligible multilingual component. The project records estimate that about 5.6 percent of the Reddit sample is non-English, with observed languages including German, French, Dutch, Italian, Portuguese, Swedish, and Catalan. Because export-control discussion is still primarily expressed in English, the role of non-English content should not be overstated, but it is methodologically useful to show that the pipeline can accommodate it.
+
+Language detection is performed during cleaning, with the project records specifically referencing the `langdetect` library and the broader cleaning script allowing for language detection fallbacks. The point of that step is not only to filter or tag language, but to support a more careful evaluation of whether multilingual content materially changes the sentiment distributions being analyzed. The current results suggest that it does not distort the aggregate picture in an important way.
+
+The TabularisAI multilingual sentiment model plays an important role here because it allows multilingual scoring rather than forcing non-English text to be dropped or mechanically translated before analysis. According to the project records, the multilingual TabularisAI model was applied to non-English posts and the resulting distributions looked broadly similar to the English baseline. That finding matters less because it creates a dramatic substantive result and more because it strengthens confidence that the pipeline's cross-platform sentiment measures are not being driven by a hidden language-composition problem.
+
+![Mean sentiment by language in the Reddit sample under the TabularisAI multilingual sentiment model. The broad similarity between English and non-English group averages supports the decision to treat multilingual content as a robustness layer rather than a source of major distortion.](<analysis/analysis_output/figures/sentiment_by_language/sentiment_by_language_mean_bars.png>){width=85%}
+
+![Distribution of sentiment by language in the Reddit sample under the TabularisAI multilingual sentiment model. The non-English tail is small and does not appear to generate a fundamentally different directional distribution from the English baseline.](<analysis/analysis_output/figures/sentiment_by_language/sentiment_by_language_hf_net_hist.png>){width=85%}
+
+## Sentiment Model 1: NRC Lexicon
+
+The first scoring layer uses the NRC Emotion Lexicon, a word-emotion resource developed by Mohammad and Turney [@mohammad2013]. NRC is well suited to this project because it preserves continuity with earlier sentiment-finance approaches and offers high interpretability. Instead of returning only a single positive-versus-negative label, it produces counts or intensities across multiple emotional dimensions, including joy, fear, anger, trust, anticipation, sadness, disgust, and surprise, along with positive and negative polarity categories. In the current project, the most common summary feature is net sentiment computed as positive minus negative.
+
+$$
+s^{\mathrm{NRC}}_{i,t,j}=n^{+}_{i,t,j}-n^{-}_{i,t,j}
+$$
+
+$$
+S^{\mathrm{NRC}}_{i,t}=\frac{1}{N_{i,t}}\sum_{j=1}^{N_{i,t}} s^{\mathrm{NRC}}_{i,t,j}
+$$
+
+NRC is valuable because its outputs are easy to explain. When the report says that a daily signal becomes more negative, it is clear which lexicon-based counts contributed to that change. This interpretability is helpful both for academic writing and for debugging. If a result looks implausible, the lexicon features can often make the issue visible in a way that a transformer probability vector cannot.
+
+At the same time, NRC is not treated as a default gold standard. Lexicon methods can be brittle when platform language is sarcastic, domain-specific, or highly contextual. They may also overreact to token frequency without capturing the structure of the sentence. In the current project records, NRC appears to produce more within-platform variance than FinBERT and a less concentrated signal than the strongest result from the TabularisAI multilingual sentiment model. That pattern fits the expected strengths and weaknesses of lexicon approaches and is one reason the project uses NRC as one model among several rather than the only measurement layer.
+
+| Symbol | Definition |
+|---|---|
+| $s^{\mathrm{NRC}}_{i,t,j}$ | Row-level NRC net sentiment for post $j$ on ticker or platform unit $i$ and trading day $t$ |
+| $n^{+}_{i,t,j}$ | Positive NRC count for post $j$ |
+| $n^{-}_{i,t,j}$ | Negative NRC count for post $j$ |
+| $S^{\mathrm{NRC}}_{i,t}$ | Daily aggregated NRC sentiment feature |
+| $N_{i,t}$ | Number of posts assigned to unit $i$ on trading day $t$ |
+
+: Notation for the NRC sentiment score.
+
+## Sentiment Model 2: TabularisAI Multilingual Sentiment Model
+
+The second scoring layer uses the TabularisAI multilingual sentiment model, published on Hugging Face as `tabularisai/multilingual-sentiment-analysis` [@tabularisai2025]. This model classifies text into five directional categories: `very_negative`, `negative`, `neutral`, `positive`, and `very_positive`. The project's main summary measure from this model is a net sentiment score built from the model's directional classes. This measure is useful because it preserves stronger directional tone than a simple binary classifier while still collapsing the outputs into a single interpretable feature for daily analysis.
+
+$$
+s^{\mathrm{TAB}}_{i,t,j}=p^{VP}_{i,t,j}+p^{P}_{i,t,j}-p^{N}_{i,t,j}-p^{VN}_{i,t,j}
+$$
+
+$$
+S^{\mathrm{TAB}}_{i,t}=\frac{1}{N_{i,t}}\sum_{j=1}^{N_{i,t}} s^{\mathrm{TAB}}_{i,t,j}
+$$
+
+The TabularisAI layer is particularly important for two reasons. First, it supplies a context-sensitive alternative to lexicon scoring. Transformer models can often handle phrasing, multiword context, and sentiment intensification more effectively than token-count methods. Second, the model supports multilingual handling, which is helpful for the non-English portion of the Reddit sample. These advantages appear to matter empirically. The strongest verified firm-level result comes from the TabularisAI model's net measure for Reddit discussion of INTC.
+
+That does not mean the TabularisAI model is universally best. Rather, it appears to be especially effective at capturing the kind of platform-specific directional tone that survives into the current daily return tests. Its strongest contribution to the report is therefore not only predictive performance, but evidence that a context-sensitive classifier can reveal relationships that remain weaker or less stable under the other model families.
+
+| Symbol | Definition |
+|---|---|
+| $s^{\mathrm{TAB}}_{i,t,j}$ | Row-level net sentiment from the TabularisAI multilingual sentiment model |
+| $p^{VP}_{i,t,j}$ | Probability of the `very_positive` class |
+| $p^{P}_{i,t,j}$ | Probability of the `positive` class |
+| $p^{N}_{i,t,j}$ | Probability of the `negative` class |
+| $p^{VN}_{i,t,j}$ | Probability of the `very_negative` class |
+| $S^{\mathrm{TAB}}_{i,t}$ | Daily aggregated TabularisAI sentiment feature |
+
+: Notation for the TabularisAI multilingual sentiment score.
+
+## Sentiment Model 3: FinBERT
+
+The third scoring layer uses FinBERT, a finance-domain transformer introduced by Araci [@araci2019]. FinBERT is included because semiconductor policy discussion sits close to financial language even when it appears on social platforms. Terms related to licensing, restrictions, revenue exposure, market reaction, or technological competitiveness may be better interpreted by a model trained on finance-relevant sentiment than by a more general classifier.
+
+$$
+s^{\mathrm{FB}}_{i,t,j}=p^{+}_{i,t,j}-p^{-}_{i,t,j}
+$$
+
+$$
+S^{\mathrm{FB}}_{i,t}=\frac{1}{N_{i,t}}\sum_{j=1}^{N_{i,t}} s^{\mathrm{FB}}_{i,t,j}
+$$
+
+In this project, FinBERT produces a three-class positive, neutral, and negative output, summarized as a net score defined by positive probability minus negative probability. The current results suggest that FinBERT is the most cross-platform consistent of the three sentiment systems. While it does not generate the strongest single-firm result in the report, it tends to produce more stable behavior across Reddit and Bluesky than the more variable NRC measures and the more platform-sensitive TabularisAI signal. That makes it especially useful as a robustness layer: if a directional pattern appears in both the TabularisAI model and FinBERT, it is easier to interpret as more than an artifact of one model family.
+
+This cross-platform consistency is one of the reasons FinBERT deserves a clear place in the final report even if the most visible statistical result is attached to the TabularisAI model. The project is not trying to crown a single universal sentiment model. It is trying to show how different sentiment systems behave under a common pipeline and what that reveals about the stability of the measured signal.
+
+| Symbol | Definition |
+|---|---|
+| $s^{\mathrm{FB}}_{i,t,j}$ | Row-level FinBERT net sentiment |
+| $p^{+}_{i,t,j}$ | FinBERT positive probability |
+| $p^{-}_{i,t,j}$ | FinBERT negative probability |
+| $S^{\mathrm{FB}}_{i,t}$ | Daily aggregated FinBERT sentiment feature |
+| $N_{i,t}$ | Number of posts assigned to unit $i$ on trading day $t$ |
+
+: Notation for the FinBERT sentiment score.
+
+## Daily Feature Construction
+
+After scoring, the row-level outputs are aggregated into daily sentiment features suitable for market analysis. This aggregation stage converts individual posts into trading-day-level measures such as daily mean net sentiment, model-specific averages, and related activity summaries. The project maintains both firm-level and broader pooled structures. At the firm level, sentiment can be aligned to a focal ticker such as NVDA, AMD, or INTC. At the broader level, pooled or stacked panels allow the report to examine whether any relationship persists once multiple firms or benchmark-linked layers are considered together.
+
+The daily aggregation step is where the earlier methodological choices begin to interact. Keyword design determines which posts enter a ticker-specific layer. Cleaning and deduplication determine whether the daily averages are inflated by repeated noise. Language handling determines whether multilingual content remains interpretable. Trading-day alignment determines whether the daily feature is causally usable in a next-day return test. For that reason, daily feature construction is not just a technical transformation; it is the stage at which the quality of the upstream pipeline becomes visible in the downstream empirical panel.
+
+The report uses these daily features in several ways, but the most important applications are the next-day correlation tables and HAC OLS regressions. Those analyses depend on lagged or forecast-aligned daily sentiment variables rather than same-day contemporaneous matching, which keeps the empirical interpretation closer to a predictive or explanatory setting rather than a purely coincident one.
+
+# Cross-Platform Descriptive Results
+
+## Dataset Scale and Coverage
+
+The current descriptive layer already shows that the project is not built on a trivial amount of text. Across Reddit and Bluesky, the pipeline processes more than 370,000 posts over a multi-year window. Bluesky contributes the longer trading-day span in the prepared sample, with 1,113 unique trading days running from early 2023 through late February 2026. Reddit contributes a shorter but still substantial market-aligned window with 870 unique trading days through May 2025. This difference in coverage matters for interpretation because the two platforms are not being observed over exactly the same density and duration conditions.
+
+The composition of the platforms differs as well. Bluesky is cleaner in language composition after filtering and provides a broad stream of technology-oriented discussion. Reddit is denser in firm-specific and investor-oriented conversation, especially for focal companies such as NVDA, AMD, and INTC. Reddit also contains a small multilingual tail that Bluesky largely does not. These structural differences mean that the project should not expect identical sentiment behavior across the two platforms. Instead, comparability should be understood as the ability to apply the same pipeline and produce interpretable daily sentiment series under different social-text conditions.
+
+That distinction is important for the report's logic. The question is not whether Reddit and Bluesky must yield the same coefficients to validate the pipeline. The question is whether both sources can be transformed into coherent daily signals and whether any platform differences can be read in a disciplined way. On that standard, the descriptive evidence is already informative before formal regressions are even considered.
+
+## Cross-Language Robustness
+
+The multilingual component of the Reddit sample is small but methodologically useful. Roughly 5.6 percent of the cleaned Reddit text is non-English, with observed languages including German, French, Dutch, Italian, Portuguese, Swedish, and Catalan. In many social-text projects, that fraction would simply be dropped, but doing so without evaluation can create a hidden selection choice. In the present project, the multilingual TabularisAI model allows those posts to remain part of the descriptive robustness check rather than being treated as unusable noise by default.
+
+The key finding from the language diagnostics is not that multilingual sentiment produces a separate substantive story. Rather, it is that the aggregate sentiment distributions for non-English posts do not appear to diverge sharply from the English baseline. This suggests that the multilingual portion of the Reddit sample is not distorting the main daily signal in a way that would fundamentally undermine cross-platform comparison. That is a valuable result for the methods section of the report because it shows that the pipeline can absorb modest language diversity without losing interpretability.
+
+## Daily Sentiment Comparability
+
+The cross-platform time-series figures indicate that the same scoring workflow does produce interpretable daily sentiment series on both platforms. In that sense, the pipeline succeeds at its first major task. Reddit and Bluesky can both be transformed from raw public text into market-aligned daily signals using common cleaning, scoring, and timing rules. However, the figures also show that comparability should not be confused with visual sameness. The daily series differ in scale, variability, and apparent smoothness, which is exactly what one would expect when two platforms attract different communities and styles of discussion.
+
+Reddit appears to contain more concentrated firm-specific conversation and stronger bursts of directional tone around focal companies. Bluesky, by contrast, appears broader, thinner in firm-specific emphasis, and more diffuse in its day-to-day sentiment variation. These differences help explain why the empirical results later look stronger for Reddit than for Bluesky. A platform with more concentrated investor and technology discussion may generate a cleaner firm-level signal than a platform whose discourse is spread more widely across general technology commentary.
+
+The important point is that both platforms still produce usable daily nets. The descriptive plots therefore support a middle conclusion: the pipeline generalizes across platforms, but the statistical strength of the resulting signal remains platform-dependent. That is a richer finding than either "the platforms are identical" or "cross-platform comparison does not work."
+
+![Daily INTC sentiment nets on Reddit and Bluesky under the common cross-platform pipeline. The figure shows that both platforms yield interpretable time series, while the scale and variability of the daily signal remain visibly platform-dependent.](<analysis/analysis_output_platform_compare/montages/ts_INTC_nets_REDDIT_vs_BLUESKY.png>){width=88%}
+
+## Cross-Model Agreement
+
+The three-model design also reveals that sentiment measurement is not model-neutral. NRC, the TabularisAI model, and FinBERT do not move in perfect lockstep within a platform, and they certainly do not generate identical cross-platform behavior. That is an important descriptive result in its own right. If all three models always agreed, model choice would matter little. Instead, the figures suggest moderate agreement with meaningful differences in scale and sensitivity, especially when one compares a lexicon measure with transformer-based models.
+
+Across the current project materials, FinBERT appears to be the most stable cross-platform model. Its behavior is less extreme than NRC and less platform-specific than the strongest TabularisAI patterns. NRC tends to show more within-platform variance, which is consistent with its token-based structure and sensitivity to lexical frequency. The TabularisAI model, meanwhile, appears to capture the clearest directional firm-level signal on Reddit, particularly for INTC. This is one reason the later formal results emphasize the TabularisAI model for the main OLS block while still keeping FinBERT and NRC in the descriptive comparison.
+
+Model disagreement should not be seen as a weakness of the report. Rather, it strengthens the interpretation of the pipeline by showing that the project is not hiding dependence on a single sentiment definition. Where the models align, confidence is slightly stronger. Where they diverge, the report gains a more realistic picture of which relationships are robust and which are measurement-sensitive.
+
+![Cross-model agreement for INTC across Reddit and Bluesky. FinBERT is the steadiest cross-platform layer, while the TabularisAI model captures the clearest directional signal on Reddit and NRC shows the widest measurement variation.](<analysis/analysis_output_platform_compare/montages/corr_INTC_cross_net_REDDIT_vs_BLUESKY.png>){width=88%}
+
+# Empirical Strategy
+
+## Forecast-Aligned Correlation Tests
+
+The first empirical layer compares sentiment measured on trading day `t` with equity return on trading day `t+1`. This forecast-aligned structure is deliberate. It matches the no-look-ahead rule built into the pipeline and makes the interpretation more disciplined than a same-day contemporaneous correlation. In practical terms, the report asks whether today's public tone is associated with tomorrow's return rather than merely whether sentiment and price happened to move together inside the same calendar window.
+
+These forward-return diagnostics are descriptive first-pass tests rather than final causal claims. The main statistics are Pearson correlations, which summarize linear association, alongside Spearman correlations, which provide a rank-based check that is less sensitive to extreme values. This layer is useful because it allows the report to compare models and firms quickly before imposing regression structure. It also provides the visual logic behind the heatmaps and correlation bar charts that appear among the main figures.
+
+$$
+\rho^{(k)}_{i}=\mathrm{Corr}\!\left(S^{(k)}_{i,t}, r_{i,t+1}\right)
+$$
+
+$$
+\rho^{(k)}_{S,i}=\mathrm{Corr}\!\left(\mathrm{rank}\!\left(S^{(k)}_{i,t}\right), \mathrm{rank}\!\left(r_{i,t+1}\right)\right)
+$$
+
+The limitation of this layer is equally important: correlation alone does not control for sector-wide or market-wide motion. A mild positive correlation between sentiment and next-day return may disappear once benchmark factors are added, while a weak raw correlation can sometimes become more interpretable after controls strip out common movement. For that reason, the correlation diagnostics are treated as a first screening layer rather than as the final evidentiary standard.
+
+| Symbol | Definition |
+|---|---|
+| $\rho^{(k)}_{i}$ | Pearson correlation for model $k$ and focal unit $i$ |
+| $\rho^{(k)}_{S,i}$ | Spearman rank correlation for model $k$ and focal unit $i$ |
+| $S^{(k)}_{i,t}$ | Daily sentiment feature from model $k$ |
+| $r_{i,t+1}$ | Next-day equity return for firm $i$ |
+| $k$ | Sentiment model index: NRC, TabularisAI, or FinBERT |
+
+: Notation for the forecast-aligned correlation tests.
+
+## HAC OLS Specifications
+
+The main regression block uses HAC OLS with Newey-West standard errors. The basic firm-level specification regresses daily return on lagged sentiment, with the main predictor of interest being the lagged net score from the TabularisAI multilingual sentiment model. In plain terms, the question is whether yesterday's measured tone has any relationship with today's return after accounting for the serial structure typical of daily financial data. This specification is intentionally simple and gives the cleanest first formal test of the predictive layer implied by the pipeline.
+
+$$
+r_{i,t+1}=\alpha_i+\beta S^{(k)}_{i,t}+\varepsilon_{i,t+1}
+$$
+
+$$
+r_{i,t+1}=\alpha_i+\beta S^{(k)}_{i,t}+\gamma_1 \mathrm{SOXX}_{t+1}+\gamma_2 \mathrm{SPY}_{t+1}+\gamma_3 \mathrm{VIX}_{t+1}+\varepsilon_{i,t+1}
+$$
+
+$$
+r_{i,t+1}=\alpha+\beta S^{(k)}_{i,t}+\gamma_1 \mathrm{SOXX}_{t+1}+\gamma_2 \mathrm{SPY}_{t+1}+\gamma_3 \mathrm{VIX}_{t+1}+\sum_{m=1}^{M-1}\delta_m D_{m,i}+\varepsilon_{i,t+1}
+$$
+
+A second specification adds benchmark controls, especially SOXX, SPY, and VIX. These variables matter because semiconductor equities often move with the broader chip sector, the market as a whole, and changing volatility conditions. Without such controls, a sentiment coefficient can partly reflect the fact that both social discussion and returns respond to the same common shock. By adding these benchmarks, the report tests whether sentiment carries any residual relationship after broader market motion is accounted for.
+
+The project also includes wider specifications beyond the single-firm equations. Stacked regressions combine NVDA, AMD, and INTC while adding ticker fixed effects, and pooled or universe-level panels ask whether a common sentiment signal survives once the analysis is broadened beyond one company. These specifications are useful because they show whether the strongest result is purely idiosyncratic or whether some smaller effect persists in pooled form. Even where the pooled effects are statistically significant, statistical detectability should be distinguished from large economic magnitude.
+
+Newey-West or HAC standard errors are important here because daily return series often exhibit serial correlation and clustered residual behavior. Using HAC errors does not make the model more sophisticated in a flashy sense, but it makes the inference more credible. That matters for a project like this, where effects are modest and where overly optimistic standard errors could easily lead to overstatement.
+
+| Symbol | Definition |
+|---|---|
+| $r_{i,t+1}$ | Next-day return for firm $i$ |
+| $\alpha_i$ | Firm-specific intercept in single-firm regressions |
+| $\beta$ | Coefficient on lagged sentiment |
+| $S^{(k)}_{i,t}$ | Lagged daily sentiment feature from model $k$ |
+| $\gamma_1,\gamma_2,\gamma_3$ | Coefficients on benchmark controls |
+| $\mathrm{SOXX}_{t+1}$ | Next-day semiconductor ETF return |
+| $\mathrm{SPY}_{t+1}$ | Next-day market return proxy |
+| $\mathrm{VIX}_{t+1}$ | Next-day volatility index level or change measure |
+| $D_{m,i}$ | Ticker fixed-effect indicator for stacked regressions |
+| $\varepsilon_{i,t+1}$ | Regression disturbance term |
+
+: Notation for the HAC OLS and Newey-West specifications.
+
+## ARIMAX Robustness Check
+
+The report now includes a second time-series specification that keeps the same TabularisAI multilingual sentiment signal but embeds it inside an ARIMAX framework. In practice, this robustness check asks whether the Reddit or Bluesky sentiment coefficient remains visible once the model explicitly accounts for historical return dynamics as well as the same market controls used in the benchmark OLS block.
+
+The implementation uses the prepared `hf_net_4_lag1` feature, which is the lagged TabularisAI net sentiment score in the project files. Candidate models were estimated over a small grid of ARIMA orders, and the best specification for all six firm-platform panels was selected by AIC. In every case, the preferred specification was an `ARIMAX(1,0,0)` model, which means a one-lag autoregressive term plus exogenous regressors.
+
+$$
+r_{i,t+1}=c+\phi r_{i,t}+\beta S^{\mathrm{TAB}}_{i,t}+\gamma_1 \mathrm{SOXX}_{t+1}+\gamma_2 \mathrm{SPY}_{t+1}+\gamma_3 \mathrm{VIX}_{t+1}+\gamma_4 N_{i,t}+\eta_{i,t+1}
+$$
+
+For Reddit panels, the model also includes lagged post volume when available. For Bluesky panels, the common exogenous block is the lagged TabularisAI sentiment score plus SOXX, SPY, and VIX. This specification is stricter than the simple OLS row because it asks whether the sentiment coefficient survives after the model has already absorbed short-run return persistence and the most important broad market movements.
+
+| Symbol | Definition |
+|---|---|
+| $r_{i,t+1}$ | Next-day return for firm $i$ |
+| $r_{i,t}$ | One-day autoregressive return history |
+| $S^{\mathrm{TAB}}_{i,t}$ | Lagged TabularisAI multilingual sentiment feature |
+| $\phi$ | Autoregressive coefficient |
+| $N_{i,t}$ | Lagged post-count control when available |
+| $\gamma_1,\gamma_2,\gamma_3,\gamma_4$ | Exogenous-control coefficients |
+| $\eta_{i,t+1}$ | ARIMAX disturbance term |
+
+: Notation for the ARIMAX robustness specification.
+
+## Why OLS Is the Main Result Block
+
+OLS serves as the main results block because it provides the clearest combination of interpretability, comparability, and direct statistical inference. The coefficient on lagged sentiment has a straightforward meaning, the benchmark-control logic is transparent, and the resulting table allows the report to compare firms and specifications without requiring heavy time-series machinery. For a final research report aimed at a broad academic audience, this clarity is a major advantage.
+
+The ARIMAX robustness check is valuable because it tests whether the strongest TabularisAI coefficient survives after autoregressive history and benchmark factors are modeled jointly. In the current sample, the answer is only partially yes. The Reddit INTC coefficient remains positive, but it weakens from the simpler OLS result and no longer reaches conventional significance in the fuller ARIMAX specification. That pattern supports a careful interpretation: the Reddit INTC signal is real enough to appear in the simpler predictive tests, but part of its apparent strength is absorbed once return dynamics and common market factors are modeled more aggressively.
+
+The project materials also include Granger-style tests and other diagnostics, but those results are not as central to the main narrative. The current documentation explicitly notes that the saved Reddit and Bluesky Granger tables do not produce strong conventional evidence of sentiment-led return ordering under the default NRC specification. That does not make those diagnostics useless, but it does mean they should remain secondary or move to the appendix unless they contribute a cleaner story later. The report is strongest when it foregrounds the forecast-aligned correlation layer, the HAC OLS block, and the ARIMAX robustness check rather than trying to center weaker time-series causality results.
+
+# Main Results
+
+## Cross-Platform Big Picture
+
+At the broadest level, the current results point to a working pipeline but only modest short-run market predictability. Across platforms, firms, and models, most forward-return correlations are small, generally below 0.10 in absolute value. This is entirely consistent with daily equity markets in which common information is absorbed rapidly and in which any sentiment-based signal is likely to be weak, noisy, or conditional on specific contexts.
+
+The cross-platform charts are still informative even under that modest-result framing. They show that the same methodological pipeline can produce coherent daily measurements from both Reddit and Bluesky, but they do not show a broad, uniform pattern of next-day return prediction. Instead, the evidence is selective. The signal is stronger on Reddit than on Bluesky, stronger for some firms than for others, and stronger under some models than under others. This pattern should be treated as a substantive result rather than as a disappointing near-miss. It tells us that the cross-platform pipeline generalizes as a measurement system, while predictive performance remains conditional and uneven.
+
+![Cross-platform forward-return correlations by sentiment model and focal firm. Most correlations are small, but Reddit produces stronger positive values than Bluesky in selected firm-model combinations, especially for the TabularisAI model and INTC.](<analysis/analysis_output_platform_compare/montages/corr_fwd_return_nets_bar_REDDIT_vs_BLUESKY.png>){width=88%}
+
+![Forward-return heatmap for the TabularisAI multilingual sentiment model across Reddit and Bluesky. The Reddit panel shows the clearest concentration of positive next-day association for INTC, while the Bluesky panel remains close to zero across firms.](<analysis/analysis_output_platform_compare/montages/corr_fwd_return_heatmap_hf_REDDIT_vs_BLUESKY.png>){width=88%}
+
+## Reddit Results
+
+Reddit produces the clearest firm-level relationships in the report. In the forward-return correlation tables, the strongest visible signal is INTC under the TabularisAI net measure, with a Pearson correlation of approximately 0.170 and a Spearman correlation of about 0.096 across 589 observations. Other Reddit relationships are much smaller. For INTC, FinBERT and NRC remain positive but weaker, while NVDA and AMD mostly show near-zero or very mild relationships depending on the model. This pattern suggests that whatever signal exists is not a broad market-wide effect equally visible across all firms and sentiment systems.
+
+The regression block strengthens this interpretation. In the firm-level HAC OLS results using lagged sentiment from the TabularisAI model, INTC is the only focal firm that clearly reaches conventional significance in the simple specification, with a coefficient of about 0.0480 and `p = 0.014`. NVDA and AMD do not produce comparable firm-level significance in the same baseline row. When broader specifications are used, some pooled or stacked Reddit equations remain statistically significant, but the effect sizes remain modest and the explanatory power from sentiment alone is still limited. The best way to read these pooled results is not as evidence of large predictive power, but as confirmation that the Reddit signal is not entirely confined to one isolated row in the dataset.
+
+Reddit's comparative strength is plausible given the platform's structure. The project records repeatedly emphasize that Reddit combines retail-investor attention with technology-specific discussion and firm-centered communities. That setting may produce a cleaner mapping from company-related tone to next-day return behavior than a more diffuse platform does. Even so, the result should not be romanticized: the signal is selective, not universal.
+
+## Bluesky Results
+
+Bluesky results are weaker and more diffuse in the current specifications. The largest forward-return correlations in the selected table are relatively small, with the strongest listed value being about 0.078 for INTC under FinBERT. The TabularisAI correlation for INTC on Bluesky is only about 0.010, which stands in clear contrast to the stronger Reddit counterpart. This suggests that the platform difference is not merely cosmetic; it materially affects how much firm-level directional structure survives into the daily return tests.
+
+The HAC OLS block confirms that weakness. None of the listed Bluesky equations based on the TabularisAI model for NVDA, AMD, or INTC reaches conventional significance in the simple bivariate regressions, and the stacked and pooled specifications remain null as well. In short, the current evidence does not support a claim that Bluesky sentiment is return-predictive in the way Reddit appears to be for selected cases.
+
+That null result is still useful. It demonstrates that the cross-platform design is doing real work. If the project had relied only on Reddit, it would be easier to overgeneralize from one promising relationship. By including Bluesky, the report can say something more disciplined: some measured sentiment-return links are platform-specific rather than broadly stable across public discussion environments.
+
+## Standout Result: Reddit TabularisAI x INTC
+
+The standout result in the report is the Reddit TabularisAI signal for INTC. This relationship is the clearest combination of descriptive strength and formal regression significance among the verified firm-level results. In the forward-return correlation table, INTC's TabularisAI net score on Reddit reaches a Pearson correlation of about 0.170, which is notably larger than the other focal-firm correlations shown for the same platform. In the corresponding bivariate HAC OLS specification, the coefficient on lagged sentiment from the TabularisAI model is positive and statistically significant at the 5 percent level (`p = 0.014`).
+
+The result remains visible, though weaker, when benchmark controls are added. With SOXX, SPY, and VIX included, the INTC coefficient falls in size and moves to marginal significance (`p = 0.092`), which is exactly the kind of pattern one would expect if part of the original relationship reflects broader market or sector movement but not all of it. This controlled result does not erase the signal; it places it in a more realistic context.
+
+The figure-based evidence supports the same reading. Among the clean platform-comparison plots, the INTC panel for the TabularisAI model shows one of the clearest non-flat binned relationships between sentiment on day `t` and return on day `t+1`. That does not make the relationship large in economic magnitude, nor does it prove a structural causal effect. But it does make this combination the most credible focal result in the report and the best candidate for a figure-centered main-text discussion.
+
+![Clean platform-comparison view for INTC under the TabularisAI multilingual sentiment model. The Reddit relationship is visibly stronger than the Bluesky counterpart, reinforcing the conclusion that the clearest verified short-run signal is Reddit-specific rather than broadly cross-platform.](<analysis/analysis_output_platform_compare/clean/INTC_platform_compare_HF_net.png>){width=82%}
+
+## Regression Summary Table
+
+The regression summary table anchors the report's formal interpretation. The rows below combine firm-level specifications for NVDA, AMD, and INTC with the main pooled rows so that the table distinguishes single-firm evidence from pooled-panel evidence.
+
+$$
+r_{i,t+1}=\alpha+\beta S^{\mathrm{TAB}}_{i,t}+\gamma_1 \mathrm{SOXX}_{t+1}+\gamma_2 \mathrm{SPY}_{t+1}+\gamma_3 \mathrm{VIX}_{t+1}+\sum_{m=1}^{M-1}\delta_m D_{m,i}+\varepsilon_{i,t+1}
+$$
+
+| Symbol | Definition |
+|---|---|
+| $r_{i,t+1}$ | Next-day return |
+| $S^{\mathrm{TAB}}_{i,t}$ | Lagged TabularisAI sentiment feature |
+| $\beta$ | Coefficient of interest on lagged sentiment |
+| $\gamma_1,\gamma_2,\gamma_3$ | Benchmark-control coefficients |
+| $\delta_m$ | Ticker fixed effects in stacked specifications |
+| $\varepsilon_{i,t+1}$ | HAC OLS disturbance term |
+
+: Variable definitions for the main HAC OLS specifications.
+
+The most important rows are the simple INTC equation (`coef = 0.0480`, `p = 0.014`), the controlled INTC equation (`coef = 0.0266`, `p = 0.092`), and the stacked Reddit equation with ticker fixed effects (`coef = 0.0260`, `p = 0.016`). Together these rows show that the main signal is not entirely illusory, while also making clear that the magnitude remains modest and that much of the model fit in richer specifications comes from benchmarks rather than from sentiment alone.
+
+| Dataset | Specification | N | $R^2$ | $\hat{\beta}$ | HAC SE | $p$-value |
+|---|---|---:|---:|---:|---:|---:|
+| `NVDA` Reddit TabularisAI | Bivariate | 580 | 0.0008 | 0.0135 | 0.0172 | 0.434 |
+| `NVDA` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 580 | 0.6007 | 0.0052 | 0.0098 | 0.593 |
+| `AMD` Reddit TabularisAI | Bivariate | 587 | 0.0005 | 0.0086 | 0.0147 | 0.556 |
+| `AMD` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 587 | 0.6451 | -0.0011 | 0.0100 | 0.915 |
+| `INTC` Reddit TabularisAI | Bivariate | 585 | 0.0208 | 0.0480 | 0.0194 | 0.014 |
+| `INTC` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 585 | 0.3455 | 0.0266 | 0.0158 | 0.092 |
+| Pooled Reddit TabularisAI universe | Bivariate | 595 | 0.0031 | 0.0402 | 0.0287 | 0.161 |
+| Pooled Reddit TabularisAI universe | `+ SOXX + SPY + VIX` | 595 | 0.9689 | 0.0130 | 0.0054 | 0.016 |
+| Stacked `NVDA + AMD + INTC` Reddit TabularisAI | Bivariate + ticker fixed effects | 1752 | 0.0065 | 0.0260 | 0.0108 | 0.016 |
+| Stacked `NVDA + AMD + INTC` Reddit TabularisAI | `+ controls + ticker fixed effects` | 1752 | 0.5208 | 0.0091 | 0.0083 | 0.270 |
+
+: Main HAC OLS summary for Reddit specifications using the TabularisAI multilingual sentiment model.
+
+## ARIMAX Robustness Results
+
+The ARIMAX check sharpens the interpretation of the main OLS findings. For Reddit, the strongest ARIMAX row is still INTC, and the coefficient remains positive at about `0.0230`. However, the robust `p`-value rises to `0.142`, which means the coefficient no longer reaches conventional significance once autoregressive history, sector and market controls, volatility conditions, and lagged Reddit posting volume are included together. NVDA and AMD remain clearly null in the same framework.
+
+The Bluesky ARIMAX results are even weaker. All three Bluesky firm coefficients stay close to zero, and none approaches conventional significance. This is consistent with the broader result pattern from the correlation and OLS layers: Bluesky can be processed cleanly by the pipeline, but it does not currently produce a meaningful next-day return signal under the main TabularisAI specification.
+
+The most useful way to read the ARIMAX block is therefore as a robustness filter rather than as a contradiction of the earlier OLS result. The simple OLS rows show where the signal first becomes visible. The ARIMAX rows show that once richer time-series structure is introduced, the signal becomes more fragile and should be presented cautiously.
+
+| Platform | Firm | Best ARIMAX order | N | Tabularis coefficient | Robust SE | $p$-value |
+|---|---|---|---:|---:|---:|---:|
+| Reddit | `NVDA` | `(1,0,0)` | 580 | -0.0096 | 0.0108 | 0.371 |
+| Reddit | `AMD` | `(1,0,0)` | 587 | 0.0047 | 0.0098 | 0.627 |
+| Reddit | `INTC` | `(1,0,0)` | 585 | 0.0230 | 0.0157 | 0.142 |
+| Bluesky | `NVDA` | `(1,0,0)` | 767 | 0.0045 | 0.0070 | 0.523 |
+| Bluesky | `AMD` | `(1,0,0)` | 767 | -0.0016 | 0.0079 | 0.844 |
+| Bluesky | `INTC` | `(1,0,0)` | 767 | 0.0014 | 0.0070 | 0.837 |
+
+: ARIMAX robustness summary using the TabularisAI multilingual sentiment feature with AR(1) history and benchmark controls. Reddit specifications also include lagged post volume when available.
+
+## Cross-Model Comparison
+
+Taken together, the model comparison shows three distinct roles. FinBERT is the most stable cross-platform measurement layer, which makes it valuable for robustness and interpretation. NRC is the most variable and most lexically transparent, which makes it useful for descriptive diagnostics and emotional decomposition but less dominant in the main predictive story. The TabularisAI model provides the strongest directional firm-level result, especially for Reddit INTC, which is why the report uses it as the primary formal inference layer. At the same time, the new ARIMAX block shows that this TabularisAI advantage weakens once autoregressive history and fuller market controls are included. This division of labor across models is one of the report's most useful methodological findings, and the remaining model-specific visual detail can be shifted to the appendix without losing that core point.
+
+# Interpretation and Limitations
+
+## What the Results Support
+
+The most defensible conclusion is that the pipeline itself works. The project successfully transforms a large, heterogeneous body of public social-media text into market-aligned daily sentiment features using transparent rules that are consistent across Reddit and Bluesky. That is not a trivial accomplishment. In sentiment-finance work, many apparent findings are difficult to evaluate because the path from raw text to final panel is only partially documented. Here, the stages of collection, cleaning, language handling, scoring, timing alignment, and market merging are visible enough to support a credible methodological contribution.
+
+The results also support a second, narrower conclusion: comparable daily sentiment series can be produced from both platforms, but their empirical usefulness is not the same. The descriptive and formal results agree that Reddit yields the strongest firm-level signal in the current sample, while Bluesky remains much weaker in the present return-prediction block. That asymmetry is meaningful because it suggests that the pipeline is sensitive to real differences in platform environment rather than mechanically forcing the same result everywhere.
+
+Finally, the report supports a modest empirical claim. A platform-specific short-run signal appears in selected Reddit specifications, most clearly in the TabularisAI sentiment measure for INTC. That result is best read as early but credible evidence, not as proof of a broad sentiment-return mechanism across all firms and platforms. The new ARIMAX results reinforce this caution by showing that the positive Reddit INTC coefficient remains visible but loses conventional significance once autoregressive history and benchmark controls are modeled jointly.
+
+## What the Results Do Not Support
+
+At the same time, the report does not support a claim of broad, strong, cross-platform predictability. Most of the measured relationships are small, many are indistinguishable from zero, and the clearest signal is concentrated in a limited subset of the design rather than spread uniformly across firms, models, and platforms. This is exactly why the strongest framing of the report emphasizes a working cross-platform measurement system with selective empirical success rather than a general forecasting breakthrough.
+
+The report also does not show that all firms respond similarly to measured sentiment. NVDA, AMD, and INTC do not move together in the results, and platform-level differences further complicate the story. That heterogeneity is not a flaw, but it does mean the paper should avoid language suggesting that semiconductor sentiment operates as a single common channel across the entire sample.
+
+More specifically, the analysis does not yet support the full later-stage hypotheses on event-window abnormal returns, volatility forecasting, or cross-firm exposure heterogeneity. Those remain plausible and well motivated, but they are not the findings established by the evidence summarized here.
+
+## Why Effects Are Small
+
+There are good reasons to expect the observed effects to be small. Daily stock returns are noisy outcomes that reflect a large number of overlapping information flows, many of which have nothing to do with social-media discussion. Even when public tone captures meaningful attention or concern, that information must compete with earnings news, macroeconomic conditions, sector-wide repricing, and broader risk sentiment.
+
+The benchmark-controlled regressions make this especially clear. Once SOXX, SPY, and VIX are included, a large share of total model fit is explained by those common factors rather than by sentiment alone. The ARIMAX block pushes this one step further by allowing the model to absorb return history directly. Under that stricter specification, the TabularisAI coefficient for Reddit INTC falls from the simple OLS estimate of about `0.0480` to about `0.0230`, and the `p`-value rises from `0.014` to `0.142`. This is not surprising. Semiconductor equities are strongly tied to both sector and market conditions, and any text-based signal is likely to be incremental rather than dominant.
+
+There is also a design reason the unconditional daily tests may understate the true relevance of policy sentiment. Export-control risk is probably most informative in narrow windows around actual policy announcements, licensing shocks, or geopolitical escalations. When the entire sample is pooled into broad daily panels, those high-information windows are mixed together with long stretches of ordinary background discussion. The report therefore provides a realistic lower-intensity test rather than the narrowest possible test of the core mechanism.
+
+## Platform Differences
+
+The platform differences visible in the analysis are plausibly tied to differences in user base, topic mix, and posting density. Reddit discussion is often organized around firm-specific communities and investing-related discourse, which may create a tighter connection between company-centered tone and next-day return behavior. Bluesky appears more diffuse, with broader technology commentary and a lower density of focused investor-style discussion for the same focal firms.
+
+This difference in discourse structure can matter even when the same sentiment model is applied. A classifier may be detecting real tone on both platforms, but the economic meaning of that tone can still differ if one platform is more tightly anchored to investor interpretation and the other is more conversational or generalized. In that sense, the platform effect is not just a nuisance variable. It is part of the substantive result.
+
+The report therefore treats Reddit's stronger performance not as proof that Reddit is inherently superior, but as evidence that platform-specific community structure may influence whether public sentiment becomes statistically visible in short-horizon equity tests.
+
+## Measurement and Scope Limits
+
+The report also faces several measurement limits that should be acknowledged explicitly. Keyword-based collection is necessary for a project of this scale, but it inevitably introduces some noise. Not every matched post is equally relevant to export-control risk, and some discussion may enter the sample because it mentions a company or technology term without contributing to the policy-risk channel of greatest interest. The Tier 1 versus Tier 2 structure helps address this problem, but it does not eliminate it completely.
+
+Sampling and platform-history limits also matter. Reddit and Bluesky are not perfect mirrors of the same population, and they are not observed over identical periods or under identical levels of activity. Some of the platform difference in the results may therefore reflect sample composition as much as true economic difference. In addition, sentiment models themselves are imperfect measurement tools. Even a multilingual transformer or finance-domain classifier can misread sarcasm, policy nuance, or mixed-intensity discussion.
+
+Most importantly, the report stops short of claiming completion of the full policy-event and volatility agenda. Narrow event-study estimation, realized-volatility forecasting, and exposure-heterogeneity tests remain the most logical extensions. The analysis establishes the infrastructure and the first empirical layer needed to pursue those designs, but later stages are not presented as completed.
+
+# Conclusion
+
+## Main Takeaways
+
+The main takeaway from this report is that the project successfully builds a reusable cross-platform NLP pipeline for semiconductor export-control sentiment measurement. The workflow collects public text from Reddit and Bluesky, applies common cleaning and timing rules, scores posts with three sentiment systems, and produces daily market-aligned features suitable for empirical analysis. That methodological contribution is substantial on its own because it responds directly to the data-fragility problem that motivated the original UROP proposal.
+
+The second takeaway is empirical but deliberately modest. The daily sentiment-return relationship is generally weak, model-dependent, and platform-sensitive. Reddit produces the clearest evidence of a short-run firm-level relationship, especially under the TabularisAI measure for INTC, while Bluesky does not generate statistically significant return-predictive results in the current specifications. The new ARIMAX robustness block keeps the same directional ordering but weakens the Reddit INTC result once autoregressive dynamics and common market controls are modeled jointly. The report therefore contributes both a working research tool and a disciplined account of where measurable signal appears strongest and where it becomes fragile.
+
+## Extensions Beyond the Present Report
+
+The most direct extension is a narrow event-study design centered on specific BIS announcements, export-control revisions, Entity List actions, or related semiconductor-policy shocks. That design would test the risk-premium hypothesis in a setting where the policy channel is most likely to be visible.
+
+Another extension is volatility forecasting. Because the theoretical motivation of the project includes an uncertainty channel, realized-volatility models over 1- to 5-day windows may prove more informative than unconditional daily return tests. Existing notes about ARIMAX-style extensions and volatility targets provide a reasonable starting point for that phase.
+
+Third, the report can be extended into a formal exposure-heterogeneity design. The broader semiconductor universe and exposure logic already exist conceptually, but the analysis does not yet estimate whether high-exposure firms systematically respond more strongly than lower-exposure firms. That comparative step would move the project closer to a stronger sector-wide conclusion.
+
+Finally, additional attention proxies such as Google Trends or related search-volume measures could complement the sentiment variables and help distinguish tone from raw attention. These are extensions rather than necessities, but they would be useful if the project develops into a longer paper.
+
+## Final Closing Sentence
+
+Taken together, the evidence suggests that this project has already succeeded as a methodological contribution and has also uncovered promising but limited early evidence that public semiconductor sentiment, especially on Reddit, can align with short-run market outcomes under carefully structured measurement and timing rules.
+
+# References
+
+::: {#refs}
+:::
+
+# Appendix
+
+## Appendix A. Full Cross-Platform Company Comparisons
+
+This appendix contains the full set of clean platform-comparison panels for `NVDA`, `AMD`, and `INTC` across all three models. The grouped source files are included under [cross-platform clean comparisons](analysis/analysis_output_platform_compare/clean/). Only one or two of these figures are needed in the main body.
+
+### Figure Gallery
+
+![NVDA cross-platform comparison under NRC net sentiment.](<analysis/analysis_output_platform_compare/clean/NVDA_platform_compare_NRC_net.png>){width=82%}
+
+![NVDA cross-platform comparison under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_platform_compare/clean/NVDA_platform_compare_HF_net.png>){width=82%}
+
+![NVDA cross-platform comparison under FinBERT net sentiment.](<analysis/analysis_output_platform_compare/clean/NVDA_platform_compare_FinBERT_net.png>){width=82%}
+
+![AMD cross-platform comparison under NRC net sentiment.](<analysis/analysis_output_platform_compare/clean/AMD_platform_compare_NRC_net.png>){width=82%}
+
+![AMD cross-platform comparison under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_platform_compare/clean/AMD_platform_compare_HF_net.png>){width=82%}
+
+![AMD cross-platform comparison under FinBERT net sentiment.](<analysis/analysis_output_platform_compare/clean/AMD_platform_compare_FinBERT_net.png>){width=82%}
+
+![INTC cross-platform comparison under NRC net sentiment.](<analysis/analysis_output_platform_compare/clean/INTC_platform_compare_NRC_net.png>){width=82%}
+
+![INTC cross-platform comparison under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_platform_compare/clean/INTC_platform_compare_HF_net.png>){width=82%}
+
+![INTC cross-platform comparison under FinBERT net sentiment.](<analysis/analysis_output_platform_compare/clean/INTC_platform_compare_FinBERT_net.png>){width=82%}
+
+## Appendix B. Reddit-Only Diagnostics
+
+This appendix gathers the Reddit-only diagnostics that are useful for completeness but too numerous for the main text. The grouped source folders are [Reddit sentiment diagnostics](analysis/analysis_output/figures/sentiment_diagnostics/) and [Reddit return-trend figures](analysis/analysis_output/figures/sentiment_return_trends/).
+
+### Figure Gallery
+
+![Reddit forward-return correlation summary across models and focal firms.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_fwd_return_nets_bar.png>){width=86%}
+
+![Reddit NRC forward-return heatmap.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_fwd_return_heatmap_nrc.png>){width=86%}
+
+![Reddit forward-return heatmap under the TabularisAI multilingual sentiment model.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_fwd_return_heatmap_hf.png>){width=86%}
+
+![Reddit FinBERT forward-return heatmap.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_fwd_return_heatmap_finbert.png>){width=86%}
+
+![Reddit cross-model net correlation view for NVDA.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_NVDA_cross_net.png>){width=82%}
+
+![Reddit cross-model net correlation view for AMD.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_AMD_cross_net.png>){width=82%}
+
+![Reddit cross-model net correlation view for INTC.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_INTC_cross_net.png>){width=82%}
+
+![Reddit sentiment-return view for NVDA under the TabularisAI multilingual sentiment model.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_NVDA_hf.png>){width=82%}
+
+![Reddit sentiment-return view for AMD under the TabularisAI multilingual sentiment model.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_AMD_hf.png>){width=82%}
+
+![Reddit sentiment-return view for INTC under the TabularisAI multilingual sentiment model.](<analysis/analysis_output/figures/sentiment_diagnostics/corr_INTC_hf.png>){width=82%}
+
+![Reddit daily sentiment nets for NVDA.](<analysis/analysis_output/figures/sentiment_diagnostics/ts_NVDA_nets.png>){width=86%}
+
+![Reddit daily sentiment nets for AMD.](<analysis/analysis_output/figures/sentiment_diagnostics/ts_AMD_nets.png>){width=86%}
+
+![Reddit daily sentiment nets for INTC.](<analysis/analysis_output/figures/sentiment_diagnostics/ts_INTC_nets.png>){width=86%}
+
+![Reddit cumulative return and sentiment comparison across models.](<analysis/analysis_output/figures/sentiment_return_trends/compare_ALL_cumret_vs_models.png>){width=86%}
+
+![Reddit five-day emotional change comparison for AMD.](<analysis/analysis_output/figures/sentiment_return_trends/compare_AMD_emotional_change_5d_split.png>){width=86%}
+
+![Reddit five-day emotional change comparison for INTC.](<analysis/analysis_output/figures/sentiment_return_trends/compare_INTC_emotional_change_5d_split.png>){width=86%}
+
+![Reddit five-day emotional change comparison for NVDA.](<analysis/analysis_output/figures/sentiment_return_trends/compare_NVDA_emotional_change_5d_split.png>){width=86%}
+
+## Appendix C. Bluesky-Only Diagnostics
+
+This appendix parallels Appendix B for Bluesky. The grouped source folders are [Bluesky sentiment diagnostics](analysis/analysis_output_bluesky/figures/sentiment_diagnostics/) and [Bluesky return-trend figures](analysis/analysis_output_bluesky/figures/sentiment_return_trends/).
+
+### Figure Gallery
+
+![Bluesky forward-return correlation summary across models and focal firms.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_fwd_return_nets_bar.png>){width=86%}
+
+![Bluesky NRC forward-return heatmap.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_fwd_return_heatmap_nrc.png>){width=86%}
+
+![Bluesky forward-return heatmap under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_fwd_return_heatmap_hf.png>){width=86%}
+
+![Bluesky FinBERT forward-return heatmap.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_fwd_return_heatmap_finbert.png>){width=86%}
+
+![Bluesky cross-model net correlation view for NVDA.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_NVDA_cross_net.png>){width=82%}
+
+![Bluesky cross-model net correlation view for AMD.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_AMD_cross_net.png>){width=82%}
+
+![Bluesky cross-model net correlation view for INTC.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_INTC_cross_net.png>){width=82%}
+
+![Bluesky sentiment-return view for NVDA under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_NVDA_hf.png>){width=82%}
+
+![Bluesky sentiment-return view for AMD under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_AMD_hf.png>){width=82%}
+
+![Bluesky sentiment-return view for INTC under the TabularisAI multilingual sentiment model.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/corr_INTC_hf.png>){width=82%}
+
+![Bluesky daily sentiment nets for NVDA.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/ts_NVDA_nets.png>){width=86%}
+
+![Bluesky daily sentiment nets for AMD.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/ts_AMD_nets.png>){width=86%}
+
+![Bluesky daily sentiment nets for INTC.](<analysis/analysis_output_bluesky/figures/sentiment_diagnostics/ts_INTC_nets.png>){width=86%}
+
+![Bluesky cumulative return and sentiment comparison across models.](<analysis/analysis_output_bluesky/figures/sentiment_return_trends/compare_ALL_cumret_vs_models.png>){width=86%}
+
+![Bluesky five-day emotional change comparison for AMD.](<analysis/analysis_output_bluesky/figures/sentiment_return_trends/compare_AMD_emotional_change_5d_split.png>){width=86%}
+
+![Bluesky five-day emotional change comparison for INTC.](<analysis/analysis_output_bluesky/figures/sentiment_return_trends/compare_INTC_emotional_change_5d_split.png>){width=86%}
+
+![Bluesky five-day emotional change comparison for NVDA.](<analysis/analysis_output_bluesky/figures/sentiment_return_trends/compare_NVDA_emotional_change_5d_split.png>){width=86%}
+
+## Appendix D. Additional Heatmaps and Correlation Views
+
+This appendix holds cross-platform views not kept in the main narrative. The grouped source files are included under [cross-platform montages](analysis/analysis_output_platform_compare/montages/).
+
+### Figure Gallery
+
+![Cross-platform NRC forward-return heatmap.](<analysis/analysis_output_platform_compare/montages/corr_fwd_return_heatmap_nrc_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform FinBERT forward-return heatmap.](<analysis/analysis_output_platform_compare/montages/corr_fwd_return_heatmap_finbert_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform cross-model net comparison for AMD.](<analysis/analysis_output_platform_compare/montages/corr_AMD_cross_net_REDDIT_vs_BLUESKY.png>){width=82%}
+
+![Cross-platform cross-model net comparison for NVDA.](<analysis/analysis_output_platform_compare/montages/corr_NVDA_cross_net_REDDIT_vs_BLUESKY.png>){width=82%}
+
+![Cross-platform daily sentiment nets for AMD.](<analysis/analysis_output_platform_compare/montages/ts_AMD_nets_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform daily sentiment nets for NVDA.](<analysis/analysis_output_platform_compare/montages/ts_NVDA_nets_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform cumulative return and sentiment comparison across models.](<analysis/analysis_output_platform_compare/montages/compare_ALL_cumret_vs_models_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform five-day emotional change comparison for AMD.](<analysis/analysis_output_platform_compare/montages/compare_AMD_emotional_change_5d_split_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform five-day emotional change comparison for INTC.](<analysis/analysis_output_platform_compare/montages/compare_INTC_emotional_change_5d_split_REDDIT_vs_BLUESKY.png>){width=86%}
+
+![Cross-platform five-day emotional change comparison for NVDA.](<analysis/analysis_output_platform_compare/montages/compare_NVDA_emotional_change_5d_split_REDDIT_vs_BLUESKY.png>){width=86%}
+
+## Appendix E. Extended Regression Tables
+
+This appendix should include the longer regression materials that support but would overcrowd the main results section:
+
+- full firm-level OLS outputs
+- stacked and pooled variations
+- alternate benchmark specifications
+- rolling-window results, especially the `AMD FinBERT rolling15` result and other secondary rows that are interesting but not central
+
+$$
+r_{i,t+1}=\alpha+\beta S^{\mathrm{TAB}}_{i,t}+\gamma_1 \mathrm{SOXX}_{t+1}+\gamma_2 \mathrm{SPY}_{t+1}+\gamma_3 \mathrm{VIX}_{t+1}+\sum_{m=1}^{M-1}\delta_m D_{m,i}+\varepsilon_{i,t+1}
+$$
+
+| Symbol | Definition |
+|---|---|
+| $r_{i,t+1}$ | Next-day return |
+| $S^{\mathrm{TAB}}_{i,t}$ | Lagged sentiment from the TabularisAI multilingual sentiment model |
+| $\beta$ | Estimated sentiment coefficient |
+| $\gamma_1,\gamma_2,\gamma_3$ | Coefficients on benchmark controls |
+| $\delta_m$ | Fixed effects used in stacked specifications |
+| $\varepsilon_{i,t+1}$ | Newey-West or HAC regression disturbance |
+
+: Variable definitions for the appendix HAC OLS tables.
+
+### Reddit TabularisAI OLS Summary
+
+| Dataset | Specification | N | R-squared | Sentiment coefficient | HAC SE | p-value |
+|---|---|---:|---:|---:|---:|---:|
+| `NVDA` Reddit TabularisAI | Bivariate | 580 | 0.0008 | 0.0135 | 0.0172 | 0.434 |
+| `NVDA` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 580 | 0.6007 | 0.0052 | 0.0098 | 0.593 |
+| `AMD` Reddit TabularisAI | Bivariate | 587 | 0.0005 | 0.0086 | 0.0147 | 0.556 |
+| `AMD` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 587 | 0.6451 | -0.0011 | 0.0100 | 0.915 |
+| `INTC` Reddit TabularisAI | Bivariate | 585 | 0.0208 | 0.0480 | 0.0194 | 0.014 |
+| `INTC` Reddit TabularisAI | `+ SOXX + SPY + VIX` | 585 | 0.3455 | 0.0266 | 0.0158 | 0.092 |
+| Pooled Reddit TabularisAI universe | Bivariate | 595 | 0.0031 | 0.0402 | 0.0287 | 0.161 |
+| Pooled Reddit TabularisAI universe | `+ SOXX + SPY + VIX` | 595 | 0.9689 | 0.0130 | 0.0054 | 0.016 |
+| Stacked `NVDA + AMD + INTC` Reddit TabularisAI | Bivariate + ticker fixed effects | 1752 | 0.0065 | 0.0260 | 0.0108 | 0.016 |
+| Stacked `NVDA + AMD + INTC` Reddit TabularisAI | `+ controls + ticker fixed effects` | 1752 | 0.5208 | 0.0091 | 0.0083 | 0.270 |
+
+: Extended Reddit HAC OLS summary using the TabularisAI multilingual sentiment model.
+
+### Bluesky TabularisAI OLS Summary
+
+| Dataset | Specification | N | R-squared | Sentiment coefficient | HAC SE | p-value |
+|---|---|---:|---:|---:|---:|---:|
+| `NVDA` Bluesky TabularisAI | Bivariate | 767 | 0.0003 | 0.0056 | 0.0113 | 0.619 |
+| `NVDA` Bluesky TabularisAI | `+ SOXX + SPY + VIX` | 767 | 0.5662 | 0.0038 | 0.0064 | 0.552 |
+| `AMD` Bluesky TabularisAI | Bivariate | 767 | 0.0001 | -0.0025 | 0.0135 | 0.855 |
+| `AMD` Bluesky TabularisAI | `+ SOXX + SPY + VIX` | 767 | 0.5692 | -0.0026 | 0.0073 | 0.723 |
+| `INTC` Bluesky TabularisAI | Bivariate | 767 | 0.0001 | 0.0028 | 0.0097 | 0.774 |
+| `INTC` Bluesky TabularisAI | `+ SOXX + SPY + VIX` | 767 | 0.3107 | 0.0015 | 0.0066 | 0.820 |
+| Pooled Bluesky TabularisAI universe | Bivariate | 778 | 0.0001 | 0.0026 | 0.0085 | 0.759 |
+| Pooled Bluesky TabularisAI universe | `+ SOXX + SPY + VIX` | 778 | 0.9638 | 0.0003 | 0.0015 | 0.836 |
+| Stacked `NVDA + AMD + INTC` Bluesky TabularisAI | Bivariate + ticker fixed effects | 2301 | 0.0009 | 0.0020 | 0.0065 | 0.763 |
+| Stacked `NVDA + AMD + INTC` Bluesky TabularisAI | `+ controls + ticker fixed effects` | 2301 | 0.4671 | 0.0009 | 0.0039 | 0.817 |
+
+: Extended Bluesky HAC OLS summary using the TabularisAI multilingual sentiment model.
+
+### Selected Rolling-Window Comparison Rows
+
+$$
+r_{i,t+1}=\alpha+\beta_1 S^{\mathrm{TAB}}_{i,t-1}+\beta_2 \overline{S}^{\mathrm{TAB}}_{i,t}(15)+\varepsilon_{i,t+1}
+$$
+
+| Symbol | Definition |
+|---|---|
+| $S^{\mathrm{TAB}}_{i,t-1}$ | One-day lagged TabularisAI sentiment |
+| $\overline{S}^{\mathrm{TAB}}_{i,t}(15)$ | Fifteen-day rolling mean of TabularisAI sentiment |
+| $\beta_1,\beta_2$ | Coefficients on the lagged and rolling sentiment terms |
+| OOS MSE | Out-of-sample mean squared error on the last 20 percent of observations |
+
+: Variable definitions for the rolling-window specifications.
+
+| Ticker | Sentiment variable | Predictor | Window | N | Coefficient | HAC SE | p-value | OOS MSE |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| `NVDA` | `TabularisAI_net` | `lag1_prevday_sent` | 15 | 582 | 0.0347 | 0.0153 | 0.023 | 0.001644 |
+| `NVDA` | `TabularisAI_net` | `roll15_mean_sent` | 15 | 574 | 0.0537 | 0.0502 | 0.285 | 0.001643 |
+| `AMD` | `TabularisAI_net` | `lag1_prevday_sent` | 15 | 587 | -0.0148 | 0.0124 | 0.231 | 0.001375 |
+| `AMD` | `TabularisAI_net` | `roll15_mean_sent` | 15 | 579 | -0.0229 | 0.0277 | 0.409 | 0.001379 |
+
+: Selected rolling-window comparison rows for the TabularisAI multilingual sentiment model.
+
+## Appendix F. Granger, Stationarity, and PCA
+
+This appendix is the right home for exploratory diagnostics that should not dominate the central narrative:
+
+- Granger causality summaries
+- ADF or stationarity checks
+- PCA and feature-space plots
+- any additional lead-lag or exploratory correlation-function outputs
+
+These diagnostics are still valuable because they document what was checked, even where they do not carry the main conclusion.
+
+$$
+r_t=\alpha+\sum_{\ell=1}^{p}\phi_{\ell}r_{t-\ell}+\sum_{\ell=1}^{p}\theta_{\ell}S_{t-\ell}+u_t
+$$
+
+$$
+H_0:\theta_1=\theta_2=\cdots=\theta_p=0
+$$
+
+| Symbol | Definition |
+|---|---|
+| $r_t$ | Return series at time $t$ |
+| $S_t$ | Sentiment series at time $t$ |
+| $\phi_{\ell}$ | Autoregressive coefficients on lagged returns |
+| $\theta_{\ell}$ | Granger coefficients on lagged sentiment |
+| $p$ | Maximum lag order tested |
+| $H_0$ | Null hypothesis that sentiment does not Granger-cause returns |
+
+: Variable definitions for the Granger-causality test.
+
+| Platform | Direction tested | Wald $p$-value | Conclusion at 5 percent |
+|---|---|---:|---|
+| Reddit | sentiment $\rightarrow$ equal-weighted return | 0.809 | Fail to reject |
+| Reddit | equal-weighted return $\rightarrow$ sentiment | 0.206 | Fail to reject |
+| Bluesky | sentiment $\rightarrow$ equal-weighted return | 0.600 | Fail to reject |
+| Bluesky | equal-weighted return $\rightarrow$ sentiment | 0.771 | Fail to reject |
+
+: Multivariate Granger-causality summary from the saved overall baseline outputs.
+
+## Appendix G. Reproducibility Notes
+
+The final appendix should include a concise reproducibility guide. The project repository is available at [Spring_Research on GitHub](https://github.com/Anhiune/Spring_Research). At minimum, it should provide:
+
+- a file map showing where the main reports, prepared data folders, and figure outputs live
+- the key scripts for collection, cleaning, sentiment scoring, panel preparation, and report generation
+- a recommended run order for refreshing outputs
+- output locations for the main figures and regression tables
+
+This section can remain concise, but it should be strong enough for another student to understand how the report was assembled from the project files.
+

@@ -1,0 +1,4 @@
+config/credentials.ini
+output/
+__pycache__/
+*.pyc

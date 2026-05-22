@@ -1,0 +1,19 @@
+direction,lag,test,stat,p_value,section,hypothesis,conclusion_5pct
+nrc_net_sentiment -> ret_1d,1.0,ssr_ftest,0.10534461848248236,0.7455967414569706,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,1.0,lrtest,0.1057515173115462,0.7450338076378901,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,ssr_ftest,0.3933972925232719,0.6748979400308825,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,lrtest,0.791561201616787,0.6731543692615326,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,ssr_ftest,2.1701368349781722,0.1411261110964525,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,lrtest,2.1755770420700173,0.14021691416381513,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,ssr_ftest,1.3498118678728885,0.2599099193713989,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,lrtest,2.7125695566987815,0.25761610215253483,AMD baseline (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,1.0,ssr_ftest,0.10534461848248236,0.7455967414569706,AMD engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,1.0,lrtest,0.1057515173115462,0.7450338076378901,AMD engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,2.0,ssr_ftest,0.3933972925232719,0.6748979400308825,AMD engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,2.0,lrtest,0.791561201616787,0.6731543692615326,AMD engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,1.0,ssr_ftest,2.1701368349781722,0.1411261110964525,AMD engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,1.0,lrtest,2.1755770420700173,0.14021691416381513,AMD engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,2.0,ssr_ftest,1.3498118678728885,0.2599099193713989,AMD engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,2.0,lrtest,2.7125695566987815,0.25761610215253483,AMD engagement-weighted NRC net (bivariate),,
+,,f,,0.7358620302608383,AMD_multivariate,"sent -> ret (block Wald, conditional on system)",fail_to_reject
+,,f,,0.567115958560856,AMD_multivariate,"ret -> sent (block Wald, conditional on system)",fail_to_reject

@@ -1,0 +1,11 @@
+direction,lag,test,stat,p_value,section,hypothesis,conclusion_5pct
+nrc_net_sentiment -> ret_1d,1.0,ssr_ftest,0.6008922653864248,0.4385520833737916,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,1.0,lrtest,0.6036732887673679,0.43717992225059144,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,ssr_ftest,0.7607262814104306,0.46779259398667916,AMD baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,lrtest,1.5325593106026645,0.46473884477646155,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,ssr_ftest,0.4641087764212022,0.4959804711178776,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,lrtest,0.4663114026191124,0.49468900808325633,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,ssr_ftest,3.9202427776577293,0.02036409249907433,AMD baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,lrtest,7.855101823761515,0.019691840597950396,AMD baseline (bivariate),,
+,,f,,0.4496313972635606,AMD_multivariate,"sent -> ret (block Wald, conditional on system)",fail_to_reject
+,,f,,0.9303261596629697,AMD_multivariate,"ret -> sent (block Wald, conditional on system)",fail_to_reject

@@ -1,0 +1,11 @@
+direction,lag,test,stat,p_value,section,hypothesis,conclusion_5pct
+nrc_net_sentiment_mean -> ew_ret_mean,1.0,ssr_ftest,0.029846139369078987,0.8628989497262227,Overall baseline (bivariate),,
+nrc_net_sentiment_mean -> ew_ret_mean,1.0,lrtest,0.029996885183209088,0.8624972978527332,Overall baseline (bivariate),,
+nrc_net_sentiment_mean -> ew_ret_mean,2.0,ssr_ftest,1.0906116532415366,0.3366896154658471,Overall baseline (bivariate),,
+nrc_net_sentiment_mean -> ew_ret_mean,2.0,lrtest,2.195701090698094,0.3335873445063955,Overall baseline (bivariate),,
+ew_ret_mean -> nrc_net_sentiment_mean,1.0,ssr_ftest,0.5055660189307998,0.47734513431650916,Overall baseline (bivariate),,
+ew_ret_mean -> nrc_net_sentiment_mean,1.0,lrtest,0.5079151289814945,0.4760427762278784,Overall baseline (bivariate),,
+ew_ret_mean -> nrc_net_sentiment_mean,2.0,ssr_ftest,0.7699947939085976,0.46348176750636316,Overall baseline (bivariate),,
+ew_ret_mean -> nrc_net_sentiment_mean,2.0,lrtest,1.5510544937556006,0.4604609403929446,Overall baseline (bivariate),,
+,,f,,0.7757034314191379,overall_multivariate,"sent -> ewret (block Wald, conditional on system)",fail_to_reject
+,,f,,0.20713397931594962,overall_multivariate,"ewret -> sent (block Wald, conditional on system)",fail_to_reject

@@ -1,0 +1,8 @@
+variable,n,adf_stat,p_value,used_lag,stationary_5pct,section
+AMD_ret,587,-13.364394761285627,5.349021510027877e-25,3,True,AMD baseline (bivariate)
+AMD_nrc_net_sentiment,587,-23.59571391521691,0.0,0,True,AMD baseline (bivariate)
+ret,587,-13.364394761285627,5.349021510027877e-25,3,True,AMD_multivariate
+sent,587,-23.59571391521691,0.0,0,True,AMD_multivariate
+soxx,587,-13.883601758097871,6.147182798700654e-26,3,True,AMD_multivariate
+spy,587,-14.02636287844868,3.49757788999322e-26,3,True,AMD_multivariate
+vix,587,-24.121973556493035,0.0,0,True,AMD_multivariate

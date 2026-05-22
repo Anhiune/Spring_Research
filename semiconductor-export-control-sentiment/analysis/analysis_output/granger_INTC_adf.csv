@@ -1,0 +1,8 @@
+variable,n,adf_stat,p_value,used_lag,stationary_5pct,section
+INTC_ret,585,-5.010422964190888,2.1162818397937972e-05,19,True,INTC baseline (bivariate)
+INTC_nrc_net_sentiment,585,-14.05534783687253,3.124446333821561e-26,1,True,INTC baseline (bivariate)
+ret,585,-5.010422964190888,2.1162818397937972e-05,19,True,INTC_multivariate
+sent,585,-14.05534783687253,3.124446333821561e-26,1,True,INTC_multivariate
+soxx,585,-13.571059602207502,2.2145152357566993e-25,3,True,INTC_multivariate
+spy,585,-13.906242939266743,5.616149259288633e-26,3,True,INTC_multivariate
+vix,585,-13.752186749033438,1.045526718166317e-25,3,True,INTC_multivariate

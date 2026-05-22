@@ -1,0 +1,37 @@
+% Auto-generated — \input in LaTeX (needs booktabs; \shortstack is standard)
+% Stars: * p<0.10, ** p<0.05, *** p<0.01
+\begin{table}[htbp]
+\centering
+\small
+\caption{Firm-level OLS with Newey--West HAC (HF net four-class, lag 1).}
+\label{tab:ols-firm-hf}
+\begin{tabular}{lp{5.6cm}p{5.6cm}p{5.6cm}}
+\toprule
+Specification & NVDA & AMD & INTC \\
+\midrule
+OLS HAC: $ret\_t \sim$ HF net lag 1 (only) & \shortstack{$\hat{\beta}=0.0135$\\$(0.0172)$\\{\scriptsize $p=0.434$; $n=580$; $R^2=0.0008$}} & \shortstack{$\hat{\beta}=0.0086$\\$(0.0147)$\\{\scriptsize $p=0.556$; $n=587$; $R^2=0.0005$}} & \shortstack{$\hat{\beta}=0.0480^{**}$\\$(0.0194)$\\{\scriptsize $p=0.014$; $n=585$; $R^2=0.0208$}} \\
+OLS HAC: $+\ \mathrm{SOXX},\mathrm{SPY},\mathrm{VIX}$ & \shortstack{$\hat{\beta}=0.0052$\\$(0.0098)$\\{\scriptsize $p=0.593$; $n=580$; $R^2=0.6007$}} & \shortstack{$\hat{\beta}=-0.0011$\\$(0.0100)$\\{\scriptsize $p=0.915$; $n=587$; $R^2=0.6451$}} & \shortstack{$\hat{\beta}=0.0266^{*}$\\$(0.0158)$\\{\scriptsize $p=0.092$; $n=585$; $R^2=0.3455$}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Other HF OLS blocks: universe, pooled benchmarks, stacked panel.}
+\label{tab:ols-other-hf}
+\begin{tabular}{lp{11cm}}
+\toprule
+Block & Result \\
+\midrule
+Universe ew $ret$ $\sim$ HF net (bivariate) & \shortstack{$\hat{\beta}=0.0402$\\$(0.0287)$\\{\scriptsize $p=0.161$; $n=595$; $R^2=0.0031$}} \\
+Universe + benchmarks & \shortstack{$\hat{\beta}=0.0130^{**}$\\$(0.0054)$\\{\scriptsize $p=0.016$; $n=595$; $R^2=0.9689$}} \\
+Pooled broad $\times$ SOXX bench return & \shortstack{$\hat{\beta}=0.0268$\\$(0.0284)$\\{\scriptsize $p=0.347$; $n=595$; $R^2=0.0015$}} \\
++ other bench (excl. SOXX own) & \shortstack{$\hat{\beta}=0.0033$\\$(0.0137)$\\{\scriptsize $p=0.808$; $n=595$; $R^2=0.6762$}} \\
+Pooled broad $\times$ SPY & \shortstack{$\hat{\beta}=0.0130$\\$(0.0146)$\\{\scriptsize $p=0.373$; $n=595$; $R^2=0.0017$}} \\
++ other bench & \shortstack{$\hat{\beta}=0.0013$\\$(0.0049)$\\{\scriptsize $p=0.788$; $n=595$; $R^2=0.7870$}} \\
+Stacked + ticker FE & \shortstack{$\hat{\beta}=0.0260^{**}$\\$(0.0108)$\\{\scriptsize $p=0.016$; $n=1752$; $R^2=0.0065$}} \\
++ FE + benchmarks & \shortstack{$\hat{\beta}=0.0091$\\$(0.0083)$\\{\scriptsize $p=0.269$; $n=1752$; $R^2=0.5208$}} \\
+\bottomrule
+\end{tabular}
+\end{table}

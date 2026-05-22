@@ -1,0 +1,11 @@
+direction,lag,test,stat,p_value,section,hypothesis,conclusion_5pct
+nrc_net_sentiment -> ret_1d,1.0,ssr_ftest,2.0886739516808417,0.14893395744693552,INTC baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,1.0,lrtest,2.095694123744579,0.1477146120170499,INTC baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,ssr_ftest,1.3316970131625367,0.2648376689458215,INTC baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,lrtest,2.680263241673856,0.261811206502295,INTC baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,ssr_ftest,1.2519679557796997,0.2636393251123787,INTC baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,lrtest,1.2570785842187888,0.26220479997439816,INTC baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,ssr_ftest,1.1391141539744383,0.3208199919921917,INTC baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,lrtest,2.2934192906391218,0.3176803325601719,INTC baseline (bivariate),,
+,,f,,0.16236127992314944,INTC_multivariate,"sent -> ret (block Wald, conditional on system)",fail_to_reject
+,,f,,0.4272491779964246,INTC_multivariate,"ret -> sent (block Wald, conditional on system)",fail_to_reject

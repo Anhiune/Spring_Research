@@ -1,0 +1,19 @@
+direction,lag,test,stat,p_value,section,hypothesis,conclusion_5pct
+nrc_net_sentiment -> ret_1d,1.0,ssr_ftest,0.2008346136217776,0.6541752339524898,NVDA baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,1.0,lrtest,0.20159773397244862,0.6534342803082247,NVDA baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,ssr_ftest,0.46513487856973185,0.6282290567269243,NVDA baseline (bivariate),,
+nrc_net_sentiment -> ret_1d,2.0,lrtest,0.9358173311538849,0.6263107247740027,NVDA baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,ssr_ftest,0.2571805343957584,0.6122103495812046,NVDA baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,1.0,lrtest,0.2581482252451224,0.6113952124296023,NVDA baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,ssr_ftest,0.1728082720052913,0.8413319477428298,NVDA baseline (bivariate),,
+ret_1d -> nrc_net_sentiment,2.0,lrtest,0.3478112579739445,0.8403762010698203,NVDA baseline (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,1.0,ssr_ftest,0.2008346136217776,0.6541752339524898,NVDA engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,1.0,lrtest,0.20159773397244862,0.6534342803082247,NVDA engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,2.0,ssr_ftest,0.46513487856973185,0.6282290567269243,NVDA engagement-weighted NRC net (bivariate),,
+nrc_net_sentiment_ew -> ret_1d,2.0,lrtest,0.9358173311538849,0.6263107247740027,NVDA engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,1.0,ssr_ftest,0.2571805343957584,0.6122103495812046,NVDA engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,1.0,lrtest,0.2581482252451224,0.6113952124296023,NVDA engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,2.0,ssr_ftest,0.1728082720052913,0.8413319477428298,NVDA engagement-weighted NRC net (bivariate),,
+ret_1d -> nrc_net_sentiment_ew,2.0,lrtest,0.3478112579739445,0.8403762010698203,NVDA engagement-weighted NRC net (bivariate),,
+,,f,,0.6628412144041101,NVDA_multivariate,"sent -> ret (block Wald, conditional on system)",fail_to_reject
+,,f,,0.4827391089658264,NVDA_multivariate,"ret -> sent (block Wald, conditional on system)",fail_to_reject
